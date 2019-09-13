@@ -319,7 +319,7 @@
  <img src="/2019/09/13/hexo笔记：开始创建个人博客——方法及原因/成功安装cnpm.png" title="成功安装cnpm">
 <p> 接下来我们安装hexo，输入命令：<br> <code>cnpm install -g hexo-cli</code><br> 和上面一样，我们可以用hexo -v来验证是否成功安装hexo，这里就不贴图了。<br> 接下来我们输入如下命令来建立整个项目：<br> <code>hexo init</code><br> 你会发现你的文件夹中多了许多文件，你也可以用ls -l命令来看到新增的文件。</p>
  <img src="/2019/09/13/hexo笔记：开始创建个人博客——方法及原因/新增文件.png" title="新增文件"></li>
-<li><h3 id="完成本地环境的搭建"><a href="#完成本地环境的搭建" class="headerlink" title="完成本地环境的搭建"></a>完成本地环境的搭建</h3><p> 至此，我们已经完成了本地环境的搭建，在这里，我想先介绍hexo中常用的命令。<br> <code>hexo n &quot;文章标题&quot;</code>用于创建新的博文。<br> <code>hexo s</code>hexo会监视文件变动并自动更新，通过所给的localhost:4000/就可以直接在本地预览更新后的网站了。<br> 三步曲：</p>
+<li><h3 id="完成本地环境的搭建"><a href="#完成本地环境的搭建" class="headerlink" title="完成本地环境的搭建"></a>完成本地环境的搭建</h3><p> 至此，我们已经完成了本地环境的搭建，在这里，我想先介绍hexo中常用的命令。<br> <code>hexo n &quot;文章标题&quot;</code>用于创建新的博文（欲删除文章，直接删除md文件并用下面的命令更新即可）。<br> <code>hexo s</code>hexo会监视文件变动并自动更新，通过所给的localhost:4000/就可以直接在本地预览更新后的网站了。<br> 三步曲：</p>
  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean #清除缓存，网页正常情况下可以忽略此条命令，执行该指令后，会删掉站点根目录下的public文件夹。</span><br><span class="line">hexo g #generate静态网页（静态网页这里指没有前端后端的网页而不是静止），该命令把md编译为html并存到public文件目录下。</span><br><span class="line">hexo d #将本地的更改部署到远端服务器。</span><br></pre></td></tr></table></figure>
 
 <p> 如果出现ERROR Deployer not found: git报错，可以使用<code>npm install --save hexo-deployer-git</code>命令解决。</p>
@@ -327,7 +327,7 @@
 <p>注意：由于部署到远端输入密码时密码不可见，有时候会导致部署失败，只有出现INFO  Deploy done: git的结果才表明部署成功，否则再次部署重输密码即可。<br> 现在我们在bash中运行hexo s，打开浏览器，输入localhost:4000/，就可以看到hexo默认创建的页面了。</p>
 </blockquote>
 </li>
-<li><h3 id="部署到远端服务器"><a href="#部署到远端服务器" class="headerlink" title="部署到远端服务器"></a>部署到远端服务器</h3><p> 为了让别人能访问到你搭建的网站，我们需要部署到远端服务器。<br> 这里有两种选择，一种是部署到github上，新建一个repository，然后创建一个xxxxx.github.io域名（这里xxxxx必须为你的github用户名）。<br> 另一种选择是部署到国内的coding，这是考虑到访问速度的问题，不过我选择的是前者，亲自尝试之后并没感觉有速度的困扰。<br> 部署这块网上有许多教程，这里不详细解释了，以后有机会补上。<br> 在部署的时候涉及到一些对主题配置文件的操作，linux和mac用户可以使用vim进行编辑，不过也可以使用VScode、sublime等代码编辑器进行操作。</p>
+<li><h3 id="部署到远端服务器"><a href="#部署到远端服务器" class="headerlink" title="部署到远端服务器"></a>部署到远端服务器</h3><p> 为了让别人能访问到你搭建的网站，我们需要部署到远端服务器。<br> 这里有两种选择，一种是部署到github上，新建一个repository，然后创建一个xxxxx.github.io域名（这里xxxxx必须为你的github用户名）。<br> 另一种选择是部署到国内的coding，这是考虑到访问速度的问题，不过我选择的是前者，亲自尝试之后并没感觉有速度的困扰。<br> 部署这块网上有许多教程，这里不详细解释了，以后有机会补上。<br> 在部署的时候涉及到对主题配置文件的操作，linux和mac用户可以使用vim进行编辑，不过也可以使用VScode、sublime等代码编辑器进行操作。</p>
 </li>
 </ol>
 <h2 id="创建原因"><a href="#创建原因" class="headerlink" title="创建原因"></a>创建原因</h2><p>首先说明，我只是一个刚起步的入门级小白，懂得不多，别喷我哈~<br>步入大二，虽然我是大学才算真正接触编程，但一年多下来我也接触并且学习了不少技术知识。接触的多了、遇到的问题也复杂了起来，导致每次百度到的答案不一定能够解决我遇到的问题。此外，之前在学习编程语言、操作系统、ml、dl等知识的时候，为方便起见利用文本记了些笔记。然而笔记分散在四处，不方便管理与查看，因此就萌生了写博客的想法。由于个人比较喜欢自由DIY，所以没有使用CSDN、博客园等知名技术博客网站。<br>最后还是非常感谢我的华科校友<a href="https://www.codesheep.cn/" target="_blank">程序羊</a>在b站和其他站点上分享的各种经验，我就是通过他的视频来搭建起自己的第一个博客网站的。他的其他视频也给了我很多启迪。<br>最后，最关键的原因，还是因为今天中秋节有空闲的时间哈哈，祝大家节日快乐！</p>
