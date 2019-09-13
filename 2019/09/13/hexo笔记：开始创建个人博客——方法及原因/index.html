@@ -90,7 +90,8 @@
 <meta property="og:image" content="http://yoursite.com/2019/09/13/hexo笔记：开始创建个人博客——方法及原因/打开bash.png">
 <meta property="og:image" content="http://yoursite.com/2019/09/13/hexo笔记：开始创建个人博客——方法及原因/成功安装node.js.png">
 <meta property="og:image" content="http://yoursite.com/2019/09/13/hexo笔记：开始创建个人博客——方法及原因/成功安装cnpm.png">
-<meta property="og:updated_time" content="2019-09-13T10:02:08.512Z">
+<meta property="og:image" content="http://yoursite.com/2019/09/13/hexo笔记：开始创建个人博客——方法及原因/新增文件.png">
+<meta property="og:updated_time" content="2019-09-13T10:16:10.776Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo笔记：开始创建个人博客——方法及原因">
 <meta name="twitter:description" content="安装步骤 安装node.js 进入官网。 选择对应系统（我这里用win10），选择LTS（长期支持版本）安装，安装步骤中一直选择next即可。 安装完后就可以把安装包删除了。 安装git 进入官网。 选择对应系统的版本下载，同样也是按默认安装。 安装成功后，你会在开始菜单中看到git文件夹。   其中Git Bash与linux和mac中的终端类似，它是git自带的程序，提供了linux风格的sh">
@@ -307,11 +308,17 @@
         <h2 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h2><ol>
 <li><h3 id="安装node-js"><a href="#安装node-js" class="headerlink" title="安装node.js"></a>安装node.js</h3> 进入<a href="https://nodejs.org" target="_blank">官网</a>。<br> 选择对应系统（我这里用win10），选择LTS（长期支持版本）安装，安装步骤中一直选择next即可。<br> 安装完后就可以把安装包删除了。</li>
 <li><h3 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h3> 进入<a href="https://git-scm.com/downloads" target="_blank">官网</a>。<br> 选择对应系统的版本下载，同样也是按默认安装。<br> 安装成功后，你会在开始菜单中看到git文件夹。 <img src="/2019/09/13/hexo笔记：开始创建个人博客——方法及原因/成功安装git.png" title="成功安装git">
- 其中Git Bash与linux和mac中的终端类似，它是git自带的程序，提供了linux风格的shell，我们可以在这里面执行相应的命令。</li>
+ 其中Git Bash与linux和mac中的终端类似，它是git自带的程序，提供了linux风格的shell，我们可以在这里面执行相应的命令。<blockquote>
+<blockquote>
+<p>注意：bash中的复制粘贴操作与linux中类似，ctrl+C用于终止进程，可以用鼠标中键进行粘贴操作。</p>
+</blockquote>
+</blockquote>
+</li>
 <li><h3 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h3> hexo是一个快速、简洁且高效的博客框架，在这里我们使用hexo来搭建博客。<br> 首先，新建一个名为“blog”的空文件夹，以后我们的操作都在这个文件夹里进行，可以在bash中使用pwd命令查看当前所处位置。<br> 创建这个文件夹的目的是万一因为创建的博客出现问题或者不满意想重来等原因可以直接简单地把文件夹删除，也方便了对整个网站本地内容的移动。<br> 打开新建的文件夹，右键空白处，选择Git Bash Here。 <img src="/2019/09/13/hexo笔记：开始创建个人博客——方法及原因/打开bash.png" title="打开bash">
  接下来我们输入两行命令来验证node.js是否安装成功。 <img src="/2019/09/13/hexo笔记：开始创建个人博客——方法及原因/成功安装node.js.png" title="成功安装node.js">
  如出现如图所示结果，则表明安装成功。<br> 为了提高以后的下载速度，我们需要安装cnpm。cnpm是淘宝的国内镜像，因为npm的服务器位于国外有时可能会影响安装。<br> 继续在bash中输入如下命令安装cnpm：<br> <code>npm install -g cnpm --registry=https://registry.npm.taobao.org</code><br> 检验安装是否成功，输入cnpm： <img src="/2019/09/13/hexo笔记：开始创建个人博客——方法及原因/成功安装cnpm.png" title="成功安装cnpm">
- 接下来我们安装hexo，输入命令：</li>
+ 接下来我们安装hexo，输入命令：<br> <code>cnpm install -g hexo-cli</code><br> 和上面一样，我们可以用hexo -v来验证是否成功安装hexo，这里就不贴图了。<br> 接下来我们输入如下命令来建立整个项目：<br> <code>hexo init</code><br> 你会发现你的文件夹中多了许多文件，你也可以用ls -l命令来看到新增的文件。 <img src="/2019/09/13/hexo笔记：开始创建个人博客——方法及原因/新增文件.png" title="新增文件">
+</li>
 </ol>
 
       
