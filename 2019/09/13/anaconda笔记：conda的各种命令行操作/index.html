@@ -88,8 +88,8 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2019/09/13/anaconda笔记：conda的各种命令行操作/conda环境列表.png">
 <meta property="og:image" content="http://yoursite.com/2019/09/13/anaconda笔记：conda的各种命令行操作/虚拟环境切换.png">
-<meta property="og:image" content="http://yoursite.com/2019/09/13/anaconda笔记：conda的各种命令行操作/命令行查看kernel.png">
-<meta property="og:updated_time" content="2019-09-13T16:17:47.485Z">
+<meta property="og:image" content="http://yoursite.com/2019/09/13/anaconda笔记：conda的各种命令行操作/查看kernel.png">
+<meta property="og:updated_time" content="2019-09-13T16:20:58.509Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="anaconda笔记：conda的各种命令行操作">
 <meta name="twitter:description" content="anaconda是一个开源的包、环境管理器，可以比较有效地配置多个虚拟环境，当python入门到一定程度时，安装anaconda是很必要的。前段时间室友学习python的时候问到过我一些相关的问题，我就在这里简单写一些我知道的以及我搜集到的知识。 环境变量安装anaconda过程中一个很重要的步骤就是配置环境变量，网上有很多手动添加环境变量的教程，其实很简单，只需添加三个路径，当然更简单的是直接在">
@@ -365,7 +365,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install ipykernel</span><br><span class="line">python -m ipykernel install --name Python27 #Python27可以取与环境名不一样的名字，但方便起见建议统一</span><br></pre></td></tr></table></figure>
 
 <p>我们可以使用如下命令来查看已添加到jupyter notebook的kernel：<br><code>jupyter kernelspec list</code><br>显示如下：</p>
-<img src="/2019/09/13/anaconda笔记：conda的各种命令行操作/命令行查看kernel.png" title="命令行查看kernel">
+<img src="/2019/09/13/anaconda笔记：conda的各种命令行操作/查看kernel.png" title="查看kernel">
 <p>我们也可以在jupyter notebook中的new或者kernel下查看新环境是否成功添加。<br>在这里我想说明一下为什么要分开python的环境。<br>由于python是不向后兼容的，分开环境可以避免语法版本不一引起的错误，同时这也可以避免工具包安装与调用的混乱。</p>
 
       
