@@ -98,7 +98,7 @@
 <meta property="og:image" content="http://yoursite.com/2019/09/14/ubuntu笔记：重装ubuntu——记一次辛酸血泪史/选择窗口.png">
 <meta property="og:image" content="http://yoursite.com/2019/09/14/ubuntu笔记：重装ubuntu——记一次辛酸血泪史/移动窗口.png">
 <meta property="og:image" content="http://yoursite.com/2019/09/14/ubuntu笔记：重装ubuntu——记一次辛酸血泪史/最小化窗口.png">
-<meta property="og:updated_time" content="2019-09-14T08:00:18.357Z">
+<meta property="og:updated_time" content="2019-09-14T22:13:42.365Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ubuntu笔记：重装ubuntu——记一次辛酸血泪史">
 <meta name="twitter:description" content="本文参考自：https://blog.csdn.net/Spacegene/article/details/86659349 这是不久前我踩过的一个巨坑，在这里我想先强调一下：不要升级linux发行版！！！重要的事情说三遍！！！不要升级linux发行版！！！重要的事情说三遍！！！不要升级linux发行版！！！重要的事情说三遍！！！为什么？不要问我为什么。我按系统提示升级ubuntu到18.04LT">
@@ -383,7 +383,7 @@
 在下面的步骤中，请一直插着U盘不要拔。</li>
 </ol>
 <hr>
-<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>现在重新启动电脑，开机的过程中不停地快按F12进入bios界面（我的是戴尔的电脑，不同电脑按键或有不同，自行百度；如果快按不行的话再次重启试一试长按，因为网上有些教程说的是长按，而我是长按不行而快按可以）。<br>随后选择U盘启动（不同电脑这个界面也可能不一样，具体可以百度，印象中是选择UEFI BOOT中UEFI：U盘名那项）。<br>接下来就进入了紫红色的GNU GRUB界面，选择install ubuntu。<br>随后就是些比较简单的安装过程，基本上可以按默认进行，因为是重装，好像不需要联网安装且有汉化包。<br>接下来是比较重要的部分：<br>进入installation type界面后，选择其他选项something else，这样我们就可以自己配置ubuntu分区了，点击继续。<br>接下来会进入一个磁盘分区的界面，选中之前清出来的未分配分区（名为“空闲”，也可以通过大小来判断），点击下方+号，新建一个swap分区，大小为8G左右（一般和电脑的内存相当即可，具体还有待研究，不分这个区会有警告）。<br>再次双击空闲分区，挂载点下拉，选择/。<br>在安装启动引导器的设备选项中，选择Windows boot manager。<br>结果可以参考下图：</p>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>现在重新启动电脑，开机的过程中不停地快按F12进入bios界面（我的是戴尔的电脑，不同电脑按键或有不同，自行百度；如果快按不行的话再次重启试一试长按，因为网上有些教程说的是长按，而我是长按不行而快按可以）。<br>随后选择U盘启动（不同电脑这个界面也可能不一样，具体可以百度，印象中是选择UEFI BOOT中UEFI：U盘名那项）。<br>接下来就进入了紫红色的GNU GRUB界面，选择install ubuntu。<br>随后就是些比较简单的安装过程，基本上可以按默认进行，因为是重装，好像不需要联网安装且有汉化包。<br>接下来是比较重要的部分：<br>进入安装类型installation type界面后，选择其他选项something else，这样我们就可以自己配置ubuntu分区了，点击继续。<br>接下来会进入一个磁盘分区的界面，选中之前清出来的未分配分区（名为“空闲”，也可以通过大小来判断），点击下方+号，新建一个swap分区，大小为8G左右（一般和电脑的内存相当即可，具体还有待研究，不分这个区会有警告）。<br>再次双击空闲分区，挂载点下拉，选择/。<br>在安装启动引导器的设备选项中，选择Windows boot manager。<br>结果可以参考下图：</p>
 <img src="/2019/09/14/ubuntu笔记：重装ubuntu——记一次辛酸血泪史/ubuntu分区.jpg" title="ubuntu分区">
 <p>确认无误后点击现在安装，然后就一路默认直到安装完成。</p>
 <hr>
