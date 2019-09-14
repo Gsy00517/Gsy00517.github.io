@@ -79,18 +79,20 @@
 
 
 
-<meta name="description" content="这是不久前我踩过的一个巨坑，在这里我想先强调一下：不要升级linux发行版！！！重要的事情说三遍！！！不要升级linux发行版！！！重要的事情说三遍！！！不要升级linux发行版！！！重要的事情说三遍！！！为什么？不要问我为什么。我按系统提示升级ubuntu到18.04LTS后，就再也进不去系统了。不信你可以尝试一下，你将会看到如下界面：  不仅是图形界面，命令行界面也进不去了（据说可以在重启时选">
+<meta name="description" content="这是不久前我踩过的一个巨坑，在这里我想先强调一下：不要升级linux发行版！！！重要的事情说三遍！！！不要升级linux发行版！！！重要的事情说三遍！！！不要升级linux发行版！！！重要的事情说三遍！！！为什么？不要问我为什么。我按系统提示升级ubuntu到18.04LTS后，就再也进不去系统了。不信你可以尝试一下，你将会看到如下界面：   注：图片来自网络，我就不再为了截图而踩一次坑了。不仅是">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ubuntu笔记：重装ubuntu——记一次辛酸血泪史">
 <meta property="og:url" content="http://yoursite.com/2019/09/14/ubuntu笔记：重装ubuntu——记一次辛酸血泪史/index.html">
 <meta property="og:site_name" content="高深远的天地">
-<meta property="og:description" content="这是不久前我踩过的一个巨坑，在这里我想先强调一下：不要升级linux发行版！！！重要的事情说三遍！！！不要升级linux发行版！！！重要的事情说三遍！！！不要升级linux发行版！！！重要的事情说三遍！！！为什么？不要问我为什么。我按系统提示升级ubuntu到18.04LTS后，就再也进不去系统了。不信你可以尝试一下，你将会看到如下界面：  不仅是图形界面，命令行界面也进不去了（据说可以在重启时选">
+<meta property="og:description" content="这是不久前我踩过的一个巨坑，在这里我想先强调一下：不要升级linux发行版！！！重要的事情说三遍！！！不要升级linux发行版！！！重要的事情说三遍！！！不要升级linux发行版！！！重要的事情说三遍！！！为什么？不要问我为什么。我按系统提示升级ubuntu到18.04LTS后，就再也进不去系统了。不信你可以尝试一下，你将会看到如下界面：   注：图片来自网络，我就不再为了截图而踩一次坑了。不仅是">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2019/09/14/ubuntu笔记：重装ubuntu——记一次辛酸血泪史/一点都不OK！.jpg">
-<meta property="og:updated_time" content="2019-09-14T02:13:44.965Z">
+<meta property="og:image" content="http://yoursite.com/2019/09/14/ubuntu笔记：重装ubuntu——记一次辛酸血泪史/diskpart.png">
+<meta property="og:image" content="http://yoursite.com/2019/09/14/ubuntu笔记：重装ubuntu——记一次辛酸血泪史/查看分区信息.png">
+<meta property="og:updated_time" content="2019-09-14T02:38:37.494Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ubuntu笔记：重装ubuntu——记一次辛酸血泪史">
-<meta name="twitter:description" content="这是不久前我踩过的一个巨坑，在这里我想先强调一下：不要升级linux发行版！！！重要的事情说三遍！！！不要升级linux发行版！！！重要的事情说三遍！！！不要升级linux发行版！！！重要的事情说三遍！！！为什么？不要问我为什么。我按系统提示升级ubuntu到18.04LTS后，就再也进不去系统了。不信你可以尝试一下，你将会看到如下界面：  不仅是图形界面，命令行界面也进不去了（据说可以在重启时选">
+<meta name="twitter:description" content="这是不久前我踩过的一个巨坑，在这里我想先强调一下：不要升级linux发行版！！！重要的事情说三遍！！！不要升级linux发行版！！！重要的事情说三遍！！！不要升级linux发行版！！！重要的事情说三遍！！！为什么？不要问我为什么。我按系统提示升级ubuntu到18.04LTS后，就再也进不去系统了。不信你可以尝试一下，你将会看到如下界面：   注：图片来自网络，我就不再为了截图而踩一次坑了。不仅是">
 <meta name="twitter:image" content="http://yoursite.com/2019/09/14/ubuntu笔记：重装ubuntu——记一次辛酸血泪史/一点都不OK！.jpg">
 
 
@@ -345,8 +347,21 @@
       
         <p>这是不久前我踩过的一个巨坑，在这里我想先强调一下：<br><strong>不要升级linux发行版！！！重要的事情说三遍！！！</strong><br><strong>不要升级linux发行版！！！重要的事情说三遍！！！</strong><br><strong>不要升级linux发行版！！！重要的事情说三遍！！！</strong><br>为什么？不要问我为什么。我按系统提示升级ubuntu到18.04LTS后，就再也进不去系统了。不信你可以尝试一下，你将会看到如下界面：</p>
 <img src="/2019/09/14/ubuntu笔记：重装ubuntu——记一次辛酸血泪史/一点都不OK！.jpg" title="一点都不OK！">
-<p>不仅是图形界面，命令行界面也进不去了（据说可以在重启时选择recovery mode并且狂按回车强行进入界面，但我失败了）。<br>不过如果你真的尝试了并且掉坑里了的话，没关系，你获得了一个很好的重装系统的锻炼机会。下面我们就按步骤锻炼一下。</p>
+<blockquote>
+<p>注：图片来自网络，我就不再为了截图而踩一次坑了。<br>不仅是图形界面，命令行界面也进不去了（据说可以在重启时选择recovery mode并且狂按回车强行进入界面，但我失败了）。<br>不过如果你真的尝试了并且掉坑里了的话，没关系，你获得了一个很好的重装系统的锻炼机会。下面我们就按步骤锻炼一下。</p>
+</blockquote>
 <hr>
+<h1 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h1><p>准备一个2G以上的无用的U盘，或者备份好里面的文件。然后将其格式化。<br>下载<a href="http://releases.ubuntu.com/16.04/ubuntu-16.04.6-desktop-amd64.iso" target="_blank">ubuntu16.04LTS镜像</a>到本地。<br>你可以通过控制面板中的创建并格式化硬盘分区来看到你的windows与ubuntu分区的情况。（以下操作都是针对重装，不再重新分区，需要的可以自行上网查找教程）<br>在重新安装ubuntu16.04之前我们需要删除原先Ubuntu的EFI分区及启动引导项，这里推荐直接使用windows下的diskpart来删除。<br>使用win+R输入diskpart打开diskpart.exe，允许其对设备进行更改。</p>
+<img src="/2019/09/14/ubuntu笔记：重装ubuntu——记一次辛酸血泪史/diskpart.png" title="diskpart">
+<p>接下来使用如下命令查看分区，我的笔记本只有一块SSD，两个系统都装在上面，故进入disk 0.</p>
+<img src="/2019/09/14/ubuntu笔记：重装ubuntu——记一次辛酸血泪史/查看分区信息.png" title="查看分区信息">
+<p>其中类型未知的便是分给ubuntu的分区，我这里有一块8G的swap分区和60G的/分区。<br>接下来执行如下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">select partition 7</span><br><span class="line">delete partition override #删除该分区</span><br><span class="line">select partition 8</span><br><span class="line">delete partition override #删除该分区</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意：以上命令是针对我的情况，具体请按照对应ubuntu分区的序号删除。<br>现在</p>
+</blockquote>
+<p>再把U盘格式化回来，就可以继续使用了。</p>
 
       
     </div>
@@ -434,8 +449,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -477,6 +501,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#准备"><span class="nav-number">1.</span> <span class="nav-text">准备</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
