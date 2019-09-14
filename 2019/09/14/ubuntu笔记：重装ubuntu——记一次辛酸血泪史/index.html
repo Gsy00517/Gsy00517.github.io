@@ -79,20 +79,24 @@
 
 
 
-<meta name="description" content="这是不久前我踩过的一个巨坑，在这里我想先强调一下：不要升级linux发行版！！！重要的事情说三遍！！！不要升级linux发行版！！！重要的事情说三遍！！！不要升级linux发行版！！！重要的事情说三遍！！！为什么？不要问我为什么。我按系统提示升级ubuntu到18.04LTS后，就再也进不去系统了。不信你可以尝试一下，你将会看到如下界面：   注：图片来自网络，我就不再为了截图而踩一次坑了。  不">
+<meta name="description" content="本文参考自：https://blog.csdn.net/Spacegene/article/details/86659349 这是不久前我踩过的一个巨坑，在这里我想先强调一下：不要升级linux发行版！！！重要的事情说三遍！！！不要升级linux发行版！！！重要的事情说三遍！！！不要升级linux发行版！！！重要的事情说三遍！！！为什么？不要问我为什么。我按系统提示升级ubuntu到18.04LT">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ubuntu笔记：重装ubuntu——记一次辛酸血泪史">
 <meta property="og:url" content="http://yoursite.com/2019/09/14/ubuntu笔记：重装ubuntu——记一次辛酸血泪史/index.html">
 <meta property="og:site_name" content="高深远的天地">
-<meta property="og:description" content="这是不久前我踩过的一个巨坑，在这里我想先强调一下：不要升级linux发行版！！！重要的事情说三遍！！！不要升级linux发行版！！！重要的事情说三遍！！！不要升级linux发行版！！！重要的事情说三遍！！！为什么？不要问我为什么。我按系统提示升级ubuntu到18.04LTS后，就再也进不去系统了。不信你可以尝试一下，你将会看到如下界面：   注：图片来自网络，我就不再为了截图而踩一次坑了。  不">
+<meta property="og:description" content="本文参考自：https://blog.csdn.net/Spacegene/article/details/86659349 这是不久前我踩过的一个巨坑，在这里我想先强调一下：不要升级linux发行版！！！重要的事情说三遍！！！不要升级linux发行版！！！重要的事情说三遍！！！不要升级linux发行版！！！重要的事情说三遍！！！为什么？不要问我为什么。我按系统提示升级ubuntu到18.04LT">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2019/09/14/ubuntu笔记：重装ubuntu——记一次辛酸血泪史/一点都不OK！.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/09/14/ubuntu笔记：重装ubuntu——记一次辛酸血泪史/diskpart.png">
 <meta property="og:image" content="http://yoursite.com/2019/09/14/ubuntu笔记：重装ubuntu——记一次辛酸血泪史/查看分区信息.png">
-<meta property="og:updated_time" content="2019-09-14T02:42:51.215Z">
+<meta property="og:image" content="http://yoursite.com/2019/09/14/ubuntu笔记：重装ubuntu——记一次辛酸血泪史/EasyUEFI.png">
+<meta property="og:image" content="http://yoursite.com/2019/09/14/ubuntu笔记：重装ubuntu——记一次辛酸血泪史/rufus.png">
+<meta property="og:image" content="http://yoursite.com/2019/09/14/ubuntu笔记：重装ubuntu——记一次辛酸血泪史/此时的U盘.png">
+<meta property="og:image" content="http://yoursite.com/2019/09/14/ubuntu笔记：重装ubuntu——记一次辛酸血泪史/ubuntu分区.jpg">
+<meta property="og:updated_time" content="2019-09-14T03:22:48.578Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ubuntu笔记：重装ubuntu——记一次辛酸血泪史">
-<meta name="twitter:description" content="这是不久前我踩过的一个巨坑，在这里我想先强调一下：不要升级linux发行版！！！重要的事情说三遍！！！不要升级linux发行版！！！重要的事情说三遍！！！不要升级linux发行版！！！重要的事情说三遍！！！为什么？不要问我为什么。我按系统提示升级ubuntu到18.04LTS后，就再也进不去系统了。不信你可以尝试一下，你将会看到如下界面：   注：图片来自网络，我就不再为了截图而踩一次坑了。  不">
+<meta name="twitter:description" content="本文参考自：https://blog.csdn.net/Spacegene/article/details/86659349 这是不久前我踩过的一个巨坑，在这里我想先强调一下：不要升级linux发行版！！！重要的事情说三遍！！！不要升级linux发行版！！！重要的事情说三遍！！！不要升级linux发行版！！！重要的事情说三遍！！！为什么？不要问我为什么。我按系统提示升级ubuntu到18.04LT">
 <meta name="twitter:image" content="http://yoursite.com/2019/09/14/ubuntu笔记：重装ubuntu——记一次辛酸血泪史/一点都不OK！.jpg">
 
 
@@ -345,7 +349,8 @@
       
 
       
-        <p>这是不久前我踩过的一个巨坑，在这里我想先强调一下：<br><strong>不要升级linux发行版！！！重要的事情说三遍！！！</strong><br><strong>不要升级linux发行版！！！重要的事情说三遍！！！</strong><br><strong>不要升级linux发行版！！！重要的事情说三遍！！！</strong><br>为什么？不要问我为什么。我按系统提示升级ubuntu到18.04LTS后，就再也进不去系统了。不信你可以尝试一下，你将会看到如下界面：</p>
+        <p>本文参考自：<a href="https://blog.csdn.net/Spacegene/article/details/86659349" target="_blank" rel="noopener">https://blog.csdn.net/Spacegene/article/details/86659349</a></p>
+<p>这是不久前我踩过的一个巨坑，在这里我想先强调一下：<br><strong>不要升级linux发行版！！！重要的事情说三遍！！！</strong><br><strong>不要升级linux发行版！！！重要的事情说三遍！！！</strong><br><strong>不要升级linux发行版！！！重要的事情说三遍！！！</strong><br>为什么？不要问我为什么。我按系统提示升级ubuntu到18.04LTS后，就再也进不去系统了。不信你可以尝试一下，你将会看到如下界面：</p>
 <img src="/2019/09/14/ubuntu笔记：重装ubuntu——记一次辛酸血泪史/一点都不OK！.jpg" title="一点都不OK！">
 <blockquote>
 <p>注：图片来自网络，我就不再为了截图而踩一次坑了。</p>
@@ -366,9 +371,18 @@
 </blockquote>
 <p>现在你可以在控制面板中的创建并格式化硬盘分区中看到你删除的分区已经合并成一块未分配的空间，这也意味着你与你原来ubuntu上的数据彻底说再见了。</p>
 <ol start="4">
-<li><h3 id="删除ubuntu启动引导项"><a href="#删除ubuntu启动引导项" class="headerlink" title="删除ubuntu启动引导项"></a>删除ubuntu启动引导项</h3></li>
+<li><h3 id="删除ubuntu启动引导项"><a href="#删除ubuntu启动引导项" class="headerlink" title="删除ubuntu启动引导项"></a>删除ubuntu启动引导项</h3>首先下载<a href="https://www.easyuefi.com/index-us.html" target="_blank">EasyUEFI</a>，使用免费试用版即可。<br>下载完成后安装，打开EasyUEFI如图：<img src="/2019/09/14/ubuntu笔记：重装ubuntu——记一次辛酸血泪史/EasyUEFI.png" title="EasyUEFI">
+选择管理EFI启动选项Manage EFI Boot Option，然后选择ubuntu启动引导项，点击中间的删除按钮来删除该引导项。<br>现在重新启动，你会发现已经没有让你选择系统的引导界面，而是直接进入windows系统。</li>
+<li><h3 id="制作启动U盘"><a href="#制作启动U盘" class="headerlink" title="制作启动U盘"></a>制作启动U盘</h3>首先我们下载一个免费的U盘制作工具<a href="https://rufus.ie/" target="_blank">rufus</a><br>此时插入已经格式化的U盘，打开rufus，一般情况下它会自动选择U盘，你也可以在device选项下手动选择或确认。<br>点击select，选择之前下载好的镜像文件。<br>其他设置保留默认即可，不放心的话可以比对下图：<img src="/2019/09/14/ubuntu笔记：重装ubuntu——记一次辛酸血泪史/rufus.png" title="rufus">
+然后start开始制作。如果此时rufus提示需要下载一些其它文件，选择Yes继续即可。<br>没有问题的话制作完的U盘会如图所示：<img src="/2019/09/14/ubuntu笔记：重装ubuntu——记一次辛酸血泪史/此时的U盘.png" title="此时的U盘">
+在下面的步骤中，请一直插着U盘不要拔。</li>
 </ol>
-<p>再把U盘格式化回来，就可以继续使用了。</p>
+<hr>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>现在重新启动电脑，开机的过程中不停地快按F12进入bios界面（我的是戴尔的电脑，不同电脑按键或有不同，自行百度）。<br>随后选择U盘启动（不同电脑这个界面也可能不一样，具体可以百度，印象中是选择UEFI BOOT中UEFI：U盘名那项）。<br>接下来就进入了紫红色的GNU GRUB界面，选择install ubuntu。<br>随后就是写比较简单的安装过程，基本上可以按默认进行，因为是重装，好像不需要联网安装且有汉化包。<br>接下来是比较重要的部分：<br>进入installation type界面后，选择其他选项something else，这样我们就可以自己配置ubuntu分区了，点击继续。<br>接下来会进入一个磁盘分区的界面，选中之前清出来的未分配分区（名为“空闲”，也可以通过大小来判断），点击下方+号，新建一个swap分区，大小为8G左右（一般和电脑的内存相当即可，具体还有待研究，不分这个区会有警告）。<br>再次双击空闲分区，挂载点下拉，选择/。<br>在安装启动引导器的设备选项中，选择Windows boot manager。<br>结果可以参考下图：</p>
+<img src="/2019/09/14/ubuntu笔记：重装ubuntu——记一次辛酸血泪史/ubuntu分区.jpg" title="ubuntu分区">
+<p>确认无误后点击现在安装，然后就一路默认直到安装完成。</p>
+<hr>
+<h1 id="后期"><a href="#后期" class="headerlink" title="后期"></a>后期</h1><p>别忘了把U盘格式化回来，可以继续使用，留着做纪念也行，说不定哪天又要重装。</p>
 
       
     </div>
@@ -518,7 +532,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#准备"><span class="nav-number">1.</span> <span class="nav-text">准备</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#U盘"><span class="nav-number">1.0.1.</span> <span class="nav-text">U盘</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#镜像"><span class="nav-number">1.0.2.</span> <span class="nav-text">镜像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除分区"><span class="nav-number">1.0.3.</span> <span class="nav-text">删除分区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除ubuntu启动引导项"><span class="nav-number">1.0.4.</span> <span class="nav-text">删除ubuntu启动引导项</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#准备"><span class="nav-number">1.</span> <span class="nav-text">准备</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#U盘"><span class="nav-number">1.0.1.</span> <span class="nav-text">U盘</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#镜像"><span class="nav-number">1.0.2.</span> <span class="nav-text">镜像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除分区"><span class="nav-number">1.0.3.</span> <span class="nav-text">删除分区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除ubuntu启动引导项"><span class="nav-number">1.0.4.</span> <span class="nav-text">删除ubuntu启动引导项</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#制作启动U盘"><span class="nav-number">1.0.5.</span> <span class="nav-text">制作启动U盘</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#安装"><span class="nav-number">2.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#后期"><span class="nav-number">3.</span> <span class="nav-text">后期</span></a></li></div>
             
 
           </div>
