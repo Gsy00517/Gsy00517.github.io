@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[ubuntu笔记：重装ubuntu——记一次辛酸血泪史]]></title>
+    <url>%2F2019%2F09%2F14%2Fubuntu%E7%AC%94%E8%AE%B0%EF%BC%9A%E9%87%8D%E8%A3%85ubuntu%E2%80%94%E2%80%94%E8%AE%B0%E4%B8%80%E6%AC%A1%E8%BE%9B%E9%85%B8%E8%A1%80%E6%B3%AA%E5%8F%B2%2F</url>
+    <content type="text"><![CDATA[这是不久前我踩过的一个巨坑，在这里我想先强调一下：不要升级linux发行版！！！重要的事情说三遍！！！不要升级linux发行版！！！重要的事情说三遍！！！不要升级linux发行版！！！重要的事情说三遍！！！为什么？不要问我为什么。我按系统提示升级ubuntu到18.04LTS后，就再也进不去系统了。不信你可以尝试一下，你将会看到如下界面： 不仅是图形界面，命令行界面也进不去了（据说可以在重启时选择recovery mode并且狂按回车强行进入界面，但我失败了）。不过如果你真的尝试了并且掉坑里了的话，没关系，你获得了一个很好的重装系统的锻炼机会。下面我们就按步骤锻炼一下。]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[ubuntu笔记：释放空间]]></title>
     <url>%2F2019%2F09%2F14%2Fubuntu%E7%AC%94%E8%AE%B0%EF%BC%9A%E9%87%8A%E6%94%BE%E7%A9%BA%E9%97%B4%2F</url>
-    <content type="text"><![CDATA[前一篇讲了如何清理windows下的空间，然而虽然ubuntu中垃圾文件没win10那么多，可是我给ubuntu分配的空间比win10少得多了，于是我又找了些清理ubuntu的方法。 删除apt-get下载的软件包直接在终端执行sudo apt-get autoclean 删除缓存的所有软件包sudo apt-get clean 删除其他软件依赖的但现在已不用的软件包sudo apt-get autoremove这条命令执行后，软件的配置文件还是会保留的。 清除所有已删除包的残馀配置文件dpkg -l |grep ^rc|awk &#39;{print $2}&#39; |sudo xargs dpkg -P可以把上面四个命令按顺序执行一遍，就可以完成了对ubuntu系统的空间释放。]]></content>
+    <content type="text"><![CDATA[前一篇讲了如何清理windows下的空间，然而虽然ubuntu中垃圾文件没win10那么多，可是我给ubuntu分配的空间比win10少得多了，于是我又找了些清理ubuntu的方法。 删除apt-get下载的软件包直接在终端执行sudo apt-get autoclean 删除缓存的所有软件包sudo apt-get clean 删除其他软件依赖的但现在已不用的软件包sudo apt-get autoremove这条命令执行后，软件的配置文件还是会保留的。 清除所有已删除包的残馀配置文件dpkg -l |grep ^rc|awk &#39;{print $2}&#39; |sudo xargs dpkg -P可以把上面四个命令按顺序执行一遍，就完成了对ubuntu系统的空间释放。]]></content>
   </entry>
   <entry>
     <title><![CDATA[windows笔记：释放空间]]></title>
