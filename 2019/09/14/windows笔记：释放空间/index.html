@@ -79,20 +79,22 @@
 
 
 
-<meta name="description" content="首先强烈安利jupyter notebook，它是一种交互式笔记本，安装anaconda的时候会一并安装，下载VS的时候也可以选择安装。我是在初学机器学习的时候接触jupyter notebook的，立刻就被它便捷的交互与结果呈现方式所吸引，现在python编程基本不使用其他的软件。其实完全可以在初学python的时候使用jupyter notebook，可以立即得到反馈以及分析错误，可以进步很快">
+<meta name="description" content="暑假里想跑CVPR中的代码，发现作者提供的环境配置都是基于linux终端的，这样windows的git bash就满足不了我了。二话不说我花了两天时间装了个ubuntu+windows双系统，好不容易装好了，却发现我的硬盘空间已经岌岌可危（理论上要留内存的三倍左右可以保证系统顺畅运行，我的内存是8G，也就是说我C盘应空出20G左右为宜）。于是我就找了些释放空间的办法，分享在这里。  利用磁盘属性进">
 <meta property="og:type" content="article">
-<meta property="og:title" content="jupyter notebook笔记：一些细小的操作">
-<meta property="og:url" content="http://yoursite.com/2019/09/13/jupyter-notebook笔记：一些细小的操作/index.html">
+<meta property="og:title" content="windows笔记：释放空间">
+<meta property="og:url" content="http://yoursite.com/2019/09/14/windows笔记：释放空间/index.html">
 <meta property="og:site_name" content="高深远的天地">
-<meta property="og:description" content="首先强烈安利jupyter notebook，它是一种交互式笔记本，安装anaconda的时候会一并安装，下载VS的时候也可以选择安装。我是在初学机器学习的时候接触jupyter notebook的，立刻就被它便捷的交互与结果呈现方式所吸引，现在python编程基本不使用其他的软件。其实完全可以在初学python的时候使用jupyter notebook，可以立即得到反馈以及分析错误，可以进步很快">
+<meta property="og:description" content="暑假里想跑CVPR中的代码，发现作者提供的环境配置都是基于linux终端的，这样windows的git bash就满足不了我了。二话不说我花了两天时间装了个ubuntu+windows双系统，好不容易装好了，却发现我的硬盘空间已经岌岌可危（理论上要留内存的三倍左右可以保证系统顺畅运行，我的内存是8G，也就是说我C盘应空出20G左右为宜）。于是我就找了些释放空间的办法，分享在这里。  利用磁盘属性进">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2019/09/13/jupyter-notebook笔记：一些细小的操作/神秘的黑框框.png">
-<meta property="og:image" content="http://yoursite.com/2019/09/13/jupyter-notebook笔记：一些细小的操作/快捷键查询.png">
-<meta property="og:updated_time" content="2019-09-14T00:06:22.294Z">
+<meta property="og:image" content="http://yoursite.com/2019/09/14/windows笔记：释放空间/磁盘清理.png">
+<meta property="og:image" content="http://yoursite.com/2019/09/14/windows笔记：释放空间/优化.png">
+<meta property="og:image" content="http://yoursite.com/2019/09/14/windows笔记：释放空间/powershell.png">
+<meta property="og:image" content="http://yoursite.com/2019/09/14/windows笔记：释放空间/输出.png">
+<meta property="og:updated_time" content="2019-09-14T01:47:03.040Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="jupyter notebook笔记：一些细小的操作">
-<meta name="twitter:description" content="首先强烈安利jupyter notebook，它是一种交互式笔记本，安装anaconda的时候会一并安装，下载VS的时候也可以选择安装。我是在初学机器学习的时候接触jupyter notebook的，立刻就被它便捷的交互与结果呈现方式所吸引，现在python编程基本不使用其他的软件。其实完全可以在初学python的时候使用jupyter notebook，可以立即得到反馈以及分析错误，可以进步很快">
-<meta name="twitter:image" content="http://yoursite.com/2019/09/13/jupyter-notebook笔记：一些细小的操作/神秘的黑框框.png">
+<meta name="twitter:title" content="windows笔记：释放空间">
+<meta name="twitter:description" content="暑假里想跑CVPR中的代码，发现作者提供的环境配置都是基于linux终端的，这样windows的git bash就满足不了我了。二话不说我花了两天时间装了个ubuntu+windows双系统，好不容易装好了，却发现我的硬盘空间已经岌岌可危（理论上要留内存的三倍左右可以保证系统顺畅运行，我的内存是8G，也就是说我C盘应空出20G左右为宜）。于是我就找了些释放空间的办法，分享在这里。  利用磁盘属性进">
+<meta name="twitter:image" content="http://yoursite.com/2019/09/14/windows笔记：释放空间/磁盘清理.png">
 
 
 
@@ -122,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/09/13/jupyter-notebook笔记：一些细小的操作/">
+  <link rel="canonical" href="http://yoursite.com/2019/09/14/windows笔记：释放空间/">
 
 
 
 
 
-  <title>jupyter notebook笔记：一些细小的操作 | 高深远的天地</title>
+  <title>windows笔记：释放空间 | 高深远的天地</title>
   
 
 
@@ -267,7 +269,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/13/jupyter-notebook笔记：一些细小的操作/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/14/windows笔记：释放空间/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="高深远">
@@ -284,7 +286,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">jupyter notebook笔记：一些细小的操作</h1>
+          <h1 class="post-title" itemprop="name headline">windows笔记：释放空间</h1>
         
 
         <div class="post-meta">
@@ -296,8 +298,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-13T22:50:22+08:00">
-                2019-09-13
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-14T09:10:23+08:00">
+                2019-09-14
               </time>
             
 
@@ -315,8 +317,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/09/13/jupyter-notebook笔记：一些细小的操作/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/09/13/jupyter-notebook笔记：一些细小的操作/" itemprop="commentCount"></span>
+                <a href="/2019/09/14/windows笔记：释放空间/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/09/14/windows笔记：释放空间/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -344,18 +346,29 @@
       
 
       
-        <p>首先强烈安利jupyter notebook，它是一种交互式笔记本，安装anaconda的时候会一并安装，下载VS的时候也可以选择安装。<br>我是在初学机器学习的时候接触jupyter notebook的，立刻就被它便捷的交互与结果呈现方式所吸引，现在python编程基本不使用其他的软件。其实完全可以在初学python的时候使用jupyter notebook，可以立即得到反馈以及分析错误，可以进步很快！</p>
+        <p>暑假里想跑CVPR中的代码，发现作者提供的环境配置都是基于linux终端的，这样windows的git bash就满足不了我了。二话不说我花了两天时间装了个ubuntu+windows双系统，好不容易装好了，却发现我的硬盘空间已经岌岌可危（理论上要留内存的三倍左右可以保证系统顺畅运行，我的内存是8G，也就是说我C盘应空出20G左右为宜）。于是我就找了些释放空间的办法，分享在这里。</p>
 <hr>
-<h1 id="打开操作"><a href="#打开操作" class="headerlink" title="打开操作"></a>打开操作</h1><p>当初安装好之后还不了解，每次打开jupyter notebook都会先弹出一个黑框框，这时候千万别关掉，等一会就能来到网页。另外打开之后也别关掉，使用的时候是一直需要的，因为只有开着才能访问本机web服务器发布的内容。</p>
-<img src="/2019/09/13/jupyter-notebook笔记：一些细小的操作/神秘的黑框框.png" title="神秘的黑框框">
-<p>另外你也可以不通过快捷方式，直接在命令行中直接输入jupyter notebook来打开它。<br>有些时候，当你插入硬盘或者需要直接在特定的目录下打开jupyter notebook（它的默认打开是在“usr/用户名/”路径下），那你可以在输入命令的后面加上你想要的路径。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">jupyter notebook D:\ #打开D盘，于我是我的移动硬盘</span><br><span class="line">jupyter notebook E:\ #我的U盘</span><br><span class="line">jupyter notebook C:\Users\用户名\Desktop #在桌面打开</span><br></pre></td></tr></table></figure>
-
+<h1 id="利用磁盘属性进行清理"><a href="#利用磁盘属性进行清理" class="headerlink" title="利用磁盘属性进行清理"></a>利用磁盘属性进行清理</h1><p>这是最稳的方法，但释放的空间也相对较少，不过还是有效的。选择“此电脑”，右键C盘，属性，然后就可以在常规下面看到磁盘清理。一般按默认选择的进行清理，当然全点上勾也无所谓。</p>
+<img src="/2019/09/14/windows笔记：释放空间/磁盘清理.png" title="磁盘清理">
+<p>另外在工具下面你可以看到一个优化的选项，一般系统会定期自动执行优化，如果你是强迫症，时时刻刻都容不得一点冗余的话，可以手动优化。</p>
+<img src="/2019/09/14/windows笔记：释放空间/优化.png" title="优化">
+<p>据我们数据结构的老师说，由于数据在存储时大多是稀疏矩阵，存在许多的空间浪费，而磁盘碎片整理优化的就是这个。</p>
 <hr>
-<h1 id="快捷键操作"><a href="#快捷键操作" class="headerlink" title="快捷键操作"></a>快捷键操作</h1><p>在jupyter notebook中可以通过选中cell然后按h的方式查询快捷键。</p>
-<img src="/2019/09/13/jupyter-notebook笔记：一些细小的操作/快捷键查询.png" title="快捷键查询">
+<h1 id="删除临时文件"><a href="#删除临时文件" class="headerlink" title="删除临时文件"></a>删除临时文件</h1><p>这里有两个临时文件中的全部文件可以删除，一个是C:\Users\用户名\AppData\Local\Temp目录下的文件，这里是临时文件最多的地方，可以上到几个G；另一个是C:\Windows\Temp，这里文件大小相对较小，可以忽略不计。另外我也找到了一些其他的临时文件，但似乎它们的体积都是0，可能是系统自动清理了。</p>
+<blockquote>
+<p>注意：千万不要误删上一级目录！如果担心删除出错，可先放到回收站，重启之后看有无异常再做决定。亲测上述两个文件夹中的所有文件均可删除。</p>
+</blockquote>
 <hr>
-<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><p>在jupyter notebook中可以直接使用markdown，这对学习可以起到很大的辅助作用，markdown的基本操作可以看我的另一篇博文<a href="https://gsy00517.github.io/2019/09/13/markdown笔记%EF%BC%9Amarkdown的基本使用/" target="_blank">markdown笔记：markdown的基本使用</a><br>此外，在我的博文<a href="https://gsy00517.github.io/2019/09/13/anaconda笔记%EF%BC%9Aconda的各种命令行操作/" target="_blank">anaconda笔记：conda的各种命令行操作</a>中，也介绍了如何将python的虚拟环境添加到jupyter notebook中，欢迎阅读。 </p>
+<h1 id="删除冗余更新"><a href="#删除冗余更新" class="headerlink" title="删除冗余更新"></a>删除冗余更新</h1><p>众所周知，windows系统会自动更新，这也是许多人弃windows的一大原因，然而windows还是要用的，于是我找到了一种可以清理多余的windows更新文件的方法。</p>
+<ol>
+<li>首先右键左下角开始菜单，选择“Windows PowerShell（管理员）”<img src="/2019/09/14/windows笔记：释放空间/powershell.png" title="powershell">
+弹出是否允许进行更改选择“是”。</li>
+<li>输入命令<code>dism.exe /Online /Cleanup-Image /AnalyzeComponentStore</code></li>
+<li>这时候会显示“推荐使用组件存储清理：是or否”，因为我前不久清过，所以这里显示为“否”，那么就别清理了。如果显示为“是”，那么进行第四步。<img src="/2019/09/14/windows笔记：释放空间/输出.png" title="输出"></li>
+<li>输入命令<code>dism.exe /online /Cleanup-Image /StartComponentCleanup</code><br>这样电脑就会开始清理啦。这个过程会比较长，不要着急和担心，在这期间你可以做些别的事情，比如评论我的博客。</li>
+</ol>
+<hr>
+<h1 id="重装系统"><a href="#重装系统" class="headerlink" title="重装系统"></a>重装系统</h1><p>俗话说得好“大力出奇迹”，重装系统无疑是最有效清理空间的一种方法。只要备份好数据，重装其实没有想象的那么困难。我本人这一年多来就重装过3次系统(两次是被迫的…)，其实装了几次就熟练了，我曾看到某linux大牛（忘了是谁）总共重装了19次linux。你可以在我的博文中看到如何在双系统情况下重装ubuntu的过程。</p>
 
       
     </div>
@@ -380,8 +393,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/09/13/markdown笔记：markdown的基本使用/" rel="next" title="markdown笔记：markdown的基本使用">
-                <i class="fa fa-chevron-left"></i> markdown笔记：markdown的基本使用
+              <a href="/2019/09/14/html笔记：制作web时的一些小技巧与小问题/" rel="next" title="html笔记：制作web时的一些小技巧与小问题">
+                <i class="fa fa-chevron-left"></i> html笔记：制作web时的一些小技巧与小问题
               </a>
             
           </div>
@@ -389,10 +402,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/09/13/anaconda笔记：conda的各种命令行操作/" rel="prev" title="anaconda笔记：conda的各种命令行操作">
-                anaconda笔记：conda的各种命令行操作 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -509,7 +518,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#打开操作"><span class="nav-number">1.</span> <span class="nav-text">打开操作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#快捷键操作"><span class="nav-number">2.</span> <span class="nav-text">快捷键操作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#其他"><span class="nav-number">3.</span> <span class="nav-text">其他</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#利用磁盘属性进行清理"><span class="nav-number">1.</span> <span class="nav-text">利用磁盘属性进行清理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#删除临时文件"><span class="nav-number">2.</span> <span class="nav-text">删除临时文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#删除冗余更新"><span class="nav-number">3.</span> <span class="nav-text">删除冗余更新</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#重装系统"><span class="nav-number">4.</span> <span class="nav-text">重装系统</span></a></li></ol></div>
             
 
           </div>
