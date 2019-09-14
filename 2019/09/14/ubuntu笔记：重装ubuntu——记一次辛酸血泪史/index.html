@@ -98,7 +98,7 @@
 <meta property="og:image" content="http://yoursite.com/2019/09/14/ubuntu笔记：重装ubuntu——记一次辛酸血泪史/选择窗口.png">
 <meta property="og:image" content="http://yoursite.com/2019/09/14/ubuntu笔记：重装ubuntu——记一次辛酸血泪史/移动窗口.png">
 <meta property="og:image" content="http://yoursite.com/2019/09/14/ubuntu笔记：重装ubuntu——记一次辛酸血泪史/最小化窗口.png">
-<meta property="og:updated_time" content="2019-09-14T05:33:57.128Z">
+<meta property="og:updated_time" content="2019-09-14T07:54:47.896Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ubuntu笔记：重装ubuntu——记一次辛酸血泪史">
 <meta name="twitter:description" content="本文参考自：https://blog.csdn.net/Spacegene/article/details/86659349 这是不久前我踩过的一个巨坑，在这里我想先强调一下：不要升级linux发行版！！！重要的事情说三遍！！！不要升级linux发行版！！！重要的事情说三遍！！！不要升级linux发行版！！！重要的事情说三遍！！！为什么？不要问我为什么。我按系统提示升级ubuntu到18.04LT">
@@ -366,7 +366,7 @@
 <li><h3 id="U盘"><a href="#U盘" class="headerlink" title="U盘"></a>U盘</h3>准备一个2G以上的无用的U盘，或者备份好里面的文件。然后将其格式化。</li>
 <li><h3 id="镜像"><a href="#镜像" class="headerlink" title="镜像"></a>镜像</h3>下载<a href="http://releases.ubuntu.com/16.04/ubuntu-16.04.6-desktop-amd64.iso" target="_blank">ubuntu16.04LTS镜像</a>到本地。</li>
 <li><h3 id="删除分区"><a href="#删除分区" class="headerlink" title="删除分区"></a>删除分区</h3>你可以通过控制面板中的创建并格式化硬盘分区来看到你的windows与ubuntu分区的情况。（以下操作都是针对重装，不再重新分区，需要的可以自行上网查找教程）<br>在重新安装ubuntu16.04之前我们需要删除原先Ubuntu的EFI分区及启动引导项，这里推荐直接使用windows下的diskpart来删除。<br>使用win+R输入diskpart打开diskpart.exe，允许其对设备进行更改。<img src="/2019/09/14/ubuntu笔记：重装ubuntu——记一次辛酸血泪史/diskpart.png" title="diskpart">
-接下来使用如下命令查看分区，我的笔记本只有一块SSD，两个系统都装在上面，故进入disk 0.<img src="/2019/09/14/ubuntu笔记：重装ubuntu——记一次辛酸血泪史/查看分区信息.png" title="查看分区信息">
+接下来使用如下命令查看分区，我的笔记本只有一块SSD，两个系统都装在上面，故进入disk 0。<img src="/2019/09/14/ubuntu笔记：重装ubuntu——记一次辛酸血泪史/查看分区信息.png" title="查看分区信息">
 其中类型未知的便是分给ubuntu的分区，我这里有一块8G的swap分区和60G的/分区。<br>接下来执行如下命令：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">select partition 7</span><br><span class="line">delete partition override #删除该分区</span><br><span class="line">select partition 8</span><br><span class="line">delete partition override #删除该分区</span><br></pre></td></tr></table></figure>
 
 </li>
@@ -378,7 +378,7 @@
 <ol start="4">
 <li><h3 id="删除ubuntu启动引导项"><a href="#删除ubuntu启动引导项" class="headerlink" title="删除ubuntu启动引导项"></a>删除ubuntu启动引导项</h3>首先下载<a href="https://www.easyuefi.com/index-us.html" target="_blank">EasyUEFI</a>，使用免费试用版即可。<br>下载完成后安装，打开EasyUEFI如图：<img src="/2019/09/14/ubuntu笔记：重装ubuntu——记一次辛酸血泪史/EasyUEFI.png" title="EasyUEFI">
 选择管理EFI启动选项Manage EFI Boot Option，然后选择ubuntu启动引导项，点击中间的删除按钮来删除该引导项。<br>现在重新启动，你会发现已经没有让你选择系统的引导界面，而是直接进入windows系统。</li>
-<li><h3 id="制作启动U盘"><a href="#制作启动U盘" class="headerlink" title="制作启动U盘"></a>制作启动U盘</h3>首先我们下载一个免费的U盘制作工具<a href="https://rufus.ie/" target="_blank">rufus</a><br>此时插入已经格式化的U盘，打开rufus，一般情况下它会自动选择U盘，你也可以在device选项下手动选择或确认。<br>点击select，选择之前下载好的镜像文件。<br>其他设置保留默认即可，不放心的话可以比对下图：<img src="/2019/09/14/ubuntu笔记：重装ubuntu——记一次辛酸血泪史/rufus.png" title="rufus">
+<li><h3 id="制作启动U盘"><a href="#制作启动U盘" class="headerlink" title="制作启动U盘"></a>制作启动U盘</h3>首先我们下载一个免费的U盘制作工具<a href="https://rufus.ie/" target="_blank">rufus</a>。<br>此时插入已经格式化的U盘，打开rufus，一般情况下它会自动选择U盘，你也可以在device选项下手动选择或确认。<br>点击select，选择之前下载好的镜像文件。<br>其他设置保留默认即可，不放心的话可以比对下图：<img src="/2019/09/14/ubuntu笔记：重装ubuntu——记一次辛酸血泪史/rufus.png" title="rufus">
 然后start开始制作。如果此时rufus提示需要下载一些其它文件，选择Yes继续即可。<br>没有问题的话制作完的U盘会如图所示：<img src="/2019/09/14/ubuntu笔记：重装ubuntu——记一次辛酸血泪史/此时的U盘.png" title="此时的U盘">
 在下面的步骤中，请一直插着U盘不要拔。</li>
 </ol>
