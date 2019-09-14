@@ -79,20 +79,20 @@
 
 
 
-<meta name="description" content="anaconda是一个开源的包、环境管理器，可以比较有效地配置多个虚拟环境，当python入门到一定程度时，安装anaconda是很必要的。前段时间室友学习python的时候问到过我一些相关的问题，我就在这里简单写一些我知道的以及我搜集到的知识。 环境变量安装anaconda过程中一个很重要的步骤就是配置环境变量，网上有很多手动添加环境变量的教程，其实很简单，只需添加三个路径，当然更简单的是直接在">
+<meta name="description" content="anaconda是一个开源的包、环境管理器，可以比较有效地配置多个虚拟环境，当python入门到一定程度时，安装anaconda是很必要的。前段时间室友学习python的时候问到过我一些相关的问题，我就在这里简单写一些我知道的以及我搜集到的知识。  环境变量安装anaconda过程中一个很重要的步骤就是配置环境变量，网上有很多手动添加环境变量的教程，其实很简单，只需添加三个路径，当然更简单的是直接">
 <meta property="og:type" content="article">
 <meta property="og:title" content="anaconda笔记：conda的各种命令行操作">
 <meta property="og:url" content="http://yoursite.com/2019/09/13/anaconda笔记：conda的各种命令行操作/index.html">
 <meta property="og:site_name" content="高深远的天地">
-<meta property="og:description" content="anaconda是一个开源的包、环境管理器，可以比较有效地配置多个虚拟环境，当python入门到一定程度时，安装anaconda是很必要的。前段时间室友学习python的时候问到过我一些相关的问题，我就在这里简单写一些我知道的以及我搜集到的知识。 环境变量安装anaconda过程中一个很重要的步骤就是配置环境变量，网上有很多手动添加环境变量的教程，其实很简单，只需添加三个路径，当然更简单的是直接在">
+<meta property="og:description" content="anaconda是一个开源的包、环境管理器，可以比较有效地配置多个虚拟环境，当python入门到一定程度时，安装anaconda是很必要的。前段时间室友学习python的时候问到过我一些相关的问题，我就在这里简单写一些我知道的以及我搜集到的知识。  环境变量安装anaconda过程中一个很重要的步骤就是配置环境变量，网上有很多手动添加环境变量的教程，其实很简单，只需添加三个路径，当然更简单的是直接">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2019/09/13/anaconda笔记：conda的各种命令行操作/conda环境列表.png">
 <meta property="og:image" content="http://yoursite.com/2019/09/13/anaconda笔记：conda的各种命令行操作/虚拟环境切换.png">
 <meta property="og:image" content="http://yoursite.com/2019/09/13/anaconda笔记：conda的各种命令行操作/查看kernel.png">
-<meta property="og:updated_time" content="2019-09-13T16:20:58.509Z">
+<meta property="og:updated_time" content="2019-09-14T00:05:37.461Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="anaconda笔记：conda的各种命令行操作">
-<meta name="twitter:description" content="anaconda是一个开源的包、环境管理器，可以比较有效地配置多个虚拟环境，当python入门到一定程度时，安装anaconda是很必要的。前段时间室友学习python的时候问到过我一些相关的问题，我就在这里简单写一些我知道的以及我搜集到的知识。 环境变量安装anaconda过程中一个很重要的步骤就是配置环境变量，网上有很多手动添加环境变量的教程，其实很简单，只需添加三个路径，当然更简单的是直接在">
+<meta name="twitter:description" content="anaconda是一个开源的包、环境管理器，可以比较有效地配置多个虚拟环境，当python入门到一定程度时，安装anaconda是很必要的。前段时间室友学习python的时候问到过我一些相关的问题，我就在这里简单写一些我知道的以及我搜集到的知识。  环境变量安装anaconda过程中一个很重要的步骤就是配置环境变量，网上有很多手动添加环境变量的教程，其实很简单，只需添加三个路径，当然更简单的是直接">
 <meta name="twitter:image" content="http://yoursite.com/2019/09/13/anaconda笔记：conda的各种命令行操作/conda环境列表.png">
 
 
@@ -346,14 +346,18 @@
 
       
         <p>anaconda是一个开源的包、环境管理器，可以比较有效地配置多个虚拟环境，当python入门到一定程度时，安装anaconda是很必要的。前段时间室友学习python的时候问到过我一些相关的问题，我就在这里简单写一些我知道的以及我搜集到的知识。</p>
+<hr>
 <h1 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h1><p>安装anaconda过程中一个很重要的步骤就是配置环境变量，网上有很多手动添加环境变量的教程，其实很简单，只需添加三个路径，当然更简单的是直接在安装的时候添加到path（可以无视warning）。我想在这里写的是环境变量的概念问题，其实直到不久前帮同学安装我才明白。<br>环境变量是指在操作系统中用来指定操作系统运行环境的一些参数。当要求系统运行一个程序而没有告诉它程序所在的完整路径时，系统除了在当前目录下面寻找此程序外，还会到path中指定的路径去找。这就是为什么不添加C:\Users\用户名\Anaconda3\Scripts到path就无法执行conda命令，因为此时conda.exe无法被找到。</p>
+<hr>
 <h1 id="conda与pip"><a href="#conda与pip" class="headerlink" title="conda与pip"></a>conda与pip</h1><p>利用conda install与pip install命令来安装各种包的过程中，想必你也对两者之间的区别很疑惑，下面我就总结一下我搜集到的相关解答。<br>简而言之，pip是python包的通用管理器，而conda是一个与语言无关的跨平台环境管理器。对我们而言，最显着的区别可能是这样的：pip在任何环境中安装python包，conda安装在conda环境中装任何包。因此往往conda list的数量会大于pip list。<br>要注意的是，如果使用conda install多个环境时，对于同一个包只需要安装一次，有conda集中进行管理。<br>但是如果使用pip，因为每个环境安装使用的pip在不同的路径下，故会重复安装，而包会从缓存中取。<br>总的来说，我推荐尽早安装anaconda并且使用conda来管理python的各种包。</p>
+<hr>
 <h1 id="升级"><a href="#升级" class="headerlink" title="升级"></a>升级</h1><p>我们可以在命令行中或者anaconda prompt中执行命令进行操作。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">conda update conda #升级conda</span><br><span class="line">conda update anaconda #升级anaconda前要先升级conda</span><br><span class="line">conda update --all #升级所有包</span><br></pre></td></tr></table></figure>
 
 <p>在升级完成之后，我们可以使用命令来清理一些无用的包以释放一些空间：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">conda clean -p #删除没有用的包</span><br><span class="line">conda clean -t #删除保存下来的压缩文件（.tar）</span><br></pre></td></tr></table></figure>
 
+<hr>
 <h1 id="虚拟环境"><a href="#虚拟环境" class="headerlink" title="虚拟环境"></a>虚拟环境</h1><p>conda list命令用于查看conda下的包，而conda env list命令可以用来查看conda创建的所有虚拟环境。</p>
 <img src="/2019/09/13/anaconda笔记：conda的各种命令行操作/conda环境列表.png" title="conda环境列表">
 <p>下面就简述一下如何创建这些虚拟环境。<br>使用如下命令，可以创建一个新的环境：<br><code>conda create -n Python27 python=2.7</code><br>其中Python27是自定义的一个名称，而python=2.7是一个格式，可以变动等号右边的数字来改变python环境的kernel版本，这里我们安装的是python2.7版本（将于2020年停止维护）。<br>在anaconda prompt中，我们可以看到我们处在的是base环境下，也就是我安装的python3环境下，我们可以使用下面两个命令来切换环境：</p>
@@ -361,6 +365,7 @@
 <p>在创建环境的过程中，难免会不小心取了个难听的环境名，别担心，我们有方法来删除环境。<br><code>conda remove -n 难听的名字 --all</code><br>有时候一个环境已经配置好了，但我们想要重命名，这怎么办呢？可以这样办：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">conda create -n 新名字 --clone 老名字</span><br><span class="line">conda remove -n 老名字 --all</span><br></pre></td></tr></table></figure>
 
+<hr>
 <h1 id="把环境添加到jupyter-notebook"><a href="#把环境添加到jupyter-notebook" class="headerlink" title="把环境添加到jupyter notebook"></a>把环境添加到jupyter notebook</h1><p>首先通过activate进入想要添加的环境中，然后安装ipykernel，接下来就可以进行添加了。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install ipykernel</span><br><span class="line">python -m ipykernel install --name Python27 #Python27可以取与环境名不一样的名字，但方便起见建议统一</span><br></pre></td></tr></table></figure>
 
@@ -400,6 +405,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/09/14/html笔记：制作web时的一些小技巧与小问题/" rel="prev" title="html笔记：制作web时的一些小技巧与小问题">
+                html笔记：制作web时的一些小技巧与小问题 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -479,7 +488,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -706,7 +715,7 @@
         notify: false,
         appId: 'SVKPF4oiwJLMtpySQxvJLnLm-gzGzoHsz',
         appKey: '46OfvvEe65XMeUi79STU895I',
-        placeholder: '随便想一个昵称，写下您的鼓励、疑惑或者吐槽吧~',
+        placeholder: '随便想一个昵称，写下您的意见、疑惑或者鼓励吧~',
         avatar:'wavatar',
         guest_info:guest,
         pageSize:'10' || 10,
