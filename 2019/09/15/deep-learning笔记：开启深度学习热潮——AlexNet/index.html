@@ -88,7 +88,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2019/09/15/deep-learning笔记：开启深度学习热潮——AlexNet/AlexNet.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/09/15/deep-learning笔记：开启深度学习热潮——AlexNet/chrome阅读插件.png">
-<meta property="og:updated_time" content="2019-09-15T04:27:40.316Z">
+<meta property="og:updated_time" content="2019-09-15T04:30:05.420Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="deep learning笔记：开启深度学习热潮——AlexNet">
 <meta name="twitter:description" content="继之前那篇deep-learning笔记：着眼于深度——VGG简介与pytorch实现，我觉得还是有必要提一下VGG的前辈——具有历史意义的AlexNet，于是就写了这篇文章简要介绍一下。  简介 ALexNet是第一个运用大型深度卷积神经网络的模型，在ILSVRC中一下子比前一年把错误率降低了10%，这是非常惊人的，也很快引起了注意。于是，自2012年开始，深度学习热潮由此引发。根据我之前听网课">
@@ -377,7 +377,7 @@
 </li>
 </ol>
 <hr>
-<h1 id="论文"><a href="#论文" class="headerlink" title="论文"></a>论文</h1><p>在放论文之前，我还是先贴一张流程图，方便在阅读论文的时候进行对照与理解。<br><br>下面奉上宝贵的论文：<br><a href="AlexNet.pdf" target="_blank">论文原版</a><br><a href="AlexNet中文.pdf" target="_blank">论文中文版</a><br>从introduction第一句开始，作者就开始了常常的吐槽：<br>Current approaches to object recognition make essential use of machine learning methods…<br>吐槽Yann LeCun大佬的论文被顶会拒收了仅仅因为Yann LeCun使用了神经网络。其实，那段时间之前，由于SVM等机器学习方法的兴起，神经网路是一种被许多ml大佬们看不起的算法模型。<br>在introduction的最后，作者留下了这样一句经典的话：<br>All of our experiments suggest that our results can be improved simply by waiting for faster GPUs and bigger datasets to become available.<br>有没有感觉到一种新世界大门被打开的感觉呢？<br>有关论文别的内容，我暂不多说了，大家可以自己看论文学习与体会。</p>
+<h1 id="论文"><a href="#论文" class="headerlink" title="论文"></a>论文</h1><p>在放论文之前，我还是先贴一张流程图，方便在阅读论文的时候进行对照与理解。<br><br>下面奉上宝贵的论文：<br><a href="AlexNet.pdf" target="_blank">论文原版</a><br><a href="AlexNet中文.pdf" target="_blank">论文中文版</a><br>从introduction第一句开始，作者就开始了一段长长的吐槽：<br>Current approaches to object recognition make essential use of machine learning methods…<br>吐槽Yann LeCun大佬的论文被顶会拒收了仅仅因为Yann LeCun使用了神经网络。其实，那段时间之前，由于SVM等机器学习方法的兴起，神经网路是一种被许多ml大佬们看不起的算法模型。<br>在introduction的最后，作者留下了这样一句经典的话：<br>All of our experiments suggest that our results can be improved simply by waiting for faster GPUs and bigger datasets to become available.<br>有没有感觉到一种新世界大门被打开的感觉呢？<br>有关论文别的内容，我暂不多说了，大家可以自己看论文学习与体会。</p>
 <hr>
 <h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><p>同我写VGG的那篇文章中一样，我在英文原版中用黄颜色高亮了我觉得重要的内容给自己和大家今后参考。<br>另外，我在这里推荐大家还是先尝试阅读英文原版。一方面由于一些公式、符号以及名词的原因，英文原版叙述更精准，中文翻译有缺漏、偏颇之处；另一方面更重要的，接触这些方面的知识仅参考中文是远远不够的。<br>在这里我推荐一个chrome英文pdf阅读插件，大家可以自己到chrome里面搜索安装：<br><img src="/2019/09/15/deep-learning笔记：开启深度学习热潮——AlexNet/chrome阅读插件.png" title="chrome阅读插件"><br>有了这个插件，遇到不认识的单词，只需双击单词，就可以看到中文释义，一定程度上可以保证阅读的流畅性。但是如果想从根本上解决问题，只有好好背单词吧（我也在朝这个方向努力…）。<br>另外，iPad的上也有好多强大的app，在这里不一一推荐了。</p>
 
