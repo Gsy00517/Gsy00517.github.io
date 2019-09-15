@@ -79,26 +79,23 @@
 
 
 
-<meta name="description" content="大一有一段时间，我沉迷于web前端制作网页，比较熟练地掌握了html的语法，还根据需要接触了一些CSS以及js的内容。说白了，html只是一种标记语言（不属于编程语言），但是它简单易学，且很容易获得可视化的效果，对于培养兴趣而言我感觉是很有帮助的。油管up主，现哈佛在读学霸John Fish（请科学上网）当初就是从html进入计算机世界的。下面贴一个我自己做的网页，是综合web三大语言编写的，大一">
+<meta name="description" content="在接触了一定量这方面的指示后，大家一定会对正则化这个词不陌生，但是我感觉这个词的字面意思不能够直接地反映出它的完整概念。因此我打算写一篇文章做个记录，方便以后回忆。  线性代数中的正则化如果直接搜索正则化这个名词，首先得到的一般是代数几何中的一个概念。百度词条对它的解释是：给平面不可约代数曲线以某种形式的全纯参数表示。怎么样？是不是觉得一头雾水。这里我推荐使用谷歌或者维基百科来查询这些专业名词。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="html笔记：制作web时的一些小技巧与小问题">
-<meta property="og:url" content="http://yoursite.com/2019/09/14/html笔记：制作web时的一些小技巧与小问题/index.html">
+<meta property="og:title" content="machine learning笔记：机器学习中正则化的理解">
+<meta property="og:url" content="http://yoursite.com/2019/09/15/machine-learning笔记：机器学习中正则化的理解/index.html">
 <meta property="og:site_name" content="高深远的博客">
-<meta property="og:description" content="大一有一段时间，我沉迷于web前端制作网页，比较熟练地掌握了html的语法，还根据需要接触了一些CSS以及js的内容。说白了，html只是一种标记语言（不属于编程语言），但是它简单易学，且很容易获得可视化的效果，对于培养兴趣而言我感觉是很有帮助的。油管up主，现哈佛在读学霸John Fish（请科学上网）当初就是从html进入计算机世界的。下面贴一个我自己做的网页，是综合web三大语言编写的，大一">
+<meta property="og:description" content="在接触了一定量这方面的指示后，大家一定会对正则化这个词不陌生，但是我感觉这个词的字面意思不能够直接地反映出它的完整概念。因此我打算写一篇文章做个记录，方便以后回忆。  线性代数中的正则化如果直接搜索正则化这个名词，首先得到的一般是代数几何中的一个概念。百度词条对它的解释是：给平面不可约代数曲线以某种形式的全纯参数表示。怎么样？是不是觉得一头雾水。这里我推荐使用谷歌或者维基百科来查询这些专业名词。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2019/09/14/html笔记：制作web时的一些小技巧与小问题/前端三大语言.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/09/14/html笔记：制作web时的一些小技巧与小问题/大一做的简单网页.png">
-<meta property="og:image" content="http://yoursite.com/2019/09/14/html笔记：制作web时的一些小技巧与小问题/打开菜鸟教程.png">
-<meta property="og:image" content="http://yoursite.com/2019/09/14/html笔记：制作web时的一些小技巧与小问题/推荐插件.png">
-<meta property="og:image" content="http://yoursite.com/2019/09/14/html笔记：制作web时的一些小技巧与小问题/输入！.png">
-<meta property="og:image" content="http://yoursite.com/2019/09/14/html笔记：制作web时的一些小技巧与小问题/快速生成.png">
-<meta property="og:image" content="http://yoursite.com/2019/09/14/html笔记：制作web时的一些小技巧与小问题/解决方法1.png">
-<meta property="og:image" content="http://yoursite.com/2019/09/14/html笔记：制作web时的一些小技巧与小问题/解决方法2.png">
-<meta property="og:updated_time" content="2019-09-15T00:35:54.449Z">
+<meta property="og:image" content="http://yoursite.com/2019/09/15/machine-learning笔记：机器学习中正则化的理解/早停法.png">
+<meta property="og:image" content="http://yoursite.com/2019/09/15/machine-learning笔记：机器学习中正则化的理解/复杂度与数据量对性能的影响.png">
+<meta property="og:image" content="http://yoursite.com/2019/09/15/machine-learning笔记：机器学习中正则化的理解/数据增强.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/09/15/machine-learning笔记：机器学习中正则化的理解/dropout神经单元.png">
+<meta property="og:image" content="http://yoursite.com/2019/09/15/machine-learning笔记：机器学习中正则化的理解/dropout神经网络.png">
+<meta property="og:updated_time" content="2019-09-15T08:02:35.362Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="html笔记：制作web时的一些小技巧与小问题">
-<meta name="twitter:description" content="大一有一段时间，我沉迷于web前端制作网页，比较熟练地掌握了html的语法，还根据需要接触了一些CSS以及js的内容。说白了，html只是一种标记语言（不属于编程语言），但是它简单易学，且很容易获得可视化的效果，对于培养兴趣而言我感觉是很有帮助的。油管up主，现哈佛在读学霸John Fish（请科学上网）当初就是从html进入计算机世界的。下面贴一个我自己做的网页，是综合web三大语言编写的，大一">
-<meta name="twitter:image" content="http://yoursite.com/2019/09/14/html笔记：制作web时的一些小技巧与小问题/前端三大语言.jpg">
+<meta name="twitter:title" content="machine learning笔记：机器学习中正则化的理解">
+<meta name="twitter:description" content="在接触了一定量这方面的指示后，大家一定会对正则化这个词不陌生，但是我感觉这个词的字面意思不能够直接地反映出它的完整概念。因此我打算写一篇文章做个记录，方便以后回忆。  线性代数中的正则化如果直接搜索正则化这个名词，首先得到的一般是代数几何中的一个概念。百度词条对它的解释是：给平面不可约代数曲线以某种形式的全纯参数表示。怎么样？是不是觉得一头雾水。这里我推荐使用谷歌或者维基百科来查询这些专业名词。">
+<meta name="twitter:image" content="http://yoursite.com/2019/09/15/machine-learning笔记：机器学习中正则化的理解/早停法.png">
 
 
 
@@ -128,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/09/14/html笔记：制作web时的一些小技巧与小问题/">
+  <link rel="canonical" href="http://yoursite.com/2019/09/15/machine-learning笔记：机器学习中正则化的理解/">
 
 
 
 
 
-  <title>html笔记：制作web时的一些小技巧与小问题 | 高深远的博客</title>
+  <title>machine learning笔记：机器学习中正则化的理解 | 高深远的博客</title>
   
 
 
@@ -273,7 +270,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/14/html笔记：制作web时的一些小技巧与小问题/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/15/machine-learning笔记：机器学习中正则化的理解/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="高深远">
@@ -290,7 +287,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">html笔记：制作web时的一些小技巧与小问题</h1>
+          <h1 class="post-title" itemprop="name headline">machine learning笔记：机器学习中正则化的理解</h1>
         
 
         <div class="post-meta">
@@ -302,8 +299,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-14T08:02:24+08:00">
-                2019-09-14
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-15T15:03:39+08:00">
+                2019-09-15
               </time>
             
 
@@ -321,8 +318,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/09/14/html笔记：制作web时的一些小技巧与小问题/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/09/14/html笔记：制作web时的一些小技巧与小问题/" itemprop="commentCount"></span>
+                <a href="/2019/09/15/machine-learning笔记：机器学习中正则化的理解/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/09/15/machine-learning笔记：机器学习中正则化的理解/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -344,7 +341,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  699字
+                  942字
                 </span>
               
 
@@ -360,7 +357,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2分钟
+                  3分钟
                 </span>
               
             </div>
@@ -381,20 +378,32 @@
       
 
       
-        <p>大一有一段时间，我沉迷于web前端制作网页，比较熟练地掌握了html的语法，还根据需要接触了一些CSS以及js的内容。说白了，html只是一种标记语言（不属于编程语言），但是它简单易学，且很容易获得可视化的效果，对于培养兴趣而言我感觉是很有帮助的。油管up主，现哈佛在读学霸<a href="https://www.youtube.com/channel/UC5Gmg-VtFmnP8qLq8V7Pvtg" target="_blank">John Fish</a>（请科学上网）当初就是从html进入计算机世界的。下面贴一个我自己做的网页，是综合web三大语言编写的，大一的时候把自己需要的网站都放上面了，也有一种归属感吧。<br><img src="/2019/09/14/html笔记：制作web时的一些小技巧与小问题/前端三大语言.jpg" title="前端三大语言"><br><img src="/2019/09/14/html笔记：制作web时的一些小技巧与小问题/大一做的简单网页.png" title="大一做的简单网页"><br><img src="/2019/09/14/html笔记：制作web时的一些小技巧与小问题/打开菜鸟教程.png" title="打开菜鸟教程"><br>主页上那个是python之禅，也是我很喜欢的一段文字，在python环境下import this就可以看到。由于上面的网页是我学web的时候边看书边编的，各种元素都尝试了一下，最后也没有美化一直到现在，所以大佬们勿喷哈。</p>
+        <p>在接触了一定量这方面的指示后，大家一定会对正则化这个词不陌生，但是我感觉这个词的字面意思不能够直接地反映出它的完整概念。因此我打算写一篇文章做个记录，方便以后回忆。</p>
 <hr>
-<h1 id="小技巧"><a href="#小技巧" class="headerlink" title="小技巧"></a>小技巧</h1><p>我这里强烈推荐使用VScode写前端，它有很多强大的插件，我这里推荐其中一个吧。<br><img src="/2019/09/14/html笔记：制作web时的一些小技巧与小问题/推荐插件.png" title="推荐插件"><br>如介绍所写，使用alt+B快捷键可以直接在默认浏览器下查看你写的网页，而shift+alt+B可以选浏览器查看，因为有些时候microsoft自带的edge浏览器无法实现你编写的效果（巨坑），推荐使用chrome打开浏览。使用这个插件能让你更快捷地预览你编写的效果并进行修改，大大提高了效率。<br>其他的插件网上有很多推荐，也等待着你自己去发现，这里就不一一列出了。<br>还有一个快捷的操作就是快速生成代码块，在VScode中是这样操作的（其他编辑器也应该类似）：</p>
+<h1 id="线性代数中的正则化"><a href="#线性代数中的正则化" class="headerlink" title="线性代数中的正则化"></a>线性代数中的正则化</h1><p>如果直接搜索正则化这个名词，首先得到的一般是代数几何中的一个概念。<br>百度词条对它的解释是：给平面不可约代数曲线以某种形式的全纯参数表示。<br>怎么样？是不是觉得一头雾水。<br>这里我推荐使用谷歌或者维基百科来查询这些专业名词。</p>
+<blockquote>
+<p>对于不能科学上网的朋友，没关系，我这里提供了<a href="http://ac.scmor.com/" target="_blank">谷歌镜像</a>和<a href="https://www.wikiwand.com/" target="_blank">wikiwand</a>，大家可以在上面得到一样的搜索结果。</p>
+</blockquote>
+<p>我们直接到维基百科搜索regularization：<br>里面第一段是这样解释的：In mathematics, statistics, and computer science, particularly in machine learning and inverse problems, regularization is the process of adding information in order to solve an ill-posed problem or to prevent overfitting.<br>这就和我们在机器学习应用中的目的比较相近了。</p>
+<h1 id="机器学习中的正则化"><a href="#机器学习中的正则化" class="headerlink" title="机器学习中的正则化"></a>机器学习中的正则化</h1><p>在机器学习中，正则化是一种为了减小测试误差的行为（有时候会增加训练误差）。<br>我们在构造机器学习模型时，最终目的是让模型在面对新数据的时候，可以有很好的表现。当你用比较复杂的模型比如神经网络去拟合数据时，很容易出现过拟合现象（训练集表现很好，测试集表现较差），这会导致模型的泛化能力下降，这时候，我们就需要使用正则化，来降低模型的复杂度。<br>为了加深印象，我下面简单介绍几种常用的机器学习正则化方法：</p>
 <ol>
-<li>输入一个！：<img src="/2019/09/14/html笔记：制作web时的一些小技巧与小问题/输入！.png" title="输入！"></li>
-<li>按tab键或者回车：<img src="/2019/09/14/html笔记：制作web时的一些小技巧与小问题/快速生成.png" title="快速生成">
-这样就可以节省很多时间，非常方便。</li>
-</ol>
-<hr>
-<h1 id="小问题"><a href="#小问题" class="headerlink" title="小问题"></a>小问题</h1><p>在我想使用web来打开我本地的txt文件时，我遇到过这样一个问题：打开的中文文档在浏览器中显示为乱码。在尝试其他浏览器后，我发现这不是浏览器的问题。最后我大致找到了两种解决办法：</p>
-<ol>
-<li>一种是找到head下面的meta charset，修改代码如下：<img src="/2019/09/14/html笔记：制作web时的一些小技巧与小问题/解决方法1.png" title="解决方法1"></li>
-<li>另一种是另存为文件时修改一下格式，这里我们修改成“UTF-8”。另外我室友在使用python导入文件的时候也因为格式导致报错，修改成ANSI后即可。<img src="/2019/09/14/html笔记：制作web时的一些小技巧与小问题/解决方法2.png" title="解决方法2">
-希望通过上面两种方法的尝试能让你解决乱码问题，几种编码格式的区别在这里暂不说明，以后有空补上。</li>
+<li><h3 id="早停法（Early-Stopping）"><a href="#早停法（Early-Stopping）" class="headerlink" title="早停法（Early Stopping）"></a>早停法（Early Stopping）</h3>早停法，就是当训练集的误差变好，但是验证集的误差变坏（即泛化效果变差）的时候停止训练。这种方法可以一定程度上有效地防止过拟合，同时这也说明了验证集在机器学习中的重要性。<img src="/2019/09/15/machine-learning笔记：机器学习中正则化的理解/早停法.png" title="早停法"></li>
+<li><h3 id="权重正则化法"><a href="#权重正则化法" class="headerlink" title="权重正则化法"></a>权重正则化法</h3><p>因为噪声相比于正常信号而言，通常会在某些点出现较大的峰值。所以，只要我们保证权重系数在绝对值意义上足够小，就能够保证噪声不会被过度相应，这也是奥卡姆剃刀原理的表现，即模型不应过度复杂，尤其是当数据量不大的时候。</p>
+<img src="/2019/09/15/machine-learning笔记：机器学习中正则化的理解/复杂度与数据量对性能的影响.png" title="复杂度与数据量对性能的影响">
+<p>权重正则化主要有两种：</p>
+<ul>
+<li>L1正则：$ J=J_{0}+\lambda \left | w \right |_{1} $，其中J代表损失函数，$ \left | w \right |_{1} $代表参数向量w的L1范数。</li>
+<li>L2正则（weight decay）：$ J=J_{0}+\lambda \left | w \right |_{2} $，其中$ \left | w \right |_{2} $代表参数向量w的L2范数。<blockquote>
+<p>补充：L0范数：向量中非零元素的个数。<br>L1范数：向量中每个元素绝对值的和。<br>L2范数：向量元素绝对值的平方和再平方。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><h3 id="数据增强"><a href="#数据增强" class="headerlink" title="数据增强"></a>数据增强</h3><p>数据增强可以丰富图像数据集，有效防止过拟合。这种方法在AlexNet中有很好的应用，大家可以看看我的博文<a href="https://gsy00517.github.io/2019/09/15/deep-learning笔记%EF%BC%9A开启深度学习热潮——AlexNet/" target="_blank">deep-learning笔记：开启深度学习热潮——AlexNet</a>。</p>
+<img src="/2019/09/15/machine-learning笔记：机器学习中正则化的理解/数据增强.jpg" title="数据增强"></li>
+<li><h3 id="随机失活（dropout）"><a href="#随机失活（dropout）" class="headerlink" title="随机失活（dropout）"></a>随机失活（dropout）</h3>dropout即随机砍掉一部分神经元之间的连接，每次只更新一部分，这可以有效地增加它的鲁棒性，提高泛化能力。<img src="/2019/09/15/machine-learning笔记：机器学习中正则化的理解/dropout神经单元.png" title="dropout神经单元">
+<img src="/2019/09/15/machine-learning笔记：机器学习中正则化的理解/dropout神经网络.png" title="dropout神经网络">
+以上就是比较常规且流行的正则化方式，今后或许会有补充，也欢迎大家提供意见~</li>
 </ol>
 
       
@@ -420,8 +429,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/09/13/anaconda笔记：conda的各种命令行操作/" rel="next" title="anaconda笔记：conda的各种命令行操作">
-                <i class="fa fa-chevron-left"></i> anaconda笔记：conda的各种命令行操作
+              <a href="/2019/09/15/deep-learning笔记：开启深度学习热潮——AlexNet/" rel="next" title="deep learning笔记：开启深度学习热潮——AlexNet">
+                <i class="fa fa-chevron-left"></i> deep learning笔记：开启深度学习热潮——AlexNet
               </a>
             
           </div>
@@ -429,10 +438,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/09/14/windows笔记：释放空间/" rel="prev" title="windows笔记：释放空间">
-                windows笔记：释放空间 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -550,7 +555,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#小技巧"><span class="nav-number">1.</span> <span class="nav-text">小技巧</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#小问题"><span class="nav-number">2.</span> <span class="nav-text">小问题</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#线性代数中的正则化"><span class="nav-number">1.</span> <span class="nav-text">线性代数中的正则化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#机器学习中的正则化"><span class="nav-number">2.</span> <span class="nav-text">机器学习中的正则化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#早停法（Early-Stopping）"><span class="nav-number">2.0.1.</span> <span class="nav-text">早停法（Early Stopping）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#权重正则化法"><span class="nav-number">2.0.2.</span> <span class="nav-text">权重正则化法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据增强"><span class="nav-number">2.0.3.</span> <span class="nav-text">数据增强</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#随机失活（dropout）"><span class="nav-number">2.0.4.</span> <span class="nav-text">随机失活（dropout）</span></a></li></ol></li></ol></div>
             
 
           </div>
