@@ -79,12 +79,12 @@
 
 
 
-<meta name="description" content="本文参考自：https://blog.csdn.net/xiaohuihui1994/article/details/89207534 VGG是我第一个自己编程实践的卷积神经网络，也是挺高兴的，下面我就对VGG在这篇文章中做一个分享。  简介VGG模型在2014年取得了ILSVRC竞赛的第二名，第一名是GoogLeNet。但是VGG在多个迁移学习任务中的表现要优于googLeNet。  相比之前的">
+<meta name="description" content="本文参考自：https://blog.csdn.net/xiaohuihui1994/article/details/89207534https://blog.csdn.net/sinat_33487968/article/details/83584289 VGG是我第一个自己编程实践的卷积神经网络，也是挺高兴的，下面我就对VGG在这篇文章中做一个分享。  简介VGG模型在2014年取得了ILSV">
 <meta property="og:type" content="article">
 <meta property="og:title" content="deep learning笔记：着眼于深度——VGG简介与pytorch实现">
 <meta property="og:url" content="http://yoursite.com/2019/09/15/deep-learning笔记：着眼于深度——VGG简介与pytorch实现/index.html">
 <meta property="og:site_name" content="高深远的博客">
-<meta property="og:description" content="本文参考自：https://blog.csdn.net/xiaohuihui1994/article/details/89207534 VGG是我第一个自己编程实践的卷积神经网络，也是挺高兴的，下面我就对VGG在这篇文章中做一个分享。  简介VGG模型在2014年取得了ILSVRC竞赛的第二名，第一名是GoogLeNet。但是VGG在多个迁移学习任务中的表现要优于googLeNet。  相比之前的">
+<meta property="og:description" content="本文参考自：https://blog.csdn.net/xiaohuihui1994/article/details/89207534https://blog.csdn.net/sinat_33487968/article/details/83584289 VGG是我第一个自己编程实践的卷积神经网络，也是挺高兴的，下面我就对VGG在这篇文章中做一个分享。  简介VGG模型在2014年取得了ILSV">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2019/09/15/deep-learning笔记：着眼于深度——VGG简介与pytorch实现/ILSVRC历年winner表现.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/09/15/deep-learning笔记：着眼于深度——VGG简介与pytorch实现/VGG结构.png">
@@ -95,10 +95,10 @@
 <meta property="og:image" content="https://latex.codecogs.com/gif.latex?X=%5Cfrac%7BW+2P-F%7D%7BS%7D+1">
 <meta property="og:image" content="https://latex.codecogs.com/gif.latex?Y=%5Cfrac%7BH+2P-F%7D%7BS%7D+1">
 <meta property="og:image" content="http://yoursite.com/2019/09/15/deep-learning笔记：着眼于深度——VGG简介与pytorch实现/报错2.png">
-<meta property="og:updated_time" content="2019-09-15T01:44:59.739Z">
+<meta property="og:updated_time" content="2019-09-15T01:50:42.838Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="deep learning笔记：着眼于深度——VGG简介与pytorch实现">
-<meta name="twitter:description" content="本文参考自：https://blog.csdn.net/xiaohuihui1994/article/details/89207534 VGG是我第一个自己编程实践的卷积神经网络，也是挺高兴的，下面我就对VGG在这篇文章中做一个分享。  简介VGG模型在2014年取得了ILSVRC竞赛的第二名，第一名是GoogLeNet。但是VGG在多个迁移学习任务中的表现要优于googLeNet。  相比之前的">
+<meta name="twitter:description" content="本文参考自：https://blog.csdn.net/xiaohuihui1994/article/details/89207534https://blog.csdn.net/sinat_33487968/article/details/83584289 VGG是我第一个自己编程实践的卷积神经网络，也是挺高兴的，下面我就对VGG在这篇文章中做一个分享。  简介VGG模型在2014年取得了ILSV">
 <meta name="twitter:image" content="http://yoursite.com/2019/09/15/deep-learning笔记：着眼于深度——VGG简介与pytorch实现/ILSVRC历年winner表现.jpg">
 
 
@@ -351,7 +351,7 @@
       
 
       
-        <p>本文参考自：<a href="https://blog.csdn.net/xiaohuihui1994/article/details/89207534" target="_blank" rel="noopener">https://blog.csdn.net/xiaohuihui1994/article/details/89207534</a></p>
+        <p>本文参考自：<a href="https://blog.csdn.net/xiaohuihui1994/article/details/89207534" target="_blank" rel="noopener">https://blog.csdn.net/xiaohuihui1994/article/details/89207534</a><br><a href="https://blog.csdn.net/sinat_33487968/article/details/83584289" target="_blank" rel="noopener">https://blog.csdn.net/sinat_33487968/article/details/83584289</a></p>
 <p>VGG是我第一个自己编程实践的卷积神经网络，也是挺高兴的，下面我就对VGG在这篇文章中做一个分享。</p>
 <hr>
 <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>VGG模型在2014年取得了ILSVRC竞赛的第二名，第一名是GoogLeNet。但是VGG在多个迁移学习任务中的表现要优于googLeNet。</p>
