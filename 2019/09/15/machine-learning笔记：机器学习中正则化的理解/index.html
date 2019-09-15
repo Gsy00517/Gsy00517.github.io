@@ -92,7 +92,7 @@
 <meta property="og:image" content="http://yoursite.com/2019/09/15/machine-learning笔记：机器学习中正则化的理解/数据增强.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/09/15/machine-learning笔记：机器学习中正则化的理解/dropout神经单元.png">
 <meta property="og:image" content="http://yoursite.com/2019/09/15/machine-learning笔记：机器学习中正则化的理解/dropout神经网络.png">
-<meta property="og:updated_time" content="2019-09-15T08:15:25.938Z">
+<meta property="og:updated_time" content="2019-09-15T08:25:12.604Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="machine learning笔记：机器学习中正则化的理解">
 <meta name="twitter:description" content="在接触了一定量这方面的指示后，大家一定会对正则化这个词不陌生，但是我感觉这个词的字面意思不能够直接地反映出它的完整概念。因此我打算写一篇文章做个记录，方便以后回忆。  线性代数中的正则化如果直接搜索正则化这个名词，首先得到的一般是代数几何中的一个概念。百度词条对它的解释是：给平面不可约代数曲线以某种形式的全纯参数表示。怎么样？是不是觉得一头雾水。这里我推荐使用谷歌或者维基百科来查询这些专业名词。">
@@ -386,6 +386,7 @@
 <p>对于不能科学上网的朋友，没关系，我这里提供了<a href="http://ac.scmor.com/" target="_blank">谷歌镜像</a>和<a href="https://www.wikiwand.com/" target="_blank">wikiwand</a>，大家可以在上面得到一样的搜索结果。</p>
 </blockquote>
 <p>我们直接到维基百科搜索regularization：<br>里面第一段是这样解释的：In mathematics, statistics, and computer science, particularly in machine learning and inverse problems, regularization is the process of adding information in order to solve an ill-posed problem or to prevent overfitting.<br>这就和我们在机器学习应用中的目的比较相近了。</p>
+<hr>
 <h1 id="机器学习中的正则化"><a href="#机器学习中的正则化" class="headerlink" title="机器学习中的正则化"></a>机器学习中的正则化</h1><p>在机器学习中，正则化是一种为了减小测试误差的行为（有时候会增加训练误差）。<br>我们在构造机器学习模型时，最终目的是让模型在面对新数据的时候，可以有很好的表现。当你用比较复杂的模型比如神经网络去拟合数据时，很容易出现过拟合现象（训练集表现很好，测试集表现较差），这会导致模型的泛化能力下降，这时候，我们就需要使用正则化，来降低模型的复杂度。<br>为了加深印象，我下面简单介绍几种常用的机器学习正则化方法：</p>
 <ol>
 <li><h3 id="早停法（Early-Stopping）"><a href="#早停法（Early-Stopping）" class="headerlink" title="早停法（Early Stopping）"></a>早停法（Early Stopping）</h3>早停法，就是当训练集的误差变好，但是验证集的误差变坏（即泛化效果变差）的时候停止训练。这种方法可以一定程度上有效地防止过拟合，同时这也说明了验证集在机器学习中的重要性。<img src="/2019/09/15/machine-learning笔记：机器学习中正则化的理解/早停法.png" title="早停法"></li>
