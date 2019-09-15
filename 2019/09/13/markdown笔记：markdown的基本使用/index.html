@@ -349,25 +349,22 @@
 <h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>Markdown是一种可以使用普通文本编辑器编写的标记语言，其功能比纯文本更强，因此许多程序员用它来写blog。在这里我先推荐一款markdown编辑器——<a href="https://www.typora.io/" target="_blank">typora</a>，大家可以免费下载使用。</p>
 <hr>
 <h1 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h1><p>在我刚开始使用markdown的时候总是跳进这个坑，在这里提上来提醒一下，在使用markdown标记后要添加文字时，需要在相应标记后空一格，否则标记也会被当作文本来处理，例如我输入“#####错误”时：</p>
-<p>#####错误<br>正确的做法是输入“##### 正确”：</p>
+<h5 id="错误"><a href="#错误" class="headerlink" title="错误"></a>错误</h5><p>正确的做法是输入“##### 正确”：</p>
 <h5 id="正确"><a href="#正确" class="headerlink" title="正确"></a>正确</h5><p>一种简单的判别方法就是使用IDE，这样对应的标记就会有语法高亮。</p>
 <hr>
 <h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><ol>
 <li><h3 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h3>话不多说，直接示范：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 这是一级标题</span><br><span class="line">## 这是二级标题</span><br><span class="line">### 这是三级标题</span><br><span class="line">#### 这是四级标题</span><br><span class="line">##### 这是五级标题</span><br><span class="line">###### 这是六级标题</span><br></pre></td></tr></table></figure>
-
 </li>
 </ol>
 <p>效果如下：</p>
 <h1 id="这是一级标题"><a href="#这是一级标题" class="headerlink" title="这是一级标题"></a>这是一级标题</h1><h2 id="这是二级标题"><a href="#这是二级标题" class="headerlink" title="这是二级标题"></a>这是二级标题</h2><h3 id="这是三级标题"><a href="#这是三级标题" class="headerlink" title="这是三级标题"></a>这是三级标题</h3><h4 id="这是四级标题"><a href="#这是四级标题" class="headerlink" title="这是四级标题"></a>这是四级标题</h4><h5 id="这是五级标题"><a href="#这是五级标题" class="headerlink" title="这是五级标题"></a>这是五级标题</h5><h6 id="这是六级标题"><a href="#这是六级标题" class="headerlink" title="这是六级标题"></a>这是六级标题</h6><p>为了方便阅读，我约定自己一般仅使用一、三、五级三种标题。</p>
-<ol start="2">
+<ol>
 <li><h3 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h3>还是直接示范：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">**这是加粗的文字**</span><br><span class="line">*这是倾斜的文字*`</span><br><span class="line">***这是斜体加粗的文字***</span><br><span class="line">~~这是加删除线的文字~~</span><br></pre></td></tr></table></figure>
-
 </li>
 </ol>
 <p><strong>这是加粗的文字</strong><br><em>这是倾斜的文字</em><br><strong><em>这是斜体加粗的文字</em></strong><br><del>这是加删除线的文字</del></p>
-<ol start="3">
+<ol>
 <li><h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;我引用</span><br><span class="line">&gt;&gt;我还引用</span><br><span class="line">&gt;&gt;&gt;&gt;&gt;&gt;我再引用</span><br></pre></td></tr></table></figure>
-
 </li>
 </ol>
 <blockquote>
@@ -401,28 +398,23 @@
 </blockquote>
 </blockquote>
 <p>引用是可以嵌套的，可以加很多层，我一般使用一个&gt;来表示额外的需要注意的内容。另外，如果想让下一段文字不被引用，需要空一行。</p>
-<ol start="4">
+<ol>
 <li><h3 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h3>分割线使用三个及以上的<code>-</code>或<code>*</code>就可以。<br>有时候用<code>---</code>会造成别的文字的格式变化，因此我在使用VScode编辑时，如果看到<code>---</code>被高亮（分割线正常其作用时应该不高亮），就会改用<code>***</code>。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">***</span><br></pre></td></tr></table></figure>
-
 </li>
 </ol>
 <p>效果如下：</p>
-<hr>
-<hr>
-<ol start="5">
+<h2 id><a href="#" class="headerlink" title="*"></a><em>*</em></h2><ol>
 <li><h3 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h3>markdown中添加图片的语法是这样的：<br><code>![显示在图片下方的文字]（图片地址 &quot;图片title&quot;）</code><br>其中title可加可不加，它就是鼠标移动到图片上时显示的文字。<br>然而我在使用hexo搭建我的个人博客的过程中，遇到了使用上述语法图片却无法显示的情况，因此我改用了下列标签插件：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% asset_img xxxxx.xxx 图片下方的名字 %&#125;</span><br></pre></td></tr></table></figure>
-
 </li>
 </ol>
 <p>其中xxxxx.xxx只需直接输入图片名称以及格式即可，因为我使用了hexo-asset-image插件，它可以在_posts文件中创建与博文名称相同的对应的文件夹，只需把图片移入即可。<br>其安装命令：<code>npm install hexo-asset-image --save</code><br>也可用cnpm更快地安装：<code>cnpm install hexo-asset-image --save</code></p>
-<ol start="6">
+<ol>
 <li><h3 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a>超链接</h3>由于我希望在新的页面打开链接，而似乎markdown本身的语法不支持在新标签页打开链接，因此我推荐直接使用html语言来代替。<br><code>&lt;a href=&quot;超链接地址&quot; target=&quot;_blank&quot;&gt;超链接名&lt;/a&gt;</code></li>
 <li><h3 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h3></li>
 </ol>
 <ul>
 <li><p>无序列表</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- 列表内容</span><br><span class="line">+ 列表内容</span><br><span class="line">* 列表内容</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>列表内容</li>
 </ul>
@@ -435,7 +427,6 @@
 </li>
 <li><p>有序列表</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. 列表内容</span><br><span class="line">2. 列表内容</span><br><span class="line">3. 列表内容</span><br></pre></td></tr></table></figure>
-
 <ol>
 <li>列表内容</li>
 <li>列表内容</li>
@@ -443,38 +434,40 @@
 </ol>
 </li>
 </ul>
-<ol start="8">
+<ol>
 <li><h3 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">表头|表头|表头</span><br><span class="line">---|:--:|---:</span><br><span class="line">内容|内容|内容</span><br><span class="line">内容|内容|内容</span><br></pre></td></tr></table></figure>
-
 </li>
 </ol>
+<div class="table-container">
 <table>
 <thead>
 <tr>
 <th>表头</th>
-<th align="center">表头</th>
-<th align="right">表头</th>
+<th style="text-align:center">表头</th>
+<th style="text-align:right">表头</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>内容</td>
-<td align="center">内容</td>
-<td align="right">内容</td>
+<td style="text-align:center">内容</td>
+<td style="text-align:right">内容</td>
 </tr>
 <tr>
 <td>内容</td>
-<td align="center">内容</td>
-<td align="right">内容</td>
+<td style="text-align:center">内容</td>
+<td style="text-align:right">内容</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p>其中第二行的作用分割表头和内容，<code>-</code>有一个就行，为了对齐可多加几个。<br>此外文字默认居左，有两种改变方法：<br>两边加：表示文字居中。<br>右边加：表示文字居右。</p>
-<ol start="9">
+<ol>
 <li><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3>最后的最后，是我最喜欢ctrl+C+V的代码了。<br>单行或句中代码显示方式：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`来复制我呀`</span><br></pre></td></tr></table></figure>
-
 </li>
 </ol>
-<p>其中`在键盘的左上角，我当初找了好久。<br>多行代码块的写法就是用上下两对```围住。<br>好了于是你现在就可以自由的复制粘贴啦。</p>
-<img src="/2019/09/13/markdown笔记：markdown的基本使用/如何写代码.JPG" title="如何写代码">
+<p>其中`在键盘的左上角，我当初找了好久。<br>多行代码块的写法就是用上下两对```围住。<br>好了于是你现在就可以自由的复制粘贴啦。<br><img src="/2019/09/13/markdown笔记：markdown的基本使用/如何写代码.JPG" title="如何写代码"></p>
+
       
     </div>
     
@@ -590,7 +583,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -627,7 +620,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#介绍"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#注意"><span class="nav-number">2.</span> <span class="nav-text">注意</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#正确"><span class="nav-number">2.0.0.0.1.</span> <span class="nav-text">正确</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#使用"><span class="nav-number">3.</span> <span class="nav-text">使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#标题"><span class="nav-number">3.0.1.</span> <span class="nav-text">标题</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#这是一级标题"><span class="nav-number">4.</span> <span class="nav-text">这是一级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#这是二级标题"><span class="nav-number">4.1.</span> <span class="nav-text">这是二级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#这是三级标题"><span class="nav-number">4.1.1.</span> <span class="nav-text">这是三级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#这是四级标题"><span class="nav-number">4.1.1.1.</span> <span class="nav-text">这是四级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#这是五级标题"><span class="nav-number">4.1.1.1.1.</span> <span class="nav-text">这是五级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#这是六级标题"><span class="nav-number">4.1.1.1.1.1.</span> <span class="nav-text">这是六级标题</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字体"><span class="nav-number">4.1.2.</span> <span class="nav-text">字体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引用"><span class="nav-number">4.1.3.</span> <span class="nav-text">引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分割线"><span class="nav-number">4.1.4.</span> <span class="nav-text">分割线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图片"><span class="nav-number">4.1.5.</span> <span class="nav-text">图片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#超链接"><span class="nav-number">4.1.6.</span> <span class="nav-text">超链接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#列表"><span class="nav-number">4.1.7.</span> <span class="nav-text">列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#表格"><span class="nav-number">4.1.8.</span> <span class="nav-text">表格</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码"><span class="nav-number">4.1.9.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#介绍"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#注意"><span class="nav-number">2.</span> <span class="nav-text">注意</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#错误"><span class="nav-number">2.0.0.0.1.</span> <span class="nav-text">错误</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#正确"><span class="nav-number">2.0.0.0.2.</span> <span class="nav-text">正确</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#使用"><span class="nav-number">3.</span> <span class="nav-text">使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#标题"><span class="nav-number">3.0.1.</span> <span class="nav-text">标题</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#这是一级标题"><span class="nav-number">4.</span> <span class="nav-text">这是一级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#这是二级标题"><span class="nav-number">4.1.</span> <span class="nav-text">这是二级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#这是三级标题"><span class="nav-number">4.1.1.</span> <span class="nav-text">这是三级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#这是四级标题"><span class="nav-number">4.1.1.1.</span> <span class="nav-text">这是四级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#这是五级标题"><span class="nav-number">4.1.1.1.1.</span> <span class="nav-text">这是五级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#这是六级标题"><span class="nav-number">4.1.1.1.1.1.</span> <span class="nav-text">这是六级标题</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字体"><span class="nav-number">4.1.2.</span> <span class="nav-text">字体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引用"><span class="nav-number">4.1.3.</span> <span class="nav-text">引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分割线"><span class="nav-number">4.1.4.</span> <span class="nav-text">分割线</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">4.2.</span> <span class="nav-text">*</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#图片"><span class="nav-number">4.2.1.</span> <span class="nav-text">图片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#超链接"><span class="nav-number">4.2.2.</span> <span class="nav-text">超链接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#列表"><span class="nav-number">4.2.3.</span> <span class="nav-text">列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#表格"><span class="nav-number">4.2.4.</span> <span class="nav-text">表格</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码"><span class="nav-number">4.2.5.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></li></div>
             
 
           </div>
@@ -1168,6 +1161,28 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
 
   
 
