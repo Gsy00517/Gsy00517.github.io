@@ -88,7 +88,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2019/09/17/hexo笔记：在linux（ubuntu）下安装使用/版本过低.png">
 <meta property="og:image" content="http://yoursite.com/2019/09/17/hexo笔记：在linux（ubuntu）下安装使用/升级.png">
-<meta property="og:updated_time" content="2019-09-17T01:50:18.364Z">
+<meta property="og:updated_time" content="2019-09-19T05:44:55.646Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo笔记：在linux（ubuntu）下安装使用">
 <meta name="twitter:description" content="本文参考自：https://blog.csdn.net/y5492853/article/details/79529410 之前一直在win10下使用hexo搭建部署博客，方法参见：hexo笔记：开始创建个人博客——方法及原因。那么，如果想在linux环境下使用hexo，该如何操作呢？  原因由于在更改主题配置文件_config.yml时，长达八百多行的配置文件总是让我找得头晕目眩。由于vscod">
@@ -312,8 +312,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-09-17T09:50:18+08:00">
-                2019-09-17
+              <time title="更新于" itemprop="dateModified" datetime="2019-09-19T13:44:55+08:00">
+                2019-09-19
               </time>
             
           </span>
@@ -403,7 +403,7 @@
 <hr>
 <h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><p>由于在更改主题配置文件_config.yml时，长达八百多行的配置文件总是让我找得头晕目眩。由于vscode（好像）没有提供字符的快速查找匹配功能，我之前一直采用一种笨拙的办法，即在文件的空处输入想要查找的字符然后左键选中，这个时候文件中同样的字符也会被选中，这样快速拉动滚动条时就可以比较明显地发现想找的目标字符了。<br>然而对于这种办法，我觉得主要有两大问题：</p>
 <ol>
-<li><h3 id="忘记删除在空白处添加地文字"><a href="#忘记删除在空白处添加地文字" class="headerlink" title="忘记删除在空白处添加地文字"></a>忘记删除在空白处添加地文字</h3>我就犯过这样低级的错误，找到并更改之后没有删除自己添加的字符就直接快乐地ctrl+S了，于是就造成了网站能打开但是一片空白的bug。所以大家没事还是不要随意在主题配置文件中添加文字。</li>
+<li><h3 id="忘记删除在空白处添加的文字"><a href="#忘记删除在空白处添加的文字" class="headerlink" title="忘记删除在空白处添加的文字"></a>忘记删除在空白处添加的文字</h3>我就犯过这样低级的错误，找到并更改之后没有删除自己添加的字符就直接快乐地ctrl+S了，于是就造成了网站能打开但是一片空白的bug。所以大家没事还是不要随意在主题配置文件中添加文字。</li>
 <li><h3 id="不是长久之计"><a href="#不是长久之计" class="headerlink" title="不是长久之计"></a>不是长久之计</h3>虽然这个八百多行的文件已经让我够呛了，然后或许今后还会遇到更长的文件，那么这种方法就会变得极其低效（而且伤眼睛）。<br>基于这些因素，我脑子里的第一个反映就是vim编辑器中的对文件字符的查找定位的功能（关于vim的使用，等我多多尝试并熟练之后再做小结）。<br>好了，接下来就开始操作吧。</li>
 </ol>
 <hr>
@@ -569,7 +569,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#原因"><span class="nav-number">1.</span> <span class="nav-text">原因</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#忘记删除在空白处添加地文字"><span class="nav-number">1.0.1.</span> <span class="nav-text">忘记删除在空白处添加地文字</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不是长久之计"><span class="nav-number">1.0.2.</span> <span class="nav-text">不是长久之计</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#安装"><span class="nav-number">2.</span> <span class="nav-text">安装</span></a></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#原因"><span class="nav-number">1.</span> <span class="nav-text">原因</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#忘记删除在空白处添加的文字"><span class="nav-number">1.0.1.</span> <span class="nav-text">忘记删除在空白处添加的文字</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不是长久之计"><span class="nav-number">1.0.2.</span> <span class="nav-text">不是长久之计</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#安装"><span class="nav-number">2.</span> <span class="nav-text">安装</span></a></li></div>
             
 
           </div>
