@@ -94,7 +94,7 @@
 <meta property="og:image" content="http://yoursite.com/2019/09/15/deep-learning笔记：着眼于深度——VGG简介与pytorch实现/报错1.png">
 <meta property="og:image" content="http://yoursite.com/2019/09/15/deep-learning笔记：着眼于深度——VGG简介与pytorch实现/错误原因.png">
 <meta property="og:image" content="http://yoursite.com/2019/09/15/deep-learning笔记：着眼于深度——VGG简介与pytorch实现/报错2.png">
-<meta property="og:updated_time" content="2019-09-16T02:47:21.769Z">
+<meta property="og:updated_time" content="2019-09-30T11:39:41.888Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="deep learning笔记：着眼于深度——VGG简介与pytorch实现">
 <meta name="twitter:description" content="本文参考自：https://blog.csdn.net/xiaohuihui1994/article/details/89207534https://blog.csdn.net/sinat_33487968/article/details/83584289 VGG是我第一个自己编程实践的卷积神经网络，也是挺高兴的，下面我就对VGG在这篇文章中做一个分享。  简介VGG模型在2014年取得了ILSV">
@@ -318,8 +318,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-09-16T10:47:21+08:00">
-                2019-09-16
+              <time title="更新于" itemprop="dateModified" datetime="2019-09-30T19:39:41+08:00">
+                2019-09-30
               </time>
             
           </span>
@@ -367,7 +367,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  3.3k字
+                  3.4k字
                 </span>
               
 
@@ -423,7 +423,7 @@
 <ol>
 <li><h3 id="输入输出不匹配"><a href="#输入输出不匹配" class="headerlink" title="输入输出不匹配"></a>输入输出不匹配</h3>当我第一遍运行时，出现了一个RuntimeError：<img src="/2019/09/15/deep-learning笔记：着眼于深度——VGG简介与pytorch实现/报错1.png" title="报错1">
 这是一个超级低级的错误，经学长提醒后我才发现，我两个卷积层之间输出输入的channel数并不匹配：<img src="/2019/09/15/deep-learning笔记：着眼于深度——VGG简介与pytorch实现/错误原因.png" title="错误原因">
-唉又是ctrl+C+V惹的祸，改正后的网络可以参见上文。<br>在这里，我想提醒我自己和大家注意一下卷积层输入输出的维度公式：<br>假设输入的宽、高记为W、H。<br>超参数中，卷积核的维度是F，stride步长是S，padding是P。<br>那么输出的宽X与高Y可用如下公式表示：<script type="math/tex; mode=display">X=\frac{W+2P-F}{S}+1\</script><script type="math/tex; mode=display">Y=\frac{H+2P-F}{S}+1\</script></li>
+唉又是ctrl+C+V惹的祸，改正后的网络可以参见上文。<br>在这里，我想提醒我自己和大家注意一下卷积层输入输出的维度公式：<br>假设输入的宽、高记为W、H。<br>超参数中，卷积核的维度是F，stride步长是S，padding是P。<br>那么输出的宽X与高Y可用如下公式表示：<script type="math/tex; mode=display">X=\frac{W+2P-F}{S}+1\</script><script type="math/tex; mode=display">Y=\frac{H+2P-F}{S}+1\</script>然而，当我在计算ResNet的维度的时候，发现套用这个公式是除不尽的。于是我搜索到了如下规则：<br>1.对卷积层操作，除不尽时，向下取整。<br>2.对池化层操作，除不尽时，向上取整。</li>
 <li><h3 id="没有把张量转化成一维向量"><a href="#没有把张量转化成一维向量" class="headerlink" title="没有把张量转化成一维向量"></a>没有把张量转化成一维向量</h3>上面的问题解决了，结果还有错误：<img src="/2019/09/15/deep-learning笔记：着眼于深度——VGG简介与pytorch实现/报错2.png" title="报错2">
 根据报错，可以发现3584x7是等于25088的，结合pytorch官方文档，我意识到我在把张量输入全连接层时，没有把它拍扁成一维。因此，我按照官方文档添加了如下代码：<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">x = x.view(<span class="number">-1</span>, self.num_flat_features(x))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">num_flat_features</span><span class="params">(self, x)</span>:</span></span><br><span class="line">    size = x.size()[<span class="number">1</span>:]  <span class="comment">#all dimensions except the batch dimension</span></span><br><span class="line">    num_features = <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> s <span class="keyword">in</span> size:</span><br><span class="line">        num_features *= s</span><br><span class="line">    <span class="keyword">return</span> num_features</span><br></pre></td></tr></table></figure>
 </li>
@@ -623,7 +623,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">16k</span>
+    <span title="Site words total count">16.1k</span>
   
 </div>
 
