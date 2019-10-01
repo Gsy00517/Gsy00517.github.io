@@ -100,7 +100,7 @@
 <meta property="og:image" content="http://yoursite.com/2019/10/01/deep-learning笔记：学习率衰减与批归一化/BN操作过程.png">
 <meta property="og:image" content="http://yoursite.com/2019/10/01/deep-learning笔记：学习率衰减与批归一化/BN训练流程.png">
 <meta property="og:image" content="http://yoursite.com/2019/10/01/deep-learning笔记：学习率衰减与批归一化/仿射变换.png">
-<meta property="og:updated_time" content="2019-10-01T09:43:00.132Z">
+<meta property="og:updated_time" content="2019-10-01T09:45:34.071Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="deep learning笔记：学习率衰减与批归一化">
 <meta name="twitter:description" content="本文参考自：https://blog.csdn.net/bestrivern/article/details/86301619https://www.jianshu.com/p/9643cba47655https://www.cnblogs.com/eilearn/p/9780696.htmlhttps://blog.csdn.net/donkey_1993/article/details/818">
@@ -324,7 +324,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-10-01T17:43:00+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-10-01T17:45:34+08:00">
                 2019-10-01
               </time>
             
@@ -418,7 +418,7 @@
 <h1 id="直接修改学习率"><a href="#直接修改学习率" class="headerlink" title="直接修改学习率"></a>直接修改学习率</h1><p>在吴恩达的机器学习课程中，他介绍了一种人为选择学习率的规则：每三倍选择一个学习率。<br>比如：我们首先选择了0.1为学习率，那么当这个学习率过大时，我们修改成0.3。倘若还是偏大，我们继续改为0.01、0.003、0.001…以此类推，当学习率偏小是也是以三倍增加并尝试检验，最终选出比较合适的学习率。<br>但这种方法只适用于模型数量小的情况，且这种方法终究还是固定的学习率，依旧无法很好地权衡从而达到前期快速下降与后期稳定收敛的目的。</p>
 <hr>
 <h1 id="学习率动态衰减"><a href="#学习率动态衰减" class="headerlink" title="学习率动态衰减"></a>学习率动态衰减</h1><p>学习率衰减的本质在于，在学习初期，你能承受并且需要较大的步伐，但当开始收敛的时候，小一些的学习率能让你步伐小一些，从而更稳定地达到精确的最优解。<br>为此，我们另外增添衰减率超参数，构建函数使学习率能够在训练的过程中动态衰减。</p>
-<script type="math/tex; mode=display">\alpha = \frac{1}{1+decayrate*epochnum}*\alpha _{0}\</script><p>其中decay rate称为衰减率，epoch num是代数，$ \alpha _{0} $是初始学习率。<br>此外还有下面这些构造方法：<br>指数衰减：$ \alpha =0.95^{epochnum}*\alpha _{0} $</p>
+<script type="math/tex; mode=display">\alpha = \frac{1}{1+decayrate*epochnum}*\alpha _{0}\</script><p>其中decay rate称为衰减率，epoch num是代数，$ \alpha _{0} $是初始学习率。<br>此外还有下面这些构造方法：<br>指数衰减：$ \alpha =0.95^{epochnum}*\alpha _{0} $<br>其他常用方法：</p>
 <script type="math/tex; mode=display">\alpha =\frac{k}{\sqrt{epochnum}}*\alpha _{0}\</script><script type="math/tex; mode=display">\alpha =\frac{k}{\sqrt{t}}\alpha _{0}\</script><p>其中k为mini-batch的数字。</p>
 <hr>
 <h1 id="几种衰减方法的实现"><a href="#几种衰减方法的实现" class="headerlink" title="几种衰减方法的实现"></a>几种衰减方法的实现</h1><p>在pytorch中，学习率调整主要有两种方式：<br>1.直接修改optimizer中的lr参数。<br>2.利用lr_scheduler()提供的几种衰减函数。<br>下面提供几种实现方法：<br>准备（对下列通用）：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">from</span> torch.optim <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"></span><br><span class="line"><span class="comment">#生成一个简单全连接神经网络</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">net</span><span class="params">(nn.Module)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        super(net, self).__init__()</span><br><span class="line">        self.fc = nn.Linear(<span class="number">1</span>, <span class="number">10</span>)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span><span class="params">(self, x)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.fc(x)</span><br></pre></td></tr></table></figure></p>
