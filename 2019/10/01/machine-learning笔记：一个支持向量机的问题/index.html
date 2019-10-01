@@ -80,19 +80,20 @@
 
 
 
-<meta name="description" content="前一篇讲了如何清理windows下的空间，然而虽然ubuntu中垃圾文件没win10那么多，可是我给ubuntu分配的空间比win10少得多了，于是我又找了些清理ubuntu的方法。   删除apt-get下载的软件包直接在终端执行sudo apt-get autoclean 删除缓存的所有软件包sudo apt-get clean 删除其他软件依赖的但现在已不用的软件包sudo apt-get">
+<meta name="description" content="在学习机器学习理论的过程中，支持向量机（SVM）应该是我们会遇到的第一个对数学要求比较高的概念。理解它的原理要花费了我不少时间，写这篇博文是因为我之前看到的一个有关SVM的问题，其解答需用到SVM的相关数学原理，可以促使我思考。支持向量机的具体原理以及推导网上有大量资源，我也会在文中提供一些供参考。  简介支持向量机是一种有监督的学习方法，主要思想是建立一个最优决策超平面，使得该平面两侧距离该平面">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ubuntu笔记：释放空间">
-<meta property="og:url" content="http://yoursite.com/2019/09/14/ubuntu笔记：释放空间/index.html">
+<meta property="og:title" content="machine learning笔记：一个支持向量机的问题">
+<meta property="og:url" content="http://yoursite.com/2019/10/01/machine-learning笔记：一个支持向量机的问题/index.html">
 <meta property="og:site_name" content="高深远的博客">
-<meta property="og:description" content="前一篇讲了如何清理windows下的空间，然而虽然ubuntu中垃圾文件没win10那么多，可是我给ubuntu分配的空间比win10少得多了，于是我又找了些清理ubuntu的方法。   删除apt-get下载的软件包直接在终端执行sudo apt-get autoclean 删除缓存的所有软件包sudo apt-get clean 删除其他软件依赖的但现在已不用的软件包sudo apt-get">
+<meta property="og:description" content="在学习机器学习理论的过程中，支持向量机（SVM）应该是我们会遇到的第一个对数学要求比较高的概念。理解它的原理要花费了我不少时间，写这篇博文是因为我之前看到的一个有关SVM的问题，其解答需用到SVM的相关数学原理，可以促使我思考。支持向量机的具体原理以及推导网上有大量资源，我也会在文中提供一些供参考。  简介支持向量机是一种有监督的学习方法，主要思想是建立一个最优决策超平面，使得该平面两侧距离该平面">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2019/09/14/ubuntu笔记：释放空间/已无残余文件.png">
-<meta property="og:updated_time" content="2019-09-20T06:56:59.593Z">
+<meta property="og:image" content="http://yoursite.com/2019/10/01/machine-learning笔记：一个支持向量机的问题/小故事.JPG">
+<meta property="og:image" content="http://yoursite.com/2019/10/01/machine-learning笔记：一个支持向量机的问题/问题.JPG">
+<meta property="og:updated_time" content="2019-10-01T02:02:20.508Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ubuntu笔记：释放空间">
-<meta name="twitter:description" content="前一篇讲了如何清理windows下的空间，然而虽然ubuntu中垃圾文件没win10那么多，可是我给ubuntu分配的空间比win10少得多了，于是我又找了些清理ubuntu的方法。   删除apt-get下载的软件包直接在终端执行sudo apt-get autoclean 删除缓存的所有软件包sudo apt-get clean 删除其他软件依赖的但现在已不用的软件包sudo apt-get">
-<meta name="twitter:image" content="http://yoursite.com/2019/09/14/ubuntu笔记：释放空间/已无残余文件.png">
+<meta name="twitter:title" content="machine learning笔记：一个支持向量机的问题">
+<meta name="twitter:description" content="在学习机器学习理论的过程中，支持向量机（SVM）应该是我们会遇到的第一个对数学要求比较高的概念。理解它的原理要花费了我不少时间，写这篇博文是因为我之前看到的一个有关SVM的问题，其解答需用到SVM的相关数学原理，可以促使我思考。支持向量机的具体原理以及推导网上有大量资源，我也会在文中提供一些供参考。  简介支持向量机是一种有监督的学习方法，主要思想是建立一个最优决策超平面，使得该平面两侧距离该平面">
+<meta name="twitter:image" content="http://yoursite.com/2019/10/01/machine-learning笔记：一个支持向量机的问题/小故事.JPG">
 
 
 
@@ -122,13 +123,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/09/14/ubuntu笔记：释放空间/">
+  <link rel="canonical" href="http://yoursite.com/2019/10/01/machine-learning笔记：一个支持向量机的问题/">
 
 
 
 
 
-  <title>ubuntu笔记：释放空间 | 高深远的博客</title>
+  <title>machine learning笔记：一个支持向量机的问题 | 高深远的博客</title>
   
 
 
@@ -267,7 +268,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/14/ubuntu笔记：释放空间/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/01/machine-learning笔记：一个支持向量机的问题/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="高深远">
@@ -284,7 +285,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">ubuntu笔记：释放空间</h1>
+          <h1 class="post-title" itemprop="name headline">machine learning笔记：一个支持向量机的问题</h1>
         
 
         <div class="post-meta">
@@ -296,8 +297,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-14T09:48:53+08:00">
-                2019-09-14
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-01T09:34:28+08:00">
+                2019-10-01
               </time>
             
 
@@ -312,8 +313,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-09-20T14:56:59+08:00">
-                2019-09-20
+              <time title="更新于" itemprop="dateModified" datetime="2019-10-01T10:02:20+08:00">
+                2019-10-01
               </time>
             
           </span>
@@ -327,8 +328,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/09/14/ubuntu笔记：释放空间/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/09/14/ubuntu笔记：释放空间/" itemprop="commentCount"></span>
+                <a href="/2019/10/01/machine-learning笔记：一个支持向量机的问题/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/10/01/machine-learning笔记：一个支持向量机的问题/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -336,7 +337,7 @@
 
           
           
-             <span id="/2019/09/14/ubuntu笔记：释放空间/" class="leancloud_visitors" data-flag-title="ubuntu笔记：释放空间">
+             <span id="/2019/10/01/machine-learning笔记：一个支持向量机的问题/" class="leancloud_visitors" data-flag-title="machine learning笔记：一个支持向量机的问题">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -361,7 +362,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  221字
+                  509字
                 </span>
               
 
@@ -398,15 +399,11 @@
       
 
       
-        <p>前一篇讲了如何清理windows下的空间，然而虽然ubuntu中垃圾文件没win10那么多，可是我给ubuntu分配的空间比win10少得多了，于是我又找了些清理ubuntu的方法。</p>
+        <p>在学习机器学习理论的过程中，支持向量机（SVM）应该是我们会遇到的第一个对数学要求比较高的概念。理解它的原理要花费了我不少时间，写这篇博文是因为我之前看到的一个有关SVM的问题，其解答需用到SVM的相关数学原理，可以促使我思考。支持向量机的具体原理以及推导网上有大量资源，我也会在文中提供一些供参考。</p>
 <hr>
-<ol>
-<li><h3 id="删除apt-get下载的软件包"><a href="#删除apt-get下载的软件包" class="headerlink" title="删除apt-get下载的软件包"></a>删除apt-get下载的软件包</h3>直接在终端执行<code>sudo apt-get autoclean</code></li>
-<li><h3 id="删除缓存的所有软件包"><a href="#删除缓存的所有软件包" class="headerlink" title="删除缓存的所有软件包"></a>删除缓存的所有软件包</h3><code>sudo apt-get clean</code></li>
-<li><h3 id="删除其他软件依赖的但现在已不用的软件包"><a href="#删除其他软件依赖的但现在已不用的软件包" class="headerlink" title="删除其他软件依赖的但现在已不用的软件包"></a>删除其他软件依赖的但现在已不用的软件包</h3><code>sudo apt-get autoremove</code><br>这条命令执行后，软件的配置文件还是会保留的。</li>
-<li><h3 id="清除所有已删除包的残余配置文件"><a href="#清除所有已删除包的残余配置文件" class="headerlink" title="清除所有已删除包的残余配置文件"></a>清除所有已删除包的残余配置文件</h3><code>dpkg -l |grep ^rc|awk &#39;{print $2}&#39; |sudo xargs dpkg -P</code><br>这时候如果出现如下错误，那无需担心，因为已经不存在残余的配置文件了。<img src="/2019/09/14/ubuntu笔记：释放空间/已无残余文件.png" title="已无残余文件">
-可以把上面四个命令按顺序执行一遍，就完成了对ubuntu系统的空间释放。</li>
-</ol>
+<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>支持向量机是一种有监督的学习方法，主要思想是建立一个最优决策超平面，使得该平面两侧距离该平面最近的两类样本之间的距离最大化，从而对分类问题提供良好的泛化能力。<br>这里有个小故事，也是我第一次看SVM课程时老师提到的，可以通过这个小故事大致理解一下SVM在做什么。<br><img src="/2019/10/01/machine-learning笔记：一个支持向量机的问题/小故事.JPG" title="小故事"><br>它的优点主要有如下四点：<br>1.相对于其他训练分类算法，SVM不需要过多的样本。<br>2.SVM引入了核函数，可以处理高维的样本。<br>3.结构风险最小。也就是说，分类器对问题真实模型的逼近与真实解之间的累计误差最小。<br>4.由于SVM的非线性，它擅长应付线性不可分的问题。这主要是用松弛变量（惩罚变量）和核函数来实现的。<br>这里我附上我所知的三个SVM的常用软件工具包：<a href="http://svmlight.joachims.org/" target="_blank">SVMLight</a>、<a href="https://www.csie.ntu.edu.tw/~cjlin/libsvm/" target="_blank">LibSVM</a>、<a href="https://www.csie.ntu.edu.tw/~cjlin/liblinear/" target="_blank">Liblinear</a>。</p>
+<hr>
+<p>下面就是我在文章开头提到的问题，直接搬运：<br><img src="/2019/10/01/machine-learning笔记：一个支持向量机的问题/问题.JPG" title="问题"><br>解析中提到的拉格朗日乘子法和KKT方法，也是我在看到这个问题后才尝试去理解的。能力有限，不能自己很好的解释，这里附上<a href="KKT.pdf" target="_blank">瑞典皇家理工学院（KTH）“统计学习基础”课程的KKT课件</a>，个人觉得讲的很直观具体了。</p>
 
       
     </div>
@@ -431,8 +428,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/09/14/windows笔记：释放空间/" rel="next" title="windows笔记：释放空间">
-                <i class="fa fa-chevron-left"></i> windows笔记：释放空间
+              <a href="/2019/09/21/database笔记：范式的理解/" rel="next" title="database笔记：范式的理解">
+                <i class="fa fa-chevron-left"></i> database笔记：范式的理解
               </a>
             
           </div>
@@ -440,10 +437,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/09/14/ubuntu笔记：重装ubuntu——记一次辛酸血泪史/" rel="prev" title="ubuntu笔记：重装ubuntu——记一次辛酸血泪史">
-                ubuntu笔记：重装ubuntu——记一次辛酸血泪史 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -561,7 +554,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#删除apt-get下载的软件包"><span class="nav-number">1.</span> <span class="nav-text">删除apt-get下载的软件包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除缓存的所有软件包"><span class="nav-number">2.</span> <span class="nav-text">删除缓存的所有软件包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除其他软件依赖的但现在已不用的软件包"><span class="nav-number">3.</span> <span class="nav-text">删除其他软件依赖的但现在已不用的软件包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#清除所有已删除包的残余配置文件"><span class="nav-number">4.</span> <span class="nav-text">清除所有已删除包的残余配置文件</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li></ol></div>
             
 
           </div>
