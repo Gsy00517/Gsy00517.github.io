@@ -100,7 +100,7 @@
 <meta property="og:image" content="http://yoursite.com/2019/10/01/deep-learning笔记：学习率衰减与批归一化/BN操作过程.png">
 <meta property="og:image" content="http://yoursite.com/2019/10/01/deep-learning笔记：学习率衰减与批归一化/BN训练流程.png">
 <meta property="og:image" content="http://yoursite.com/2019/10/01/deep-learning笔记：学习率衰减与批归一化/仿射变换.png">
-<meta property="og:updated_time" content="2019-10-01T09:53:50.146Z">
+<meta property="og:updated_time" content="2019-10-01T13:32:58.360Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="deep learning笔记：学习率衰减与批归一化">
 <meta name="twitter:description" content="本文参考自：https://blog.csdn.net/bestrivern/article/details/86301619https://www.jianshu.com/p/9643cba47655https://www.cnblogs.com/eilearn/p/9780696.htmlhttps://blog.csdn.net/donkey_1993/article/details/818">
@@ -324,7 +324,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-10-01T17:53:50+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-10-01T21:32:58+08:00">
                 2019-10-01
               </time>
             
@@ -373,7 +373,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  3.4k字
+                  3.5k字
                 </span>
               
 
@@ -424,6 +424,7 @@
 <h1 id="几种衰减方法的实现"><a href="#几种衰减方法的实现" class="headerlink" title="几种衰减方法的实现"></a>几种衰减方法的实现</h1><p>在pytorch中，学习率调整主要有两种方式：<br>1.直接修改optimizer中的lr参数。<br>2.利用lr_scheduler()提供的几种衰减函数。<br>下面提供几种实现方法：<br>准备（对下列通用）：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">from</span> torch.optim <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"></span><br><span class="line"><span class="comment">#生成一个简单全连接神经网络</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">net</span><span class="params">(nn.Module)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        super(net, self).__init__()</span><br><span class="line">        self.fc = nn.Linear(<span class="number">1</span>, <span class="number">10</span>)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span><span class="params">(self, x)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.fc(x)</span><br></pre></td></tr></table></figure></p>
 <ol>
 <li><h3 id="手动阶梯式衰减"><a href="#手动阶梯式衰减" class="headerlink" title="手动阶梯式衰减"></a>手动阶梯式衰减</h3> <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">model = net()</span><br><span class="line">LR = <span class="number">0.01</span></span><br><span class="line">optimizer = Adam(model.parameters(), lr = LR)</span><br><span class="line"><span class="keyword">for</span> epoch <span class="keyword">in</span> range(<span class="number">100</span>):</span><br><span class="line">    <span class="keyword">if</span> epoch % <span class="number">5</span> == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">for</span> p <span class="keyword">in</span> optimizer.param_groups:</span><br><span class="line">            p[<span class="string">'lr'</span>] *= <span class="number">0.9</span></span><br></pre></td></tr></table></figure>
+<p> 这里是每过5个epoch就进行一次衰减。</p>
  <img src="/2019/10/01/deep-learning笔记：学习率衰减与批归一化/手动阶梯式衰减.png" title="手动阶梯式衰减"></li>
 <li><h3 id="lambda自定义衰减"><a href="#lambda自定义衰减" class="headerlink" title="lambda自定义衰减"></a>lambda自定义衰减</h3> <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np </span><br><span class="line">model = net()</span><br><span class="line">LR = <span class="number">0.01</span></span><br><span class="line">optimizer = Adam(model.parameters(), lr = LR)</span><br><span class="line">lambda1 = <span class="keyword">lambda</span> epoch: np.sin(epoch) / epoch</span><br><span class="line">scheduler = lr_scheduler.LambdaLR(optimizer, lr_lambda = lambda1)</span><br><span class="line"><span class="keyword">for</span> epoch <span class="keyword">in</span> range(<span class="number">100</span>):</span><br><span class="line">    scheduler.step()</span><br></pre></td></tr></table></figure>
 <p> lr_lambda会接收到一个int参数：epoch，然后根据epoch计算出对应的lr。如果设置多个lambda函数的话，会分别作用于optimizer中的不同的params_group。</p>
