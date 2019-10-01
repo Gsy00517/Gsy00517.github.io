@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2019/10/01/machine-learning%E7%AC%94%E8%AE%B0%EF%BC%9A%E8%BF%87%E6%8B%9F%E5%90%88%E4%B8%8E%E6%AC%A0%E6%8B%9F%E5%90%88/</loc>
+    
+    <lastmod>2019-10-01T03:45:18.928Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/09/13/markdown%E7%AC%94%E8%AE%B0%EF%BC%9Amarkdown%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/</loc>
+    
+    <lastmod>2019-10-01T03:06:38.583Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2019/10/01/artificial-intelligence%E7%AC%94%E8%AE%B0%EF%BC%9A%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%89%8D%E6%B2%BF%E5%8F%91%E5%B1%95%E6%83%85%E5%86%B5%E5%88%86%E4%BA%AB/</loc>
     
     <lastmod>2019-10-01T02:43:57.483Z</lastmod>
@@ -47,13 +61,6 @@
     <loc>http://yoursite.com/2019/09/21/database%E7%AC%94%E8%AE%B0%EF%BC%9A%E8%8C%83%E5%BC%8F%E7%9A%84%E7%90%86%E8%A7%A3/</loc>
     
     <lastmod>2019-09-21T13:05:08.458Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2019/09/13/markdown%E7%AC%94%E8%AE%B0%EF%BC%9Amarkdown%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/</loc>
-    
-    <lastmod>2019-09-20T07:00:30.402Z</lastmod>
     
   </url>
   
