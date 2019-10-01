@@ -89,7 +89,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2019/10/01/machine-learning笔记：过拟合与欠拟合/欠拟合与过拟合.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/10/01/machine-learning笔记：过拟合与欠拟合/复杂度与数据量对性能的影响.jpg">
-<meta property="og:updated_time" content="2019-10-01T03:45:18.928Z">
+<meta property="og:updated_time" content="2019-10-01T12:48:35.345Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="machine learning笔记：过拟合与欠拟合">
 <meta name="twitter:description" content="本文介绍在模型评估可能会出现的过拟合与欠拟合两种现象，并对解决方法做一个总结。  解释我们先通过图片来直观地解释这两种现象：在上图中，右边是过拟合的情况，它指的是模型对于训练数据拟合过度，反映到评估指标上，就是模型在训练集上的表现很好，但在测试集和新数据上的表现较差。这是因为在这种条件下，模型过于复杂，导致把噪声数据的特征也学习到了模型中，导致模型的泛化能力下降，从而在后期的应用过程中很容易输出错">
@@ -313,7 +313,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-10-01T11:45:18+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-10-01T20:48:35+08:00">
                 2019-10-01
               </time>
             
@@ -407,7 +407,7 @@
 <li><h2 id="针对过拟合"><a href="#针对过拟合" class="headerlink" title="针对过拟合"></a>针对过拟合</h2><ol>
 <li><h3 id="获取更多数据。"><a href="#获取更多数据。" class="headerlink" title="获取更多数据。"></a>获取更多数据。</h3>更多的样本可以让模型学到更多有效的特征，从而减小噪声的影响。<br>当然，一般情况下直接增加数据是很困难的，因此我们需要通过一定的规则来扩充训练数据。比如，在图像分类问题上，我们可以使用数据增强的方法，通过对图像的平移、旋转、缩放等方式来扩充数据；更进一步地，可以使用生成式对抗网络来合成大量新的训练数据。</li>
 <li><h3 id="降低模型复杂度。"><a href="#降低模型复杂度。" class="headerlink" title="降低模型复杂度。"></a>降低模型复杂度。</h3>模型复杂度过高是数据量较小时过拟合的主要原因。适当降低模型的复杂度可以避免模型拟合过多的噪声。比如，在神经网络模型中减少网络层数、神经元个数等；在决策树模型中降低树的深度、进行剪枝等。<blockquote>
-<p>注意：网络深度增加引起的准确率退化不一定是过拟合引起的，这是因为深度造成的梯度消失、梯度爆炸等问题，这在ResNet的论文中有讨论，详细可以看我的博文。</p>
+<p>注意：网络深度增加引起的准确率退化不一定是过拟合引起的，这是因为深度造成的梯度消失、梯度爆炸等问题，这在ResNet的论文中有讨论，详细可以看我的博文<a href="https://gsy00517.github.io/2019/10/01/deep-learning笔记%EF%BC%9A使网络能够更深——ResNet简介与pytorch实现/" target="_blank">deep-learning笔记：使网络能够更深——ResNet简介与pytorch实现</a>。</p>
 </blockquote>
 </li>
 <li><h3 id="正则化方法。"><a href="#正则化方法。" class="headerlink" title="正则化方法。"></a>正则化方法。</h3>这里的方法主要是权重正则化法，具体说明可以参考<a href="https://gsy00517.github.io/2019/09/15/machine-learning笔记%EF%BC%9A机器学习中正则化的理解/" target="_blank">machine-learning笔记：机器学习中正则化的理解</a>。</li>
