@@ -7,6 +7,10 @@
       <categories>
         <category>人工智能</category>
       </categories>
+      <tags>
+        <tag>深度学习</tag>
+        <tag>pytorch</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[deep learning笔记：学习率衰减与批归一化]]></title>
