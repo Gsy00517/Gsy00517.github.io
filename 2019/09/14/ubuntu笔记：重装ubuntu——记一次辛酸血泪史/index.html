@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-Hans">
+<html class="theme-next gemini use-motion" lang="zh-Hans">
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -76,7 +76,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="ubuntu,安裝教程,">
 
 
 
@@ -89,12 +89,13 @@
 
 
 
-<meta name="description" content="本文参考自：https://blog.csdn.net/Spacegene/article/details/86659349 这是不久前我踩过的一个巨坑，在这里我想先强调一下：不要升级linux发行版！！！重要的事情说三遍！！！不要升级linux发行版！！！重要的事情说三遍！！！不要升级linux发行版！！！重要的事情说三遍！！！为什么？不要问我为什么。我按系统提示升级ubuntu到18.04LT">
+<meta name="description" content="这是不久前我踩过的一个巨坑，在这里我想先强调一下：不要升级linux发行版！！！重要的事情说三遍！！！不要升级linux发行版！！！重要的事情说三遍！！！不要升级linux发行版！！！重要的事情说三遍！！！为什么？不要问我为什么。我按系统提示升级ubuntu到18.04LTS后，就再也进不去系统了。不信你可以尝试一下，你将会看到如下界面：  注：图片来自网络，我就不再为了截图而踩一次坑了。  不仅">
+<meta name="keywords" content="ubuntu,安裝教程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ubuntu笔记：重装ubuntu——记一次辛酸血泪史">
 <meta property="og:url" content="http://yoursite.com/2019/09/14/ubuntu笔记：重装ubuntu——记一次辛酸血泪史/index.html">
 <meta property="og:site_name" content="高深远的博客">
-<meta property="og:description" content="本文参考自：https://blog.csdn.net/Spacegene/article/details/86659349 这是不久前我踩过的一个巨坑，在这里我想先强调一下：不要升级linux发行版！！！重要的事情说三遍！！！不要升级linux发行版！！！重要的事情说三遍！！！不要升级linux发行版！！！重要的事情说三遍！！！为什么？不要问我为什么。我按系统提示升级ubuntu到18.04LT">
+<meta property="og:description" content="这是不久前我踩过的一个巨坑，在这里我想先强调一下：不要升级linux发行版！！！重要的事情说三遍！！！不要升级linux发行版！！！重要的事情说三遍！！！不要升级linux发行版！！！重要的事情说三遍！！！为什么？不要问我为什么。我按系统提示升级ubuntu到18.04LTS后，就再也进不去系统了。不信你可以尝试一下，你将会看到如下界面：  注：图片来自网络，我就不再为了截图而踩一次坑了。  不仅">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2019/09/14/ubuntu笔记：重装ubuntu——记一次辛酸血泪史/一点都不OK！.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/09/14/ubuntu笔记：重装ubuntu——记一次辛酸血泪史/diskpart.png">
@@ -108,10 +109,10 @@
 <meta property="og:image" content="http://yoursite.com/2019/09/14/ubuntu笔记：重装ubuntu——记一次辛酸血泪史/选择窗口.png">
 <meta property="og:image" content="http://yoursite.com/2019/09/14/ubuntu笔记：重装ubuntu——记一次辛酸血泪史/移动窗口.png">
 <meta property="og:image" content="http://yoursite.com/2019/09/14/ubuntu笔记：重装ubuntu——记一次辛酸血泪史/最小化窗口.png">
-<meta property="og:updated_time" content="2019-09-16T13:07:54.411Z">
+<meta property="og:updated_time" content="2019-10-02T07:22:37.413Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ubuntu笔记：重装ubuntu——记一次辛酸血泪史">
-<meta name="twitter:description" content="本文参考自：https://blog.csdn.net/Spacegene/article/details/86659349 这是不久前我踩过的一个巨坑，在这里我想先强调一下：不要升级linux发行版！！！重要的事情说三遍！！！不要升级linux发行版！！！重要的事情说三遍！！！不要升级linux发行版！！！重要的事情说三遍！！！为什么？不要问我为什么。我按系统提示升级ubuntu到18.04LT">
+<meta name="twitter:description" content="这是不久前我踩过的一个巨坑，在这里我想先强调一下：不要升级linux发行版！！！重要的事情说三遍！！！不要升级linux发行版！！！重要的事情说三遍！！！不要升级linux发行版！！！重要的事情说三遍！！！为什么？不要问我为什么。我按系统提示升级ubuntu到18.04LTS后，就再也进不去系统了。不信你可以尝试一下，你将会看到如下界面：  注：图片来自网络，我就不再为了截图而踩一次坑了。  不仅">
 <meta name="twitter:image" content="http://yoursite.com/2019/09/14/ubuntu笔记：重装ubuntu——记一次辛酸血泪史/一点都不OK！.jpg">
 
 
@@ -120,7 +121,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Gemini',
     version: '5.1.4',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
@@ -355,12 +356,34 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-09-16T21:07:54+08:00">
-                2019-09-16
+              <time title="更新于" itemprop="dateModified" datetime="2019-10-02T15:22:37+08:00">
+                2019-10-02
               </time>
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/操作与使用/" itemprop="url" rel="index">
+                    <span itemprop="name">操作与使用</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -441,12 +464,12 @@
       
 
       
-        <p>本文参考自：<a href="https://blog.csdn.net/Spacegene/article/details/86659349" target="_blank" rel="noopener">https://blog.csdn.net/Spacegene/article/details/86659349</a></p>
-<p>这是不久前我踩过的一个巨坑，在这里我想先强调一下：<br><strong>不要升级linux发行版！！！重要的事情说三遍！！！</strong><br><strong>不要升级linux发行版！！！重要的事情说三遍！！！</strong><br><strong>不要升级linux发行版！！！重要的事情说三遍！！！</strong><br>为什么？不要问我为什么。我按系统提示升级ubuntu到18.04LTS后，就再也进不去系统了。不信你可以尝试一下，你将会看到如下界面：<br><img src="/2019/09/14/ubuntu笔记：重装ubuntu——记一次辛酸血泪史/一点都不OK！.jpg" title="一点都不OK！"></p>
+        <p>这是不久前我踩过的一个巨坑，在这里我想先强调一下：<br><strong>不要升级linux发行版！！！重要的事情说三遍！！！</strong><br><strong>不要升级linux发行版！！！重要的事情说三遍！！！</strong><br><strong>不要升级linux发行版！！！重要的事情说三遍！！！</strong><br>为什么？不要问我为什么。我按系统提示升级ubuntu到18.04LTS后，就再也进不去系统了。不信你可以尝试一下，你将会看到如下界面：<br><img src="/2019/09/14/ubuntu笔记：重装ubuntu——记一次辛酸血泪史/一点都不OK！.jpg" title="一点都不OK！"></p>
 <blockquote>
 <p>注：图片来自网络，我就不再为了截图而踩一次坑了。</p>
 </blockquote>
 <p>不仅是图形界面，命令行界面也进不去了（据说可以在重启时选择recovery mode并且狂按回车强行进入界面，但我失败了）。<br>不过如果你真的尝试了并且掉坑里了的话，没关系，你获得了一个很好的重装系统的锻炼机会。下面我们就按步骤锻炼一下。</p>
+<p>本文参考自：<a href="https://blog.csdn.net/Spacegene/article/details/86659349" target="_blank" rel="noopener">https://blog.csdn.net/Spacegene/article/details/86659349</a></p>
 <hr>
 <h1 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h1><ol>
 <li><h3 id="U盘"><a href="#U盘" class="headerlink" title="U盘"></a>U盘</h3>准备一个2G以上的无用的U盘，或者备份好里面的文件。然后将其格式化。</li>
@@ -491,6 +514,35 @@
     <div>
       
         
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2019/09/14/ubuntu笔记：重装ubuntu——记一次辛酸血泪史/">ubuntu笔记：重装ubuntu——记一次辛酸血泪史</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 高深远 的个人博客">高深远</a></p>
+  <p><span>发布时间:</span>2019年09月14日 - 10:09</p>
+  <p><span>最后更新:</span>2019年10月02日 - 15:10</p>
+  <p><span>原始链接:</span><a href="/2019/09/14/ubuntu笔记：重装ubuntu——记一次辛酸血泪史/" title="ubuntu笔记：重装ubuntu——记一次辛酸血泪史">http://yoursite.com/2019/09/14/ubuntu笔记：重装ubuntu——记一次辛酸血泪史/</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2019/09/14/ubuntu笔记：重装ubuntu——记一次辛酸血泪史/" aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+      $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+        });
+    });  
+</script>
+
       
     </div>
 
@@ -501,6 +553,14 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ubuntu/" rel="tag"><i class="fa fa-tag"></i> ubuntu</a>
+          
+            <a href="/tags/安裝教程/" rel="tag"><i class="fa fa-tag"></i> 安裝教程</a>
+          
+        </div>
       
 
       
@@ -627,7 +687,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -638,7 +698,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -833,6 +893,13 @@
 
   
   
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
 
   
   <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
@@ -1402,6 +1469,6 @@
   <script type="text/javascript" src="/js/src/fireworks.js"></script>
   
 
-  <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":true,"log":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":200,"height":400},"mobile":{"show":true},"react":{"opacity":0.7}});</script>
+  <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":true,"log":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":180,"height":360},"mobile":{"show":true},"react":{"opacity":0.7}});</script>
 </body>
 </html>

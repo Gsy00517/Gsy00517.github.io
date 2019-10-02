@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-Hans">
+<html class="theme-next gemini use-motion" lang="zh-Hans">
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -76,7 +76,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="深度学习,代码实现,pytorch,">
 
 
 
@@ -89,12 +89,13 @@
 
 
 
-<meta name="description" content="本文参考自：https://blog.csdn.net/bestrivern/article/details/86301619https://www.jianshu.com/p/9643cba47655https://www.cnblogs.com/eilearn/p/9780696.htmlhttps://blog.csdn.net/donkey_1993/article/details/818">
+<meta name="description" content="一段时间之前，在一个深度学习交流群里看到一个群友发问：为什么他的训练误差最后疯狂上下抖动而不是一直降低。作为一个入门小白，我当时也很疑惑。但后来我结合所学，仔细思考之后，发现这是一个挺容易犯的错误。 本文参考自：https://blog.csdn.net/bestrivern/article/details/86301619https://www.jianshu.com/p/9643cba4765">
+<meta name="keywords" content="深度学习,代码实现,pytorch">
 <meta property="og:type" content="article">
 <meta property="og:title" content="deep learning笔记：学习率衰减与批归一化">
 <meta property="og:url" content="http://yoursite.com/2019/10/01/deep-learning笔记：学习率衰减与批归一化/index.html">
 <meta property="og:site_name" content="高深远的博客">
-<meta property="og:description" content="本文参考自：https://blog.csdn.net/bestrivern/article/details/86301619https://www.jianshu.com/p/9643cba47655https://www.cnblogs.com/eilearn/p/9780696.htmlhttps://blog.csdn.net/donkey_1993/article/details/818">
+<meta property="og:description" content="一段时间之前，在一个深度学习交流群里看到一个群友发问：为什么他的训练误差最后疯狂上下抖动而不是一直降低。作为一个入门小白，我当时也很疑惑。但后来我结合所学，仔细思考之后，发现这是一个挺容易犯的错误。 本文参考自：https://blog.csdn.net/bestrivern/article/details/86301619https://www.jianshu.com/p/9643cba4765">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2019/10/01/deep-learning笔记：学习率衰减与批归一化/群友疑惑.PNG">
 <meta property="og:image" content="http://yoursite.com/2019/10/01/deep-learning笔记：学习率衰减与批归一化/损失函数.png">
@@ -109,10 +110,10 @@
 <meta property="og:image" content="http://yoursite.com/2019/10/01/deep-learning笔记：学习率衰减与批归一化/BN操作过程.png">
 <meta property="og:image" content="http://yoursite.com/2019/10/01/deep-learning笔记：学习率衰减与批归一化/BN训练流程.png">
 <meta property="og:image" content="http://yoursite.com/2019/10/01/deep-learning笔记：学习率衰减与批归一化/仿射变换.png">
-<meta property="og:updated_time" content="2019-10-02T05:50:20.482Z">
+<meta property="og:updated_time" content="2019-10-02T06:59:05.956Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="deep learning笔记：学习率衰减与批归一化">
-<meta name="twitter:description" content="本文参考自：https://blog.csdn.net/bestrivern/article/details/86301619https://www.jianshu.com/p/9643cba47655https://www.cnblogs.com/eilearn/p/9780696.htmlhttps://blog.csdn.net/donkey_1993/article/details/818">
+<meta name="twitter:description" content="一段时间之前，在一个深度学习交流群里看到一个群友发问：为什么他的训练误差最后疯狂上下抖动而不是一直降低。作为一个入门小白，我当时也很疑惑。但后来我结合所学，仔细思考之后，发现这是一个挺容易犯的错误。 本文参考自：https://blog.csdn.net/bestrivern/article/details/86301619https://www.jianshu.com/p/9643cba4765">
 <meta name="twitter:image" content="http://yoursite.com/2019/10/01/deep-learning笔记：学习率衰减与批归一化/群友疑惑.PNG">
 
 
@@ -121,7 +122,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Gemini',
     version: '5.1.4',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
@@ -331,10 +332,6 @@
         <div class="post-meta">
 
           
-            <i class="fa fa-thumb-tack"></i>
-            <font color="7D26CD">置顶</font>
-            <span class="post-meta-divider">|</span>
-          
 
           <span class="post-time">
             
@@ -360,12 +357,34 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-10-02T13:50:20+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-10-02T14:59:05+08:00">
                 2019-10-02
               </time>
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/人工智能/" itemprop="url" rel="index">
+                    <span itemprop="name">人工智能</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -446,8 +465,8 @@
       
 
       
-        <p>本文参考自：<a href="https://blog.csdn.net/bestrivern/article/details/86301619" target="_blank" rel="noopener">https://blog.csdn.net/bestrivern/article/details/86301619</a><br><a href="https://www.jianshu.com/p/9643cba47655" target="_blank" rel="noopener">https://www.jianshu.com/p/9643cba47655</a><br><a href="https://www.cnblogs.com/eilearn/p/9780696.html" target="_blank" rel="noopener">https://www.cnblogs.com/eilearn/p/9780696.html</a><br><a href="https://blog.csdn.net/donkey_1993/article/details/81871132" target="_blank" rel="noopener">https://blog.csdn.net/donkey_1993/article/details/81871132</a></p>
-<p>一段时间之前，在一个深度学习交流群里看到一个群友发问：为什么他的训练误差最后疯狂上下抖动而不是一直降低。<br><img src="/2019/10/01/deep-learning笔记：学习率衰减与批归一化/群友疑惑.PNG" title="群友疑惑"><br>作为一个入门小白，我当时也很疑惑。但后来我结合所学，仔细思考之后，发现这是一个挺容易犯的错误。</p>
+        <p>一段时间之前，在一个深度学习交流群里看到一个群友发问：为什么他的训练误差最后疯狂上下抖动而不是一直降低。<br><img src="/2019/10/01/deep-learning笔记：学习率衰减与批归一化/群友疑惑.PNG" title="群友疑惑"><br>作为一个入门小白，我当时也很疑惑。但后来我结合所学，仔细思考之后，发现这是一个挺容易犯的错误。</p>
+<p>本文参考自：<a href="https://blog.csdn.net/bestrivern/article/details/86301619" target="_blank" rel="noopener">https://blog.csdn.net/bestrivern/article/details/86301619</a><br><a href="https://www.jianshu.com/p/9643cba47655" target="_blank" rel="noopener">https://www.jianshu.com/p/9643cba47655</a><br><a href="https://www.cnblogs.com/eilearn/p/9780696.html" target="_blank" rel="noopener">https://www.cnblogs.com/eilearn/p/9780696.html</a><br><a href="https://blog.csdn.net/donkey_1993/article/details/81871132" target="_blank" rel="noopener">https://blog.csdn.net/donkey_1993/article/details/81871132</a></p>
 <hr>
 <h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>事实上，这是一个在机器学习中就有可能遇到的问题，当学习速率α设置得过大时，往往在模型训练的后期难以达到最优解，而是在最优解附近来回抖动。还有可能反而使损失函数越来越大，甚至达到无穷，如下图所示。<br><img src="/2019/10/01/deep-learning笔记：学习率衰减与批归一化/损失函数.png" title="损失函数"><br>而在深度学习中，假设我们使用mini-batch梯度下降法，由于mini-batch的数量不大，大概64或者128个样本，在迭代过程中会有噪声。这个时候使用固定的学习率导致的结果就是虽然下降朝向最小值，但不会精确地收敛，只会在附近不断地波动（蓝色线）。<br><img src="/2019/10/01/deep-learning笔记：学习率衰减与批归一化/不会真正收敛.png" title="不会真正收敛"><br>但如果慢慢减少学习率，在初期，学习还是相对较快地，但随着学习率的变小，步伐也会变慢变小，所以最后当开始收敛时，你的曲线（绿色线）会在最小值附近的一个较小区域之内摆动，而不是在训练过程中，大幅度地在最小值附近摆动。<br><img src="/2019/10/01/deep-learning笔记：学习率衰减与批归一化/大幅度波动变小范围摆动.png" title="大幅度波动变小范围摆动"><br>对于这个问题，我目前收集了有下面这些解决办法。</p>
 <hr>
@@ -536,6 +555,35 @@
     <div>
       
         
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2019/10/01/deep-learning笔记：学习率衰减与批归一化/">deep learning笔记：学习率衰减与批归一化</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 高深远 的个人博客">高深远</a></p>
+  <p><span>发布时间:</span>2019年10月01日 - 15:10</p>
+  <p><span>最后更新:</span>2019年10月02日 - 14:10</p>
+  <p><span>原始链接:</span><a href="/2019/10/01/deep-learning笔记：学习率衰减与批归一化/" title="deep learning笔记：学习率衰减与批归一化">http://yoursite.com/2019/10/01/deep-learning笔记：学习率衰减与批归一化/</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2019/10/01/deep-learning笔记：学习率衰减与批归一化/" aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+      $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+        });
+    });  
+</script>
+
       
     </div>
 
@@ -546,6 +594,16 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/深度学习/" rel="tag"><i class="fa fa-tag"></i> 深度学习</a>
+          
+            <a href="/tags/代码实现/" rel="tag"><i class="fa fa-tag"></i> 代码实现</a>
+          
+            <a href="/tags/pytorch/" rel="tag"><i class="fa fa-tag"></i> pytorch</a>
+          
+        </div>
       
 
       
@@ -672,7 +730,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -683,7 +741,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -878,6 +936,13 @@
 
   
   
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
 
   
   <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
@@ -1447,6 +1512,6 @@
   <script type="text/javascript" src="/js/src/fireworks.js"></script>
   
 
-  <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":true,"log":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":200,"height":400},"mobile":{"show":true},"react":{"opacity":0.7}});</script>
+  <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":true,"log":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":180,"height":360},"mobile":{"show":true},"react":{"opacity":0.7}});</script>
 </body>
 </html>

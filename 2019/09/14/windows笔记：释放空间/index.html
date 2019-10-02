@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-Hans">
+<html class="theme-next gemini use-motion" lang="zh-Hans">
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -76,7 +76,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="命令操作,windows,">
 
 
 
@@ -90,6 +90,7 @@
 
 
 <meta name="description" content="暑假里想跑CVPR中的代码，发现作者提供的环境配置都是基于linux终端的，这样windows的git bash就满足不了我了。二话不说我花了两天时间装了个ubuntu+windows双系统，好不容易装好了，却发现我的硬盘空间已经岌岌可危（理论上要留内存的三倍左右可以保证系统顺畅运行，我的内存是8G，也就是说我C盘应空出20G左右为宜）。于是我就找了些释放空间的办法，分享在这里。  利用磁盘属性进">
+<meta name="keywords" content="命令操作,windows">
 <meta property="og:type" content="article">
 <meta property="og:title" content="windows笔记：释放空间">
 <meta property="og:url" content="http://yoursite.com/2019/09/14/windows笔记：释放空间/index.html">
@@ -101,7 +102,7 @@
 <meta property="og:image" content="http://yoursite.com/2019/09/14/windows笔记：释放空间/优化.png">
 <meta property="og:image" content="http://yoursite.com/2019/09/14/windows笔记：释放空间/powershell.png">
 <meta property="og:image" content="http://yoursite.com/2019/09/14/windows笔记：释放空间/输出.png">
-<meta property="og:updated_time" content="2019-09-29T08:43:40.692Z">
+<meta property="og:updated_time" content="2019-10-02T07:20:22.476Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="windows笔记：释放空间">
 <meta name="twitter:description" content="暑假里想跑CVPR中的代码，发现作者提供的环境配置都是基于linux终端的，这样windows的git bash就满足不了我了。二话不说我花了两天时间装了个ubuntu+windows双系统，好不容易装好了，却发现我的硬盘空间已经岌岌可危（理论上要留内存的三倍左右可以保证系统顺畅运行，我的内存是8G，也就是说我C盘应空出20G左右为宜）。于是我就找了些释放空间的办法，分享在这里。  利用磁盘属性进">
@@ -113,7 +114,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Gemini',
     version: '5.1.4',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
@@ -348,12 +349,34 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-09-29T16:43:40+08:00">
-                2019-09-29
+              <time title="更新于" itemprop="dateModified" datetime="2019-10-02T15:20:22+08:00">
+                2019-10-02
               </time>
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/操作与使用/" itemprop="url" rel="index">
+                    <span itemprop="name">操作与使用</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -477,6 +500,35 @@
     <div>
       
         
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2019/09/14/windows笔记：释放空间/">windows笔记：释放空间</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 高深远 的个人博客">高深远</a></p>
+  <p><span>发布时间:</span>2019年09月14日 - 09:09</p>
+  <p><span>最后更新:</span>2019年10月02日 - 15:10</p>
+  <p><span>原始链接:</span><a href="/2019/09/14/windows笔记：释放空间/" title="windows笔记：释放空间">http://yoursite.com/2019/09/14/windows笔记：释放空间/</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2019/09/14/windows笔记：释放空间/" aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+      $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+        });
+    });  
+</script>
+
       
     </div>
 
@@ -487,6 +539,14 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/命令操作/" rel="tag"><i class="fa fa-tag"></i> 命令操作</a>
+          
+            <a href="/tags/windows/" rel="tag"><i class="fa fa-tag"></i> windows</a>
+          
+        </div>
       
 
       
@@ -613,7 +673,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -624,7 +684,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -819,6 +879,13 @@
 
   
   
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
 
   
   <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
@@ -1388,6 +1455,6 @@
   <script type="text/javascript" src="/js/src/fireworks.js"></script>
   
 
-  <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":true,"log":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":200,"height":400},"mobile":{"show":true},"react":{"opacity":0.7}});</script>
+  <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":true,"log":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":180,"height":360},"mobile":{"show":true},"react":{"opacity":0.7}});</script>
 </body>
 </html>
