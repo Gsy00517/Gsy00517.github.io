@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://yoursite.com/2019/10/01/deep-learning%E7%AC%94%E8%AE%B0%EF%BC%9A%E4%BD%BF%E7%BD%91%E7%BB%9C%E8%83%BD%E5%A4%9F%E6%9B%B4%E6%B7%B1%E2%80%94%E2%80%94ResNet%E7%AE%80%E4%BB%8B%E4%B8%8Epytorch%E5%AE%9E%E7%8E%B0/</loc>
+    <lastmod>2019-10-07</lastmod>
+  </url>  <url>
     <loc>http://yoursite.com/2019/10/06/hexo%E7%AC%94%E8%AE%B0%EF%BC%9Assh%E4%B8%8Ehttp%E4%BB%A5%E5%8F%8A%E5%8F%8C%E7%BA%BF%E9%83%A8%E7%BD%B2%E7%9A%84%E4%B8%80%E4%BA%9B%E6%B3%A8%E6%84%8F%E7%82%B9/</loc>
     <lastmod>2019-10-07</lastmod>
   </url>  <url>
@@ -18,9 +21,6 @@
   </url>  <url>
     <loc>http://yoursite.com/2019/09/14/windows%E7%AC%94%E8%AE%B0%EF%BC%9A%E9%87%8A%E6%94%BE%E7%A9%BA%E9%97%B4/</loc>
     <lastmod>2019-10-06</lastmod>
-  </url>  <url>
-    <loc>http://yoursite.com/2019/10/01/deep-learning%E7%AC%94%E8%AE%B0%EF%BC%9A%E4%BD%BF%E7%BD%91%E7%BB%9C%E8%83%BD%E5%A4%9F%E6%9B%B4%E6%B7%B1%E2%80%94%E2%80%94ResNet%E7%AE%80%E4%BB%8B%E4%B8%8Epytorch%E5%AE%9E%E7%8E%B0/</loc>
-    <lastmod>2019-10-02</lastmod>
   </url>  <url>
     <loc>http://yoursite.com/2019/10/01/windows%E7%AC%94%E8%AE%B0%EF%BC%9A%E4%B8%80%E4%BA%9B%E5%BF%AB%E6%8D%B7%E7%9A%84%E6%93%8D%E4%BD%9C/</loc>
     <lastmod>2019-10-02</lastmod>
