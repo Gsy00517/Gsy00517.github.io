@@ -1,5 +1,4 @@
-User-agent: * 
-Allow: /
+User-agent: * Allow: /
 Allow: /archives/
 Disallow: /categories/
 Disallow: /tags/
