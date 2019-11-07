@@ -2,16 +2,79 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://gsy00517.github.io/hexo20191101212014/</loc>
+    <loc>https://gsy00517.github.io/windows20190914091023/</loc>
     
-    <lastmod>2019-11-07T07:48:41.817Z</lastmod>
+    <lastmod>2019-11-07T15:41:23.691Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://gsy00517.github.io/ubuntu20190914100050/</loc>
+    
+    <lastmod>2019-11-07T15:41:18.679Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://gsy00517.github.io/markdown20190913211144/</loc>
+    
+    <lastmod>2019-11-07T15:41:14.749Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://gsy00517.github.io/markdown20190915095628/</loc>
+    
+    <lastmod>2019-11-07T15:41:04.614Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://gsy00517.github.io/kaggle20191102112435/</loc>
     
-    <lastmod>2019-11-05T13:26:56.846Z</lastmod>
+    <lastmod>2019-11-07T15:40:59.837Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://gsy00517.github.io/hexo20191101212014/</loc>
+    
+    <lastmod>2019-11-07T15:40:55.490Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://gsy00517.github.io/hexo20190917085649/</loc>
+    
+    <lastmod>2019-11-07T15:40:29.215Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://gsy00517.github.io/deep-learning20190915073809/</loc>
+    
+    <lastmod>2019-11-07T15:40:16.733Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://gsy00517.github.io/deep-learning20191001151454/</loc>
+    
+    <lastmod>2019-11-07T15:40:06.572Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://gsy00517.github.io/deep-learning20191001184216/</loc>
+    
+    <lastmod>2019-11-07T15:39:55.100Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://gsy00517.github.io/database20190921195840/</loc>
+    
+    <lastmod>2019-11-07T15:39:43.800Z</lastmod>
     
   </url>
   
@@ -51,13 +114,6 @@
   </url>
   
   <url>
-    <loc>https://gsy00517.github.io/markdown20190915095628/</loc>
-    
-    <lastmod>2019-11-02T07:22:45.412Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://gsy00517.github.io/jupyter-notebook20190913225022/</loc>
     
     <lastmod>2019-11-02T07:04:22.538Z</lastmod>
@@ -72,27 +128,6 @@
   </url>
   
   <url>
-    <loc>https://gsy00517.github.io/hexo20190917085649/</loc>
-    
-    <lastmod>2019-11-02T03:17:39.337Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://gsy00517.github.io/windows20190914091023/</loc>
-    
-    <lastmod>2019-11-02T02:23:25.720Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://gsy00517.github.io/ubuntu20190914100050/</loc>
-    
-    <lastmod>2019-11-02T02:23:20.209Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://gsy00517.github.io/ubuntu20190914094853/</loc>
     
     <lastmod>2019-11-02T02:23:13.857Z</lastmod>
@@ -103,13 +138,6 @@
     <loc>https://gsy00517.github.io/toefl20191019150438/</loc>
     
     <lastmod>2019-11-02T02:23:07.434Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://gsy00517.github.io/markdown20190913211144/</loc>
-    
-    <lastmod>2019-11-02T02:23:03.324Z</lastmod>
     
   </url>
   
@@ -149,13 +177,6 @@
   </url>
   
   <url>
-    <loc>https://gsy00517.github.io/deep-learning20190915073809/</loc>
-    
-    <lastmod>2019-11-02T02:21:55.474Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://gsy00517.github.io/deep-learning20190914142553/</loc>
     
     <lastmod>2019-11-02T02:21:47.317Z</lastmod>
@@ -163,30 +184,9 @@
   </url>
   
   <url>
-    <loc>https://gsy00517.github.io/deep-learning20191001151454/</loc>
-    
-    <lastmod>2019-11-02T02:21:42.488Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://gsy00517.github.io/deep-learning20191001184216/</loc>
-    
-    <lastmod>2019-11-02T02:21:37.312Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://gsy00517.github.io/deep-learning20190915113859/</loc>
     
     <lastmod>2019-11-02T02:21:21.559Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://gsy00517.github.io/database20190921195840/</loc>
-    
-    <lastmod>2019-11-02T02:21:14.921Z</lastmod>
     
   </url>
   
