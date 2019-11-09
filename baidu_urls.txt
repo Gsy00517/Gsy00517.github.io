@@ -23,7 +23,7 @@ https://gsy00517.github.io/deep-learning20190914142553/
 https://gsy00517.github.io/ubuntu20190914100050/
 https://gsy00517.github.io/ubuntu20190914094853/
 https://gsy00517.github.io/windows20190914091023/
-https://gsy00517.github.io/html20190914080224/
+https://gsy00517.github.io/front-end20190914080224/
 https://gsy00517.github.io/anaconda20190913231748/
 https://gsy00517.github.io/jupyter-notebook20190913225022/
 https://gsy00517.github.io/markdown20190913211144/
