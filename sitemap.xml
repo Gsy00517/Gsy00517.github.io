@@ -2,9 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://gsy00517.github.io/logisim20200107121101/</loc>
+    
+    <lastmod>2020-01-07T13:04:10.859Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://gsy00517.github.io/preface20191007202443/</loc>
+    
+    <lastmod>2020-01-07T11:46:03.813Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://gsy00517.github.io/verilog20191115233116/</loc>
     
-    <lastmod>2020-01-05T12:26:14.207Z</lastmod>
+    <lastmod>2020-01-07T11:39:23.208Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://gsy00517.github.io/front-end20191110165901/</loc>
+    
+    <lastmod>2020-01-07T04:14:03.095Z</lastmod>
     
   </url>
   
@@ -51,13 +72,6 @@
   </url>
   
   <url>
-    <loc>https://gsy00517.github.io/preface20191007202443/</loc>
-    
-    <lastmod>2019-11-17T04:37:24.418Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://gsy00517.github.io/markdown20190913211144/</loc>
     
     <lastmod>2019-11-15T23:33:56.676Z</lastmod>
@@ -75,13 +89,6 @@
     <loc>https://gsy00517.github.io/markdown20190915095628/</loc>
     
     <lastmod>2019-11-15T23:33:39.959Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://gsy00517.github.io/front-end20191110165901/</loc>
-    
-    <lastmod>2019-11-15T23:33:30.344Z</lastmod>
     
   </url>
   
