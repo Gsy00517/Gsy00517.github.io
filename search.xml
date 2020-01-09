@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[python笔记：打印进度]]></title>
     <url>%2Fpython20200108214052%2F</url>
-    <content type="text"><![CDATA[在我们训练模型的时候，我们总希望能够直接看到训练的进度，下面我就总结几个我收集的打印进度的方法。本文参考自：https://blog.csdn.net/u013985241/article/details/86653356https://blog.csdn.net/zkp_987/article/details/81748098利用回车符打印百分比应该是最常见的方法，也是我一直使用的。不过如果简单地逐次打印百分比的话，就会占据大量的屏幕空间，甚至装不下而需要手动拖动滚动条，让人眼花缭乱。这时我就想到了利用转义符“\r”，在print完本次的进度之后，下一次直接回车将其清除覆盖，这样就达到了既不占用屏幕又清晰的目的。大致的方法如下：12345import time #这里是为了用来延时，代替训练的时间numOfTimes = 200 #总循环次数，可以是总训练数据量等，这里设为200for i in range(numOfTimes): print("\r", "progress percentage:&#123;0&#125;%".format((round(i + 1) * 100 / numOfTimes)), end = "", flush = True) time.sleep(0.02) #若前面from time import sleep，这里直接sleep(0.02)即可这里用到了python的format格式化函数，format中计算出的数值对应的位置是{0}，将在实际print的过程中被替换。此外，这里还用到了round()函数，其作用是返回浮点数的四舍五入值。关于上面在print()函数中出现的flush，文首的参考链接中已给出解释，这里做个搬运：因为print()函数会把内容放到内存中，内存中的内容并不一定能够及时刷新显示到屏幕中。而当我们使用flush = True之后，会在print结束之后，立即将内存中的东西显示到屏幕上，清空缓存。基于上述原理，flush大致有下面两个使用场景：在循环中，要想每进行一次循环体，在屏幕上更新打印的内容就得使用flush = True的参数。（我这里就是这种情况）打开一个文件，向其写入字符串，在关闭文件f.close()之前 打开文件是看不到写入的字符的。因此，如果要想在关闭之前实时地看到写入的字符串，那么就应该使用flush = True。利用tqdm库有需求就有市场，一搜果然还是有库能满足我的需求的。tqdm就是其中之一，它是一个快速，可扩展的python进度条，可以在python长循环中添加一个进度提示信息。大致用法如下：123456import tqdmimport timenumOfTimes = 200 #总循环次数，可以是总训练数据量等，这里设为200for i in tqdm.tqdm(range(numOfTimes)): time.sleep(0.02) #代替训练等耗时过程 pass也可以直接from tqdm import tqdm，这样后面就不需要`tqdm.tqdm了。利用progressbar库如其名，这个库就是用来做进度条的。如果没有的话，它和tqdm都可以使用pip来安装。123456import progressbarfrom time import sleepnumOfTimes = 200 #总循环次数，可以是总训练数据量等，这里设为200progress = progressbar.ProgressBar()for i in progress(range(numOfTimes)): sleep(0.02)]]></content>
+    <content type="text"><![CDATA[在我们训练模型的时候，我们总希望能够直接看到训练的进度，下面我就总结几个我收集的打印进度的方法。本文参考自：https://blog.csdn.net/u013985241/article/details/86653356https://blog.csdn.net/zkp_987/article/details/81748098利用回车符打印百分比应该是最常见的方法，也是我一直使用的。不过如果简单地逐次打印百分比的话，就会占据大量的屏幕空间，甚至装不下而需要手动拖动滚动条，让人眼花缭乱。这时我就想到了利用转义符“\r”，在print完本次的进度之后，下一次直接回车将其清除覆盖，这样就达到了既不占用屏幕又清晰的目的。大致的方法如下：12345import time #这里是为了用来延时，代替训练的时间numOfTimes = 200 #总循环次数，可以是总训练数据量等，这里设为200for i in range(numOfTimes): print("\r", "progress percentage:&#123;0&#125;%".format((round(i + 1) * 100 / numOfTimes)), end = "", flush = True) time.sleep(0.02) #若前面from time import sleep，这里直接sleep(0.02)即可这里用到了python的format格式化函数，format中计算出的数值对应的位置是{0}，将在实际print的过程中被替换。此外，这里还用到了round()函数，其作用是返回浮点数的四舍五入值。关于上面在print()函数中出现的flush，文首的参考链接中已给出解释，这里做个搬运：因为print()函数会把内容放到内存中，内存中的内容并不一定能够及时刷新显示到屏幕中。而当我们使用flush = True之后，会在print结束之后，立即将内存中的东西显示到屏幕上，清空缓存。基于上述原理，flush大致有下面两个使用场景：在循环中，要想每进行一次循环体，在屏幕上更新打印的内容就得使用flush = True的参数。（我这里就是这种情况）打开一个文件，向其写入字符串，在关闭文件f.close()之前 打开文件是看不到写入的字符的。因此，如果要想在关闭之前实时地看到写入的字符串，那么就应该使用flush = True。利用tqdm库有需求就有市场，一搜果然还是有库能满足我的需求的。tqdm就是其中之一，它是一个快速，可扩展的python进度条，可以在python长循环中添加一个进度提示信息。大致用法如下：123456import tqdmimport timenumOfTimes = 200 #总循环次数，可以是总训练数据量等，这里设为200for i in tqdm.tqdm(range(numOfTimes)): time.sleep(0.02) #代替训练等耗时过程 pass也可以直接from tqdm import tqdm，这样后面就不需要tqdm.tqdm了。利用progressbar库如其名，这个库就是用来做进度条的。如果没有的话，它和tqdm都可以使用pip来安装。123456import progressbarfrom time import sleepnumOfTimes = 200 #总循环次数，可以是总训练数据量等，这里设为200progress = progressbar.ProgressBar()for i in progress(range(numOfTimes)): sleep(0.02)]]></content>
       <categories>
         <category>程序与设计</category>
       </categories>
@@ -73,8 +73,8 @@
         <category>程序与设计</category>
       </categories>
       <tags>
-        <tag>代码实现</tag>
         <tag>matlab</tag>
+        <tag>代码实现</tag>
       </tags>
   </entry>
   <entry>
