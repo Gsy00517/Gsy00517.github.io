@@ -1,9 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[linear algebra笔记：循环矩阵]]></title>
+    <url>%2Flinear-algebra20200116095725%2F</url>
+    <content type="text"><![CDATA[循环矩阵是我在看相关滤波时遇到的一个terminology，通过一定的了解之后发现其具有许多有用的性质。在目标跟踪领域，循环矩阵的引入对速度的提升是非常大的。关于相关滤波，由于现在了解还不够全面和深入，暂时不提及。本文主要就循环矩阵的概念和性质做一个总结。本文参考自：https://www.cnblogs.com/cj-xxz/p/10323711.htmlhttps://blog.csdn.net/shenxiaolu1984/article/details/50884830循环矩阵（Circulant Matrices）任意循环矩阵可以被傅里叶变换矩阵对角化。（All circulant matrices are made diagonal by the Discrete Fourier Transform (DFT), regardless of the generating vector x.）我们在文献中往往会看到这样一个变换：X=C(x)=F\cdot diag(\widehat{x})\cdot F^{H}下面的$X$它就是一个循环矩阵，它是由它的第一行$x=(x_{1},x_{2},…,x_{n})$的向量组每次经过一个循环位移，得到的一个循环矩阵。其中$\widehat{x}$（读作x hat）为原向量$x$的傅里叶变换；$F$是傅里叶变换矩阵，$F^{H}$表示共轭转置。换句话说，循环矩阵$X$相似于对角阵，其特征值是$\widehat{x}$的元素。以长度为3的$x$为例，其生成的循环矩阵为：X=C(x)=\begin{bmatrix} x_{1} & x_{2} & x_{3}\\ x_{3} & x_{1} & x_{2}\\ x_{2} & x_{1} & x_{3} \end{bmatrix}这样的一个矩阵它有一个特别好的性质，就是能够通过它的第一行的生成向量来做来进行对角化。通过这个式子，我们能够把$X$循环矩阵进行对角化，如此把它转换到傅里叶域之后，用离散傅里叶变化来做运算时，对速度的提升是非常大的，这将在后文进一步说明。关于这里的对角化、傅里叶变换矩阵可以看后文，在此先跳过。这里有必要列出循环矩阵的两个重要公式，这两个性质是比较常用和有用的：卷积循环矩阵乘向量等价于生成向量的逆序和该向量卷积，可进一步转化为傅里叶变换相乘。 这里$\overline{x}$表示$x$的逆序排列，$*$表示共轭。注意:卷积本身也包含逆序操作。此外，这里最后一个等号利用了信号与系统中的“时域卷积，频域相乘”，即时域卷积定理，它表明两信号在时域的卷积积分对应于在频域中该两信号的傅立叶变换的乘积。相乘循环矩阵的乘积仍是循环矩阵，所以我们只要维护循环矩阵的第一行，就可以以较低的复杂度维护循环矩阵的乘积。 公式中最终所得的乘积也是循环矩阵，其生成向量是原生成向量对位相乘的傅里叶逆变换。用了上述循环矩阵的性质之后，我们就可以使得原来两个矩阵相乘的时间复杂度$O(K^{3})$能够降到$O(Klog(K))$（反向傅里叶的复杂度（$O(Klog(K))$）加上向量点乘的复杂度（$K$）），速度的提升是非常明显的。注：这里K表示的是矩阵的尺寸。在非线形的情况下，当引入了核之后，也可以得到同样的一个情况。此时需要这个核满足一定的条件，它是可以具备循环矩阵的一些性质的，例如常用的高斯核、线性核都满足这个条件，因此可以直接拿来用。傅里叶变换矩阵（DFT matrix）关于离散傅里叶矩阵$F$这里涉及较多的数学，想看详细推导可以参考文首给出的第二个参考链接。这里把比较关键的结论部分截了过来。矩阵快速幂在本文前的第一个参考链接中，作者是用矩阵快速幂引入的，那么这里我也简单谈一下快速幂。顾名思义，快速幂就是快速算某个数的多少次幂。我们知道，对于任何一个整数，都能用二进制来表示。那么对于$a^{n}$，$n$也一定可以用二进制来表示。那么问题来了，如何计算某个数较大的次幂呢？比如计算$a^{156}$，我们可以利用除二取余、倒序排列、高位补零的方法得到$(156)_{10}=(10011100)_{2}$。如此可以推导：ANS=a^{(156)_{10}}=a^{(10011100)_{2}}=a^{2^{7}*1+2^{6}*0+2^{5}*0+2^{4}*1+2^{3}*1+2^{2}*1+2^{1}*0+2^{0}*0}=(a^{2^{7}})*(a^{2^{4}})*(a^{2^{3}})*(a^{2^{2}})这样一来，原本要进行$156-1=155$次乘法运算，现在运算量级相当于该幂的二进制数表示中1的个数。其时间复杂度为$O(log_{2}n)$，与朴素的$O(n)$相比，效率有了极大地提高。以上就是一般的快速幂的基本套路。相对于一般的快速幂，矩阵快速幂仅仅是把他的底数和乘数换成了矩阵形式。其主要方法就是：通过把数放到矩阵的不同位置，然后把普通递推式构造成类似于“矩阵的等比数列”，最后快速幂求解递推式。矩阵快速幂主要用于求一个很复杂的递推式中的某一项问题。递推矩阵（关系矩阵）的构造，也是矩阵快速幂的难点，一般是由原始的递推公式推导或者配凑得出，网上有许多ACM的赛题解答，可以看几道理解一下思路。]]></content>
+      <categories>
+        <category>知识点与小技巧</category>
+      </categories>
+      <tags>
+        <tag>线性代数</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[linear algebra笔记：二维仿射变换]]></title>
+    <url>%2Flinear-algebra20200116084728%2F</url>
+    <content type="text"><![CDATA[之前在deep-learning笔记：学习率衰减与批归一化一文中，我已经对仿射变换作了简单的介绍。但这里我想提出来单独对其做一个小归纳。应用仿射变换在计算机科学中有丰富的运用。例如，在计算机图形学中，它可以用于在较小或较大的屏幕上显示图形内容时简单地重新缩放图形内容。此外，它也可以应用于扭曲一个图像到另一个图像平面。另一个重要的应用是训练深层神经网络时用于扩充数据集。训练深度模型需要大量的数据。在几乎所有的情况下，模型都受益于更高的泛化性能，因为有更多的训练图像。人工生成更多数据的一种方法就是对输入数据随机应用仿射变换（数据增强）。仿射变换二维仿射变换可以用下面这个公式来表示：x'=Ax其中$A$是在齐次坐标系中的3x3矩阵，$x$是在齐次坐标系中$(x，y，1)$形式的向量。这个公式表示$A$将一个任意向量$x$映射到另一个向量$x’$。一般来说，仿射变换有6个自由度。根据参数的值，它将在矩阵乘法后扭曲任何图像。变换后的图像保留了原始图像中的平行直线（考虑剪切）。本质上，满足这两个条件的任何变换都是仿射的。它保持了二维图形的“平直性”、“平行性”和“共线比例不变性”，非共线的三对对应点可以确定一个唯一的仿射变换。下面一些特殊形式的$A$，如下图所示，从上到下分别是：缩放、平移和旋转。上述仿射变换的一个非常有用的性质是它们是线性函数。它们保留了乘法和加法运算，并遵循叠加原理。换言之，我们可以组合2个或更多的变换：向量加法表示平移，矩阵乘法表示线性映射，只要我们用齐次坐标表示它们。即利用这个性质，我们可以将二维仿射变换视为线性变换R和平移变换T的叠加，具体可以看一下之前的文章。举个例子，我们可以将旋转和平移如下表示：123A = array([[cos(angle), -sin(angle), tx], [sin(angle), cos(angle), ty], [0, 0, 1]])如果理解了的话，你会发现各种各样的变化其实还挺繁琐的。不过请放心，大多数开发人员和研究人员通常省去了编写所有这些变换的麻烦，而只需依赖优化的库来执行任务。在OpenCV中进行仿射变换非常简单，如果今后遇到的比较多再做整理。分享之前在artificial-intelligence笔记：吴恩达——阅读论文的建议一文中提到以后会分享几个觉得有价值的公众号的，这里就再分享一个吧。本文中的图片均来自该公众号的推文。]]></content>
+      <categories>
+        <category>知识点与小技巧</category>
+      </categories>
+      <tags>
+        <tag>线性代数</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[matlab笔记：安装MinGW编译器]]></title>
     <url>%2Fmatlab20200115222641%2F</url>
-    <content type="text"><![CDATA[因为目标追踪领域最著名的比赛VOT（Visual Object Tracking），同时也拥有一个非常重要的数据集和一套比较权威的评价指标，基于的是matlab，因此我又开始用起了matlab（这么看下来貌似matlab要成我本学期用的最多的语言了）。当我download官方的toolkit之后，按着document一路比较顺利地操作了下来，结果突然遇到一个报错，说我没有C和C++编译器。WTF？我用了这么久居然都没发现这个问题…本以为按照提示就能很快解决，结果这个问题折腾了我一整个晚上。好吧既然被折磨得这么惨那我还是本着逢血泪必写博的原则在这里写一下吧。不过不得不说，最后成功的时候真的还是挺爽的哈哈！本文参考自：https://ww2.mathworks.cn/help/matlab/matlab_external/compiling-c-mex-files-with-mingw.html?requestedDomain=uk.mathworks.comhttps://ww2.mathworks.cn/matlabcentral/fileexchange/52848-matlab-support-for-mingw-w64-c-c-compilerhttps://www.cnblogs.com/Vae1990Silence/p/10102375.htmlhttps://blog.csdn.net/fly910905/article/details/86222946MinGWMinGW，是Minimalist GNU for Windows的缩写。它是一个可自由使用和自由发布的Windows特定头文件和使用GNU工具集导入库的集合，允许你在GNU/Linux和Windows平台生成本地的Windows程序而不需要第三方C运行时（C Runtime）库。当初报错的时候，我也是很诧异，因为之前使用CodeBlocks和Visual Studio的时候明明是有的。而这次在matlab中编译C/C++时怎么就找不到了。因为之前使用CodeBlocks也有找不到的情况，我当时是重装了一遍CodeBlocks解决问题的，因此我上网开了一下有没有类似的方法。按道理来说已经装了VS是可以找到的，但好像也存在即使安装了VS、matlab还是找不到编译器的情况。可以使用mex看一下具体是哪些路径没有匹配上，似乎可以通过修改注册表的方法解决，但我没有尝试。注：Matlab调用C/C++的方式主要有两种：利用MEX技术和调用C/C++动态连接库。MEX是Matlab Executable的缩写，它是一种“可在Matlab中调用的C（或Fortran）语言衍生程序”。后文中还会用到。失败的方法毕竟是花了一个晚上，看了mathworks上网友们的各种solution，试错了许多方法，这里记录两个貌似要成功的方法（其实最后还是失败了），或许会有参考价值。这里有一个被许多网友强调、要注意的是：下载后的mingw文件（没错它只有15kb看上去好假）要在打开的matlab中，找到相应的下载目录，右键点击然后选择下载并安装（download and install），否则似乎会出错。禁用IPv6IPv6，顾名思义，就是IP地址的第6版协议。我们现在用的是IPv4，它的地址是32位，总数有43亿个左右，还要减去内网专用的192、170地址段，这样一来就更少了。然而，IPv6的地址是128位的，大概是43亿的4次方，地址极为丰富。网友Kshitij Mall给出了这样一个解决思路：首先打开控制面板中的编辑系统环境变量。在高级选项中，点击环境变量。在系统变量栏中添加如下两个变量：（1）variable name：“JAVA_TOOL_OPTIONS”；value：“-Djava.net.preferIPv4Stack=true”；（2）variable name：“JAVA_OPTIONS”；value：“-Djava.net.preferIPv4Stack=true”。另外根据该网友所述，安装完成后可以删去这两个环境变量。注意：仅输入引号内部的内容。java文档指示，设置jvm属性java.net.preferIPv4Stack为true时，就可以禁用IPv6。反之，若设为0，则启用。注：禁用设置时不需要重启系统。由于该网友的系统配置和我相同（MATLAB 2019a on Windows 10 system with 64 bits），于是我毫不犹豫地首先尝试了他的方法，不知道是卡进去的原因还是为何，我成功看到了协议界面（原本一直卡在附加功能管理器加载的空白界面），但是最终开始下载支持包失败。关闭防火墙失败之后，我继续看评论，看到一个网友感谢另一个网友提供的solution，我非常激动，感觉自己也要跟着解决了。似乎好像取得了一定的进展，但是在下载第三方包的时候还是卡住了（3rt party download error），我浏览了大多数网友的评论，貌似大家基本上都卡在了这里。成功的方法当我快要绝望的时候，突然看到了感谢三连，都是感谢同一个人的。这已经是2018年的一个回复了，看评论发现他们使用的是Windows 7系统，但我决定还是试一下，结果真的成功了，非常感谢最初的solution提供者pawan singh！具体方法如下：到这个网址下载合适的TDM-GCC。下载之后，create一个新的到设定的安装路径中。注意：根据matlab文档。MinGW的安装文件夹名称不能包含空格。例如，不要使用：C:\Program Files\mingw-64。应改用：C:\mingw-64。我建议直接装在C盘下面，默认似乎也是这样，维持不变即可。与之前修改系统变量方式类似。添加新的系统变量名为MW_MINGW64_LOC，值为MinGW-w64编译器的安装位置，于我是C:\TDM-GCC-64。最后别忘了确定设置。在matlab命令行内执行命令：setenv(&#39;MW_MINGW64_LOC&#39;, &#39;path&#39;)，folder为TDM-GCC的安装位置，要加单引号。例如我是：setenv(&#39;MW_MINGW64_LOC&#39;, &#39;C:\TDM-GCC-64&#39;)。可以继续在命令行中执行命令：mex -setup。若没有报错，则表明成功了。]]></content>
+    <content type="text"><![CDATA[因为目标追踪领域最著名的比赛VOT（Visual Object Tracking），同时也拥有一个非常重要的数据集和一套比较权威的评价指标，基于的是matlab，因此我又开始用起了matlab（这么看下来貌似matlab要成我本学期用的最多的语言了）。当我download官方的toolkit之后，按着document一路比较顺利地操作了下来，结果突然遇到一个报错，说我没有C和C++编译器。WTF？我用了这么久居然都没发现这个问题…本以为按照提示就能很快解决，结果这个问题折腾了我一整个晚上。好吧既然被折磨得这么惨那我还是本着逢血泪必写博的原则在这里写一下吧。不过不得不说，最后成功的时候真的还是挺爽的哈哈！本文参考自：https://ww2.mathworks.cn/help/matlab/matlab_external/compiling-c-mex-files-with-mingw.html?requestedDomain=uk.mathworks.comhttps://ww2.mathworks.cn/matlabcentral/fileexchange/52848-matlab-support-for-mingw-w64-c-c-compilerhttps://www.cnblogs.com/Vae1990Silence/p/10102375.htmlhttps://blog.csdn.net/fly910905/article/details/86222946MinGWMinGW，是Minimalist GNU for Windows的缩写。它是一个可自由使用和自由发布的Windows特定头文件和使用GNU工具集导入库的集合，允许你在GNU/Linux和Windows平台生成本地的Windows程序而不需要第三方C运行时（C Runtime）库。当初报错的时候，我也是很诧异，因为之前使用CodeBlocks和Visual Studio的时候明明是有的。而这次在matlab中编译C/C++时怎么就找不到了。因为之前使用CodeBlocks也有找不到的情况，我当时是重装了一遍CodeBlocks解决问题的，因此我上网开了一下有没有类似的方法。按道理来说已经装了VS是可以找到的，但好像也存在即使安装了VS、matlab还是找不到编译器的情况。可以使用mex看一下具体是哪些路径没有匹配上，似乎可以通过修改注册表的方法解决，但我没有尝试。注：Matlab调用C/C++的方式主要有两种：利用MEX技术和调用C/C++动态连接库。MEX是Matlab Executable的缩写，它是一种“可在Matlab中调用的C（或Fortran）语言衍生程序”。后文中还会用到。失败的方法毕竟是花了一个晚上，看了mathworks上网友们的各种solution，试错了许多方法，这里记录两个貌似要成功的方法（其实最后还是失败了），或许会有参考价值。这里有一个被许多网友强调、要注意的是：下载后的mingw文件（没错它只有15kb看上去好假）要在打开的matlab中，找到相应的下载目录，右键点击然后选择下载并安装（download and install），否则似乎会出错。禁用IPv6IPv6，顾名思义，就是IP地址的第6版协议。我们现在用的是IPv4，它的地址是32位，总数有43亿个左右，还要减去内网专用的192、170地址段，这样一来就更少了。然而，IPv6的地址是128位的，大概是43亿的4次方，地址极为丰富。网友Kshitij Mall给出了这样一个解决思路：首先打开控制面板中的编辑系统环境变量。在高级选项中，点击环境变量。在系统变量栏中添加如下两个变量：（1）variable name：“JAVA_TOOL_OPTIONS”；value：“-Djava.net.preferIPv4Stack=true”；（2）variable name：“JAVA_OPTIONS”；value：“-Djava.net.preferIPv4Stack=true”。另外根据该网友所述，安装完成后可以删去这两个环境变量。注意：仅输入引号内部的内容。java文档指示，设置jvm属性java.net.preferIPv4Stack为true时，就可以禁用IPv6。反之，若设为0，则启用。注：禁用设置时不需要重启系统。由于该网友的系统配置和我相同（MATLAB 2019a on Windows 10 system with 64 bits），于是我毫不犹豫地首先尝试了他的方法，不知道是卡进去的原因还是为何，我成功看到了协议界面（原本一直卡在附加功能管理器加载的空白界面），但是最终开始下载支持包失败。关闭防火墙失败之后，我继续看评论，看到一个网友感谢另一个网友提供的solution，我非常激动，感觉自己也要跟着解决了。似乎好像取得了一定的进展，但是在下载第三方包的时候还是卡住了（3rt party download error），我浏览了大多数网友的评论，貌似大家基本上都卡在了这里。成功的方法当我快要绝望的时候，突然看到了评论区感谢三连，都是感谢同一个人的。这已经是2018年的一个回复了，看评论发现他们使用的是Windows 7系统，但我决定还是试一下，结果真的成功了，非常感谢最初的solution提供者pawan singh！具体方法如下：到这个网址下载合适的TDM-GCC。下载之后，create一个新的到设定的安装路径中。注意：根据matlab文档（文首第一个参考链接）。MinGW的安装文件夹名称不能包含空格。例如，不要使用：C:\Program Files\mingw-64。应改用：C:\mingw-64。我建议直接装在C盘下面，默认似乎也是这样，维持不变即可。与之前修改系统变量方式类似。添加新的系统变量名为MW_MINGW64_LOC，值为MinGW-w64编译器的安装位置，于我是C:\TDM-GCC-64。最后别忘了确定设置。在matlab命令行内执行命令：setenv(&#39;MW_MINGW64_LOC&#39;, &#39;path&#39;)，folder为TDM-GCC的安装位置，要加单引号。例如我是：setenv(&#39;MW_MINGW64_LOC&#39;, &#39;C:\TDM-GCC-64&#39;)。可以继续在命令行中执行命令：mex -setup。若没有报错，则表明成功了。]]></content>
       <categories>
         <category>环境配置</category>
       </categories>
@@ -365,8 +387,8 @@
       </categories>
       <tags>
         <tag>hexo</tag>
-        <tag>安装教程</tag>
         <tag>ubuntu</tag>
+        <tag>安装教程</tag>
       </tags>
   </entry>
   <entry>
@@ -438,10 +460,10 @@
         <category>操作和使用</category>
       </categories>
       <tags>
-        <tag>踩坑血泪</tag>
         <tag>个人经历</tag>
-        <tag>安装教程</tag>
+        <tag>踩坑血泪</tag>
         <tag>ubuntu</tag>
+        <tag>安装教程</tag>
       </tags>
   </entry>
   <entry>
