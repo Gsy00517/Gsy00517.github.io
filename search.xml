@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[ubuntu笔记：删除文件中的问题]]></title>
+    <url>%2Fubuntu20200117213946%2F</url>
+    <content type="text"><![CDATA[大家可以看看我删个文件多么曲折：献丑了哈哈哈，这里就对这个过程中涉及到的一些问题做一个总结吧。目录首先我cd /进入到根目录，然后我每一步ls列出目录中的文件及子目录，一步一个脚印找到了我要删的文件——MATLAB，emmm我不想解释为什么是它。然后我想当然的想remove掉这个文件，结果发现权限不够。这里其实可以ls -l以列表的形式查看目录中的文件及子目录并且列出每个文件拥有者、所属组、其他用户各自的权限的。后面我又使用cd ../来回到上一级目录，这是为了怕自己搞错目录，怕删高了一级酿成惨剧。权限它说我没权限，于是就sudo临时给个5分钟的root权限呗。本来还想sudo su进入root的（可以用ctrl+D退出），那简直杀鸡用牛刀了。删除文件/目录一开始用rm，它提示我是一个目录，于是我使用了rmdir，但它的作用是删除一个空目录，而我的目录内还有文件。于是我使用sudo rm folder_name -R即递归删除文件的方法来从里到外把这个目录中的文件都删了。其实好像也可以sudo rm -rf folder_name强制删除，这里-r和-R一样，都是递归删除的意思，-f就是强制执行无需确认。但是由于牢记linux最大禁忌rm -rf /*（真正的从删库到跑路），对这个命令还是比较怕的，于是就采取了前者。执行完之后再ls看了一下，发现已成功删除，df查看空间分配，内存使用也回来了不少。]]></content>
+      <categories>
+        <category>操作和使用</category>
+      </categories>
+      <tags>
+        <tag>命令操作</tag>
+        <tag>ubuntu</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[ubuntu笔记：apt包管理以及如何更新软件列表]]></title>
     <url>%2Fubuntu20200117094401%2F</url>
     <content type="text"><![CDATA[ubuntu有时在用户登录后会提示有软件包更新，每次更新之后按提示重启，你就会看到一个类似于安全模式下大写的GNU GRUB（一个多操作系统启动程序），虽然这没什么问题，但是我在想能不能自主地去更新呢？本文参考自：https://birdteam.net/122231apt-get这个有点类似于windows中的dism命令，可以用于安装、更新、卸载软件，大部分操作需要root权限，因此使用命令时别忘了授权。首先介绍一下它的常见用法：安装使用如下命令安装名为xxx的软件：1apt-get install xxx卸载使用如下命令卸载名为xxx的软件：1apt-get remove xxx注意：切忌卸载关键的软件包，比如coreutils。更新本文重点来了，apt-get相关升级更新命令有下面这四个：1234apt-get update //更新软件源缓存，从服务器更新可用的软件列表apt-get upgrade //更新系统，即根据列表更新已安装的软件包，既不会删除在列表中已经不存在了的软件，也不会安装有依赖需求但尚未安装的软件apt-get full-upgrade //根据列表更新已安装的软件包，可能会为了解决软件包冲突而删除一些已安装的软件apt-get dist-upgrade //更新系统版本，也是根据列表更新已安装的软件包，可能会为了解决软件包冲突而删除一些已安装的软件，不同于full-upgrade的dist-upgrade也可能会为了解决软件包依赖问题安装新的软件包更新软件列表当我们想自主更新软件包时，可以依次执行下面两条命令：12apt-get upgradeapt-get dist-upgrade //谨慎执行这两条命令其实比较类似，不同的是当相依性问题时，upgrade时此package就不会被升级而保留下来；而dist-upgrade相对“智能”，若遇到相依性问题，需要安装或者移除新的package时，dist-upgrade命令就会试着去安装或者移除它，这就可能以牺牲某些非重要软件包为代价来升级某些非常重要的软件包，个人认为存在一定风险。]]></content>
@@ -15,7 +27,7 @@
   <entry>
     <title><![CDATA[ubuntu笔记：双系统下时间差问题的解决]]></title>
     <url>%2Fubuntu20200117085337%2F</url>
-    <content type="text"><![CDATA[第一次在电脑加装ubuntu双系统后，就存在ubuntu比windows系统时间慢8个小时的问题。当时搞了一会好像也解决了。然而，在我重装了ubuntu系统之后（详见ubuntu笔记：重装ubuntu——记一段辛酸血泪史），这个问题又出现了。一时间得不到很好地解决，也就没管。最近强迫症犯了，花了点功夫终于搞定了，决定记录在此。本文参考自：http://doc.ntp.org/4.1.1/ntpdate.htmhttp://doc.ntp.org/4.1.1/ntpd.htmhttps://blog.csdn.net/vic_qxz/article/details/80344855windows、ubuntu系统时间在windows中，系统时间的设置较为简单。而且设置后，系统时间会自动保存在bios的时钟里面，当启动计算机时，系统会自动在bios里面读取硬件时间，以保证时间不间断。但在ubuntu linux默认情况下，系统时间和硬件时间，并不会自动同步。在ubuntu linux运行过程中，系统时间和硬件时间以异步的方式运行，互不干扰。硬件时间是靠bios电池来维持运行的，而系统时间是用CPU tick来维持的。在系统开机时，会自动从bios中取得硬件时间，设置为系统时间。这样一来就不奇怪了，中国的时区是东八区（GMT+8），因此ubuntu每次读入的是格林威治标准时间并直接将其设置为系统时间，而windows则会加上8:00调整。因此我解决的思路如下：考虑到windows下时间调整更方便，我就优先调整ubuntu的系统时间，将其系统时间（即本电脑的硬件时间）设为GMT+8，然后再在windows系统中取消自动添加8小时的自动调整，即让两个系统以同样的方法从硬件时间设置系统时间。ntpd这里先介绍一下ntpd（Network Time Protocol (NTP) daemon），如官方文档所说，它的作用是sets and maintains the system time of day in synchronism with Internet standard time servers。因此，我们可以通过ntpdate命令进行设置，其基本格式如下：1ntpdate [ -bBdoqsuv ] [ -a key ] [ -e authdelay ] [ -k keyfile ] [ -o version ] [ -p samples ] [ -t timeout ] server [ ... ]这里我们不需要用到上面的这些额外选项，因此不一一介绍了。solution安装如果还没有安装ntpdate的话，可以先执行该条命令。1sudo apt-get install ntpdate注意：apt-get大部分操作都需要root权限，别忘了sudo赋予权限。我有一回忘记sudo了结果搞了半天不知所以…真的太蠢了。从服务器校准时间这里我使用的时间服务器是time.windows.com，好像也可以用苹果的time.apple.com或者阿里云的time.pool.aliyun.com。1sudo ntpdate time.windows.com格式参考上文。在执行之后发现有0.005秒的微小偏差，因此感觉还是比较可靠的。把时间同步到硬件上同步系统时间和硬件时间，可以使用hwclock命令。1sudo hwclock --localtime --systohc这里的sysyohc即系统时间（sys）写到（to）硬件时间（hard clock）。这时ubuntu这边已经解决了，但如果重启打开windows，会发现时间快了8小时，原因之前解释过，因为自动加了8小时，所以还要作下面的调整。调整windows打开windows，调整日期/时间，把时区改到：(UTC)协调世界时。如此一来，windows上的系统时间也是硬件时间了。双系统的系统时间设置方式一致，时间准确，大功告成。]]></content>
+    <content type="text"><![CDATA[第一次在电脑加装ubuntu双系统后，就存在ubuntu比windows系统时间慢8个小时的问题。当时搞了一会好像也解决了。然而，在我重装了ubuntu系统之后（详见ubuntu笔记：重装ubuntu——记一段辛酸血泪史），这个问题又出现了。一时间得不到很好地解决，也就没管。最近强迫症犯了，花了点功夫终于搞定了，决定记录在此。本文参考自：http://doc.ntp.org/4.1.1/ntpdate.htmhttp://doc.ntp.org/4.1.1/ntpd.htmhttps://blog.csdn.net/vic_qxz/article/details/80344855windows、ubuntu系统时间在windows中，系统时间的设置较为简单。而且设置后，系统时间会自动保存在bios的时钟里面，当启动计算机时，系统会自动在bios里面读取硬件时间，以保证时间不间断。但在ubuntu linux默认情况下，系统时间和硬件时间，并不会自动同步。在ubuntu linux运行过程中，系统时间和硬件时间以异步的方式运行，互不干扰。硬件时间是靠bios电池来维持运行的，而系统时间是用CPU tick来维持的。在系统开机时，会自动从bios中取得硬件时间，设置为系统时间。这样一来就不奇怪了，中国的时区是东八区（GMT+8），因此ubuntu每次读入的是格林威治标准时间并直接将其设置为系统时间，而windows则会加上8:00调整。因此我解决的思路如下：考虑到windows下时间调整更方便，我就优先调整ubuntu的系统时间，将其系统时间（即本电脑的硬件时间）设为GMT+8，然后再在windows系统中取消自动添加8小时的自动调整，即让两个系统以同样的方法从硬件时间设置系统时间。ntpd这里先介绍一下ntpd（Network Time Protocol (NTP) daemon），如官方文档所说，它的作用是sets and maintains the system time of day in synchronism with Internet standard time servers。因此，我们可以通过ntpdate命令进行设置，其基本格式如下：1ntpdate [ -bBdoqsuv ] [ -a key ] [ -e authdelay ] [ -k keyfile ] [ -o version ] [ -p samples ] [ -t timeout ] server [ ... ]这里我们不需要用到上面的这些额外选项，因此不一一介绍了。solution安装如果还没有安装ntpdate的话，可以先执行该条命令。1sudo apt-get install ntpdate注意：apt-get大部分操作都需要root权限，别忘了sudo赋予权限。我有一回忘记sudo了结果搞了半天不知所以…真的太蠢了。从服务器校准时间这里我使用的时间服务器是time.windows.com，好像也可以用苹果的time.apple.com或者阿里云的time.pool.aliyun.com。1sudo ntpdate time.windows.com格式参考上文。在执行之后发现有0.005秒的微小偏差，因此感觉还是比较可靠的。把时间同步到硬件上同步系统时间和硬件时间，可以使用hwclock命令。1sudo hwclock --localtime --systohc这里的sysyohc即系统时间（sys）写到（to）硬件时间（hard clock）。这时ubuntu这边已经解决了，但如果重启打开windows，会发现时间快了8小时，原因之前解释过，因为自动加了8小时，所以还要作下面的调整。调整windows打开windows，调整日期/时间，把时区改到：(UTC)协调世界时。如此一来，windows上的系统时间也是硬件时间了。双系统的系统时间设置方式一致，时间准确，大功告成。注：如果windows中时间没有问题，那就无需调整时区。总之就是先设置好ubuntu的，然后再在windows里调整，因为windows下更好调整。似乎windows会自动更正系统时间，所以经以上4步操作后过段时间需要把时区调整回来。]]></content>
       <categories>
         <category>操作和使用</category>
       </categories>
@@ -485,10 +497,10 @@
         <category>操作和使用</category>
       </categories>
       <tags>
+        <tag>个人经历</tag>
         <tag>踩坑血泪</tag>
         <tag>ubuntu</tag>
         <tag>安装教程</tag>
-        <tag>个人经历</tag>
       </tags>
   </entry>
   <entry>
