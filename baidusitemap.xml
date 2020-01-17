@@ -1,8 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://gsy00517.github.io/ubuntu20200117094401/</loc>
+    <lastmod>2020-01-17</lastmod>
+  </url>  <url>
+    <loc>https://gsy00517.github.io/ubuntu20200117085337/</loc>
+    <lastmod>2020-01-17</lastmod>
+  </url>  <url>
     <loc>https://gsy00517.github.io/python20200113202851/</loc>
-    <lastmod>2020-01-16</lastmod>
+    <lastmod>2020-01-17</lastmod>
+  </url>  <url>
+    <loc>https://gsy00517.github.io/ubuntu20190914094853/</loc>
+    <lastmod>2020-01-17</lastmod>
   </url>  <url>
     <loc>https://gsy00517.github.io/matlab20200115222641/</loc>
     <lastmod>2020-01-16</lastmod>
@@ -80,9 +89,6 @@
     <lastmod>2019-11-15</lastmod>
   </url>  <url>
     <loc>https://gsy00517.github.io/ubuntu20190914100050/</loc>
-    <lastmod>2019-11-15</lastmod>
-  </url>  <url>
-    <loc>https://gsy00517.github.io/ubuntu20190914094853/</loc>
     <lastmod>2019-11-15</lastmod>
   </url>  <url>
     <loc>https://gsy00517.github.io/hexo20191006232704/</loc>
