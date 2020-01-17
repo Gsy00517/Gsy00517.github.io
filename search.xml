@@ -15,7 +15,7 @@
   <entry>
     <title><![CDATA[ubuntu笔记：双系统下时间差问题的解决]]></title>
     <url>%2Fubuntu20200117085337%2F</url>
-    <content type="text"><![CDATA[第一次在电脑加装ubuntu双系统后，就存在ubuntu比windows系统时间慢8个小时的问题。当时搞了一会好像也解决了。然而，在我重装了ubuntu系统之后（详见ubuntu笔记：重装ubuntu——记一段辛酸血泪史），这个问题又出现了。一时间得不到很好地解决，也就没管。最近强迫症犯了，花了点功夫终于搞定了，决定记录在此。本文参考自：http://doc.ntp.org/4.1.1/ntpdate.htmhttp://doc.ntp.org/4.1.1/ntpd.htmhttps://blog.csdn.net/vic_qxz/article/details/80344855windows、ubuntu系统时间在windows中，系统时间的设置较为简单。而且设置后，系统时间会自动保存在bios的时钟里面，当启动计算机时，系统会自动在bios里面读取硬件时间，以保证时间不间断。但在ubuntu linux默认情况下，系统时间和硬件时间，并不会自动同步。在ubuntu linux运行过程中，系统时间和硬件时间以异步的方式运行，互不干扰。硬件时间是靠bios电池来维持运行的，而系统时间是用CPU tick来维持的。在系统开机时，会自动从bios中取得硬件时间，设置为系统时间。这样一来就不奇怪了，中国的时区是东八区（GMT+8），因此ubuntu每次读入的是格林威治标准时间并直接将其设置为系统时间，而windows则会加上8:00调整。因此我解决的思路如下：考虑到windows下时间调整更方便，我就优先调整ubuntu的系统时间，将其系统时间（即本电脑的硬件时间）设为GMT+8，然后再在windows系统中取消自动添加8小时的自动调整，即让两个系统以同样的方法从硬件时间设置系统时间。ntpd这里先介绍一下ntpd（Network Time Protocol (NTP) daemon），如官方文档所说，它的作用是sets and maintains the system time of day in synchronism with Internet standard time servers。因此，我们可以通过ntpdate命令进行设置，其基本格式如下：1ntpdate [ -bBdoqsuv ] [ -a key ] [ -e authdelay ] [ -k keyfile ] [ -o version ] [ -p samples ] [ -t timeout ] server [ ... ]这里我们不需要用到上面的这些额外选项，因此不一一介绍了。solution安装如果还没有安装ntpdate的话，可以先执行该条命令。1sudo apt-get install ntpdate注意：apt-get大部分操作都需要root权限，别忘了sudo赋予权限。我有一回忘记sudo了结果搞了半天不知所以真的太蠢了。从服务器校准时间这里我使用的时间服务器是time.windows.com，好像也可以用苹果的time.apple.com或者阿里云的time.pool.aliyun.com。1sudo ntpdate time.windows.com格式参考上文。在执行之后发现有0.005秒的微小偏差，因此感觉还是比较可靠的。把时间同步到硬件上同步系统时间和硬件时间，可以使用hwclock命令。1sudo hwclock --localtime --systohc这里的sysyohc即系统时间（sys）写到（to）硬件时间（hard clock）。这时ubuntu这边已经解决了，但如果重启打开windows，会发现时间快了8小时，原因之前解释过，因为自动加了8小时，所以还要作下面的调整。调整windows打开windows，调整日期/时间，把时区改到：(UTC)协调世界时。如此一来，windows上的系统时间也是硬件时间了。双系统的系统时间设置方式一致，时间准确，大功告成。]]></content>
+    <content type="text"><![CDATA[第一次在电脑加装ubuntu双系统后，就存在ubuntu比windows系统时间慢8个小时的问题。当时搞了一会好像也解决了。然而，在我重装了ubuntu系统之后（详见ubuntu笔记：重装ubuntu——记一段辛酸血泪史），这个问题又出现了。一时间得不到很好地解决，也就没管。最近强迫症犯了，花了点功夫终于搞定了，决定记录在此。本文参考自：http://doc.ntp.org/4.1.1/ntpdate.htmhttp://doc.ntp.org/4.1.1/ntpd.htmhttps://blog.csdn.net/vic_qxz/article/details/80344855windows、ubuntu系统时间在windows中，系统时间的设置较为简单。而且设置后，系统时间会自动保存在bios的时钟里面，当启动计算机时，系统会自动在bios里面读取硬件时间，以保证时间不间断。但在ubuntu linux默认情况下，系统时间和硬件时间，并不会自动同步。在ubuntu linux运行过程中，系统时间和硬件时间以异步的方式运行，互不干扰。硬件时间是靠bios电池来维持运行的，而系统时间是用CPU tick来维持的。在系统开机时，会自动从bios中取得硬件时间，设置为系统时间。这样一来就不奇怪了，中国的时区是东八区（GMT+8），因此ubuntu每次读入的是格林威治标准时间并直接将其设置为系统时间，而windows则会加上8:00调整。因此我解决的思路如下：考虑到windows下时间调整更方便，我就优先调整ubuntu的系统时间，将其系统时间（即本电脑的硬件时间）设为GMT+8，然后再在windows系统中取消自动添加8小时的自动调整，即让两个系统以同样的方法从硬件时间设置系统时间。ntpd这里先介绍一下ntpd（Network Time Protocol (NTP) daemon），如官方文档所说，它的作用是sets and maintains the system time of day in synchronism with Internet standard time servers。因此，我们可以通过ntpdate命令进行设置，其基本格式如下：1ntpdate [ -bBdoqsuv ] [ -a key ] [ -e authdelay ] [ -k keyfile ] [ -o version ] [ -p samples ] [ -t timeout ] server [ ... ]这里我们不需要用到上面的这些额外选项，因此不一一介绍了。solution安装如果还没有安装ntpdate的话，可以先执行该条命令。1sudo apt-get install ntpdate注意：apt-get大部分操作都需要root权限，别忘了sudo赋予权限。我有一回忘记sudo了结果搞了半天不知所以…真的太蠢了。从服务器校准时间这里我使用的时间服务器是time.windows.com，好像也可以用苹果的time.apple.com或者阿里云的time.pool.aliyun.com。1sudo ntpdate time.windows.com格式参考上文。在执行之后发现有0.005秒的微小偏差，因此感觉还是比较可靠的。把时间同步到硬件上同步系统时间和硬件时间，可以使用hwclock命令。1sudo hwclock --localtime --systohc这里的sysyohc即系统时间（sys）写到（to）硬件时间（hard clock）。这时ubuntu这边已经解决了，但如果重启打开windows，会发现时间快了8小时，原因之前解释过，因为自动加了8小时，所以还要作下面的调整。调整windows打开windows，调整日期/时间，把时区改到：(UTC)协调世界时。如此一来，windows上的系统时间也是硬件时间了。双系统的系统时间设置方式一致，时间准确，大功告成。]]></content>
       <categories>
         <category>操作和使用</category>
       </categories>
@@ -486,9 +486,9 @@
       </categories>
       <tags>
         <tag>踩坑血泪</tag>
-        <tag>个人经历</tag>
         <tag>ubuntu</tag>
         <tag>安装教程</tag>
+        <tag>个人经历</tag>
       </tags>
   </entry>
   <entry>
