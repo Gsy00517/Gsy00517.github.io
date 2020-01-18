@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://gsy00517.github.io/computer-vision20200118213942/</loc>
+    <lastmod>2020-01-18</lastmod>
+  </url>  <url>
+    <loc>https://gsy00517.github.io/deep-learning20200113174731/</loc>
+    <lastmod>2020-01-18</lastmod>
+  </url>  <url>
     <loc>https://gsy00517.github.io/machine-learning20200118112156/</loc>
     <lastmod>2020-01-18</lastmod>
   </url>  <url>
@@ -30,9 +36,6 @@
   </url>  <url>
     <loc>https://gsy00517.github.io/linear-algebra20200116084728/</loc>
     <lastmod>2020-01-16</lastmod>
-  </url>  <url>
-    <loc>https://gsy00517.github.io/deep-learning20200113174731/</loc>
-    <lastmod>2020-01-14</lastmod>
   </url>  <url>
     <loc>https://gsy00517.github.io/deep-learning20191001184216/</loc>
     <lastmod>2020-01-13</lastmod>
