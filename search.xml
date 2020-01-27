@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[ubuntu笔记：移动文件的妙用]]></title>
+    <url>%2Fubuntu20200127184352%2F</url>
+    <content type="text"><![CDATA[有时候会遇到文件无法重命名的问题，这里介绍一种很神奇的方法，亲测有效。方法首先，在终端把目录切到要重命名的文件目录下，或者直接在对应目录中打开终端。接下来就是神奇的地方了，为了防止权限不够加个sudo赋个权。1sudo mv 原文件名 新文件名]]></content>
+      <categories>
+        <category>知识点与小技巧</category>
+      </categories>
+      <tags>
+        <tag>ubuntu</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[ubuntu笔记：snap软件包管理及问题]]></title>
     <url>%2Fubuntu20200127123832%2F</url>
     <content type="text"><![CDATA[在我安装ubuntu18.04LTS的时候，由于下载语言包是真的久，我就翻了一下ubuntu安装界面的介绍，其中一开始就是对snap store的介绍。这篇文章就说说snap和我之前遇到的问题。References：电子文献：https://www.jb51.net/article/128368.htmhttps://blog.csdn.net/u011870280/article/details/80213866snapsnap是ubuntu母公司Canonical于2016年4月发布ubuntu16.04时候引入的一种安全的、易于管理的、沙盒化的软件包格式，与传统的dpkg和apt有着很大的区别。在ubuntu软件中心下载安装的似乎都是snap管理的。这让一些商业闭源软件也能在linux上发布，说白了是ubuntu为了获得linux发行版霸权的一个重要举措，因此没少招黑。知乎上看到这么一句话，笑半天：“Fuck the political correct, make linux great again.(says 川·乌班图·普)”。常用命令列出已经安装的snap包1sudo snap list搜索要安装的snap包1sudo snap find &lt;text to search&gt;安装一个snap包1sudo snap install &lt;snap name&gt;更新一个snap包1sudo snap refresh &lt;snap name&gt;注：如果后面不加包的名字就更新所有的snap包。把一个包还原到以前安装的版本1sudo snap revert &lt;snap name&gt;删除一个snap包1sudo snap remove &lt;snap name&gt;查看最近的更改1snap changes终止snap进程1sudo snap abort &lt;进程序号&gt;后面两个命令将在下面的问题中发挥作用。问题当我在snap store也就是ubuntu软件中心下载pycharm和VScode时，遇到了如下报错：1snapd returned status code 409: Conflict上网查找之后，才知道这个错误码409表示的是：由于和被请求的资源的当前状态之间存在冲突，请求无法完成。即并发执行时返回的错误码。由于之前ubuntu软件中心无响应被我强制退出了，因此的确很有可能与之前进行到一半的安装冲突。于是使用snap changes查看最近的snap更改。果然看见之前的snap进程依旧在“Doing”，因此根据对应的序号使用sudo snap abort终止进程。这时再回到软件中心安装，就没有之前的报错了。然而…关于国内使用snap因为网络原因，而且也没有可用的镜像，导致snapcraft在中国大陆地区访问速度非常非常慢，下载软件需要很长的时间并且很容易中途出错。此外，由于snap软件会把主分区分成好多个loop，看起来真的不想说什么了。图源自贴吧，可以看到这挂载的snap软件包可以说是相当壮（别）观（扭）了。还有一个杀死强迫症（比如我）的问题就是，snap会在家目录（即18.04的主文件夹）中创建一个snap文件夹，里面各种快捷方式、循环嵌套的文件夹，害…无法用语言描述，看了就知道，总之就是非常不爽。主要是一些资料、文件一般也会放在家目录下面，看到了snap在那边亮眼睛真的难受。实在不知道为什么社区里有不少人推崇snap（不过国外没速度限制，snap对他们来说挺方便的）。总而言之，综合速度（硬伤）和美观舒适度考虑，还是尽量避免使用snap命令安装软件，也不要下载ubuntu软件商店中的snap格式的软件包（基本都是）。甚至有些“安装ubuntu之后必做的…件事”等诸如此类的ubuntu配置或者美化的教程内直接把卸载snap列作其中一项哈哈。总之管理软件还是apt优先，详见我的博文ubuntu笔记：apt包管理以及如何更新软件列表。]]></content>
@@ -34,8 +45,8 @@
       <tags>
         <tag>命令操作</tag>
         <tag>踩坑血泪</tag>
-        <tag>ubuntu</tag>
         <tag>安装教程</tag>
+        <tag>ubuntu</tag>
       </tags>
   </entry>
   <entry>
@@ -552,8 +563,8 @@
       </categories>
       <tags>
         <tag>hexo</tag>
-        <tag>ubuntu</tag>
         <tag>安装教程</tag>
+        <tag>ubuntu</tag>
       </tags>
   </entry>
   <entry>
@@ -627,8 +638,8 @@
       <tags>
         <tag>踩坑血泪</tag>
         <tag>个人经历</tag>
-        <tag>ubuntu</tag>
         <tag>安装教程</tag>
+        <tag>ubuntu</tag>
       </tags>
   </entry>
   <entry>
