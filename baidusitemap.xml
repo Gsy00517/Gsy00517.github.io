@@ -2,7 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://gsy00517.github.io/computer-vision20200129102927/</loc>
-    <lastmod>2020-01-29</lastmod>
+    <lastmod>2020-01-30</lastmod>
+  </url>  <url>
+    <loc>https://gsy00517.github.io/machine-learning20200130121842/</loc>
+    <lastmod>2020-01-30</lastmod>
+  </url>  <url>
+    <loc>https://gsy00517.github.io/computer-vision20200130130437/</loc>
+    <lastmod>2020-01-30</lastmod>
+  </url>  <url>
+    <loc>https://gsy00517.github.io/machine-learning20191001104538/</loc>
+    <lastmod>2020-01-30</lastmod>
   </url>  <url>
     <loc>https://gsy00517.github.io/computer-vision20200128162333/</loc>
     <lastmod>2020-01-29</lastmod>
@@ -65,9 +74,6 @@
     <lastmod>2020-01-27</lastmod>
   </url>  <url>
     <loc>https://gsy00517.github.io/machine-learning20190915150339/</loc>
-    <lastmod>2020-01-26</lastmod>
-  </url>  <url>
-    <loc>https://gsy00517.github.io/machine-learning20191001104538/</loc>
     <lastmod>2020-01-26</lastmod>
   </url>  <url>
     <loc>https://gsy00517.github.io/python20200113202851/</loc>
