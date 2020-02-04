@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[computer vision笔记：元学习运用于目标跟踪——Meta-Tracker]]></title>
     <url>%2Fcomputer-vision20200204210305%2F</url>
-    <content type="text"><![CDATA[之前在看元学习时，就觉得其中的一些想法很适合应用在目标跟踪领域。写完deep-learning笔记：元学习之后我就迫不及待地找了找有没有相关的论文。没想到还真有。这是一篇2018年的paper，我通过谷歌学术查了一下，发现被引次数有五六十次，觉得还是有价值阅读一下的。References：参考文献：[1]Meta-Tracker: Fast and Robust Online Adaptation for Visual Object Trackers主要思想本篇论文主要将Meta Learning运用在了目标模型的初始化上。首先作者认为结合深度特征和在线学习的模型有两大困难，一是训练的样本不容易获得，二是大多数state-of-the-art的tracker在训练阶段都需要花费大量的时间在初始化上面。针对上面的难题，作者提出了一种在未来的帧上训练目标模型的思路。这样做有三点好处，一是能使模型更加关注对后续的帧更有价值的特征，二是避免了在当前帧上过拟合，三是能够使初始化更快速。总而言之，就是能保证精度和鲁棒性。下图是作者运用元学习来初始化跟踪模型的流程，大概有个印象，后面会具体讲算法。实验结果证明，这种方法能让模型在第一帧初始化是就能很快地提高精度和鲁棒性。（只需迭代一步）补充：这篇paper多次出现“w.r.t”这个缩写，查了之后才知道就是“with respect to”的意思，也就是“关于，对于”的意思。算法下面直接来看算法，作者直接给了伪代码，挺好懂的。这里的$x$指的是输入，$\theta $指的是模型中的参数，$\alpha $指的是模型梯度下降更新时所用的学习率，$y$指的是我们预测值，而$\widehat{y}$指的是ground truth值。算法的目的是找出符合元学习目标的合适的$\theta _{0}$和$\alpha $，文中加了星号表示。（对元学习比较模糊的话可以看看我前一篇文章）算法可以分成两步：第一步使用随机初始化的$\theta _{0}$​和训练样本第一帧的图像进入网络得到一个输出$F$，然后根据ground truth得到loss，再引入一个$\alpha $作为梯度下降的动量参数，反复迭代T次后得到$\theta _{0}^{T}$​作为$\theta _{1}$；接下来第二步，就是看当前得到的参数是否对后面帧（每次迭代随机取一帧）的目标鲁棒，这里用loss对$\theta _{1}$​和$\alpha $的偏导数作为训练的梯度，对N个训练样本得到的梯度求和，用ADAM算法进行优化得到最优的初始参数$\theta _{0}$和$\alpha $。注意：这里的$\theta _{0}^{T}$不是转置的意思，而是迭代第T次后的$\theta _{0}$。缺点善于承认不足是一种良好的品质，作者在文中也来了这样一个转折：“However, it often diverges on longer sequences or the sequences that have very small frame-to-frame variations.”意思是说这种方法在长序列或者目标在帧与帧之间变化不大时表现不佳（会偏离目标）。回顾一下，当初设计这种方法的目的是模型在接收第一帧之后能够很快地收敛到精度和鲁棒性很好的一组参数位置，这就是说，我们训练得到的$\alpha $相对来说是比较大的，这就导致了它在上述情况下的不稳定。为此，作者的解决办法是“ﬁnd a learning rate for subsequent frames and then use existing optimization algorithms to update the models as was done in the original versions of the trackers”，也就是仅用学习到的$\theta _{0}$和$\alpha $来做初始化，然后在随后的在线更新过程中，仍用原来版本的方式进行更新。这里原来的版本指的是CREST和MDNet，作者在这两个tracker的基础上改进出了MetaCREST和MetaSDNet，下面接着讲。改进CRESTCRESTCREST是一个代表性的结合深度特征使用相关滤波的tracker，它把相关滤波器转换成了一个卷积层，这使得它可以方便地添加新的模块，因为端到端模型的最优化可以用标准的反向传播梯度下降来完成。CREST还引入了时空域的残差模块来避免当物体发生较大变化时目标模型被过分地削弱。问题当然，要把作者提出的方法融合到其它的tracker中不是那么轻而易举的，主要有两个问题。PCA处理与元学习的矛盾CREST使用PCA来减少提出的CNN特征的通道数，从512维降到了64维。但是PCA对每一个序列做变换时都会改变基（basis），而元学习希望的是得到一种对每个序列都global的初始化方式，这就很矛盾了。于是作者这里用1x1的卷积层替代了CREST中原本的PCA处理，功能还是降维。由此一来，要学习的最优初始参数$\theta _{0}$就包含了以下两个：降维的参数$\theta _{0_{d}}$。相关滤波器的参数$\theta _{0_{f}}$。滤波器与元学习的矛盾由于滤波器的尺寸大小根据目标的形状和大小一直在变化，而元学习需要的是固定的尺寸。考虑到对目标图像的强行变形会导致效果的严重减弱，作者采用了一种名为canonical size initialization的方法，也就是设置尺寸和比例为训练数据集的平均值以尽可能地减小对最终效果的影响。MetaCREST最终改进之后的MetaCREST框架如下图所示。可以看一下它与原tracker的效果对比。可以看到还是有一定进步的。改进MDNetMDNetMDNet的特点就是在训练阶段使用了multi-domain的训练方式，这是它提升鲁棒性的关键。此外，它还使用了dropout和不同层之间不同的学习率来防止过拟合。MetaSDNet然而，作者用元学习把上述的multi-domain训练方式和正则化技术都替代了，仅用元学习来完成可以快速适应且鲁棒的分类器。作者随后给出了两者的效果比较，可是好像并没有看到任何的明显的进步，两者效果几乎一样。其实文章之所以强调MDNet是因为它初始化太慢了，在效果相同的情况下，MetaSDNet的初始化速度在MDNet的基础上加快了大约30倍。此外，在没有使用multi-domain训练方式和正则化技术的情况下，用元学习来达到相近的效果，也不能不说元学习的能力还是值得肯定的。感想自己接触元学习的相关算法之后，总想着直接套用到别的任务上去。这篇论文和我的想法有点类似，但作者在实际实现时肯定用了更多的方法来解决各种各样的难题。而这篇文章也只能说是用元学习的思想做了一些探索，引用作者的一部分总结：“Other than target appearance modeling, which is the focus of this paper, there are many other important factors in object tracking algorithms. For example, when or how often to update the model, how to manage the database, and how to deﬁne the search space. These considerations are sometimes more important than target appearance modeling. In future work we propose including handling of these as part of learning and meta-learning.”总而言之，还有很长的路要走~]]></content>
+    <content type="text"><![CDATA[之前在看元学习时，就觉得其中的一些想法很适合应用在目标跟踪领域。写完deep-learning笔记：元学习之后我就迫不及待地找了找有没有相关的论文。没想到还真有。这是一篇2018年的paper，我通过谷歌学术查了一下，发现被引次数有五六十次，觉得还是值得阅读一下的。References：参考文献：[1]Meta-Tracker: Fast and Robust Online Adaptation for Visual Object Trackers主要思想本篇论文主要将Meta Learning运用在了目标模型的初始化上。首先作者认为结合深度特征和在线学习的模型有两大困难，一是训练的样本不容易获得，二是大多数state-of-the-art的tracker在训练阶段都需要花费大量的时间在初始化上面。针对上面的难题，作者提出了一种在未来的帧上训练目标模型的思路。这样做有三点好处，一是能使模型更加关注对后续的帧更有价值的特征，二是避免了在当前帧上过拟合，三是能够使初始化更快速。总而言之，就是能保证精度和鲁棒性。下图是作者运用元学习来初始化跟踪模型的流程，大概有个印象，后面会具体讲算法。实验结果证明，这种方法能让模型在第一帧初始化是就能很快地提高精度和鲁棒性。（只需迭代一步）补充：这篇paper多次出现“w.r.t”这个缩写，查了之后才知道就是“with respect to”的意思，也就是“关于，对于”的意思。算法下面直接来看算法，作者直接给了伪代码，挺好懂的。这里的$x$指的是输入，$\theta $指的是模型中的参数，$\alpha $指的是模型梯度下降更新时所用的学习率，$y$指的是我们预测值，而$\widehat{y}$指的是ground truth值。算法的目的是找出符合元学习目标的合适的$\theta _{0}$和$\alpha $，文中加了星号表示。（对元学习比较模糊的话可以看看我前一篇文章）算法可以分成两步：第一步使用随机初始化的$\theta _{0}$​和训练样本第一帧的图像进入网络得到一个输出$F$，然后根据ground truth得到loss，再引入一个$\alpha $作为梯度下降的动量参数，反复迭代T次后得到$\theta _{0}^{T}$​作为$\theta _{1}$；接下来第二步，就是看当前得到的参数是否对后面帧（每次迭代随机取一帧）的目标鲁棒，这里用loss对$\theta _{1}$​和$\alpha $的偏导数作为训练的梯度，对N个训练样本得到的梯度求和，用ADAM算法进行优化得到最优的初始参数$\theta _{0}$和$\alpha $。注意：这里的$\theta _{0}^{T}$不是转置的意思，而是迭代第T次后的$\theta _{0}$。缺点善于承认不足是一种良好的品质，作者在文中也来了这样一个转折：“However, it often diverges on longer sequences or the sequences that have very small frame-to-frame variations.”意思是说这种方法在长序列或者目标在帧与帧之间变化不大时表现不佳（会偏离目标）。回顾一下，当初设计这种方法的目的是模型在接收第一帧之后能够很快地收敛到精度和鲁棒性很好的一组参数位置，这就是说，我们训练得到的$\alpha $相对来说是比较大的，这就导致了它在上述情况下的不稳定。为此，作者的解决办法是“ﬁnd a learning rate for subsequent frames and then use existing optimization algorithms to update the models as was done in the original versions of the trackers”，也就是仅用学习到的$\theta _{0}$和$\alpha $来做初始化，然后在随后的在线更新过程中，仍用原来版本的方式进行更新。这里原来的版本指的是CREST和MDNet，作者在这两个tracker的基础上改进出了MetaCREST和MetaSDNet，下面接着讲。改进CRESTCRESTCREST是一个代表性的结合深度特征使用相关滤波的tracker，它把相关滤波器转换成了一个卷积层，这使得它可以方便地添加新的模块，因为端到端模型的最优化可以用标准的反向传播梯度下降来完成。CREST还引入了时空域的残差模块来避免当物体发生较大变化时目标模型被过分地削弱。问题当然，要把作者提出的方法融合到其它的tracker中不是那么轻而易举的，主要有两个问题。PCA处理与元学习的矛盾CREST使用PCA来减少提出的CNN特征的通道数，从512维降到了64维。但是PCA对每一个序列做变换时都会改变基（basis），而元学习希望的是得到一种对每个序列都global的初始化方式，这就很矛盾了。于是作者这里用1x1的卷积层替代了CREST中原本的PCA处理，功能还是降维。由此一来，要学习的最优初始参数$\theta _{0}$就包含了以下两个：降维的参数$\theta _{0_{d}}$。相关滤波器的参数$\theta _{0_{f}}$。滤波器与元学习的矛盾由于滤波器的尺寸大小根据目标的形状和大小一直在变化，而元学习需要的是固定的尺寸。考虑到对目标图像的强行变形会导致效果的严重减弱，作者采用了一种名为canonical size initialization的方法，也就是设置尺寸和比例为训练数据集的平均值以尽可能地减小对最终效果的影响。MetaCREST最终改进之后的MetaCREST框架如下图所示。可以看一下它与原tracker的效果对比。可以看到还是有一定进步的。改进MDNetMDNetMDNet的特点就是在训练阶段使用了multi-domain的训练方式，这是它提升鲁棒性的关键。此外，它还使用了dropout和不同层之间不同的学习率来防止过拟合。MetaSDNet然而，作者用元学习把上述的multi-domain训练方式和正则化技术都替代了，仅用元学习来完成可以快速适应且鲁棒的分类器。作者随后给出了两者的效果比较，可是好像并没有看到任何的明显的进步，两者效果几乎一样。其实文章之所以强调MDNet是因为它初始化太慢了，在效果相同的情况下，MetaSDNet的初始化速度在MDNet的基础上加快了大约30倍。此外，在没有使用multi-domain训练方式和正则化技术的情况下，用元学习来达到相近的效果，也不能不说元学习的能力还是值得肯定的。感想自己接触元学习的相关算法之后，总想着直接套用到别的任务上去。这篇论文和我的想法有点类似，但作者在实际实现时肯定用了更多的方法来解决各种各样的难题。而这篇文章也只能说是用元学习的思想做了一些探索，引用作者的一部分总结：“Other than target appearance modeling, which is the focus of this paper, there are many other important factors in object tracking algorithms. For example, when or how often to update the model, how to manage the database, and how to deﬁne the search space. These considerations are sometimes more important than target appearance modeling. In future work we propose including handling of these as part of learning and meta-learning.”总而言之，还有很长的路要走~]]></content>
       <categories>
         <category>人工智能</category>
       </categories>
@@ -185,8 +185,8 @@
       <tags>
         <tag>命令操作</tag>
         <tag>踩坑血泪</tag>
-        <tag>安装教程</tag>
         <tag>ubuntu</tag>
+        <tag>安装教程</tag>
       </tags>
   </entry>
   <entry>
@@ -703,8 +703,8 @@
       </categories>
       <tags>
         <tag>hexo</tag>
-        <tag>安装教程</tag>
         <tag>ubuntu</tag>
+        <tag>安装教程</tag>
       </tags>
   </entry>
   <entry>
@@ -778,8 +778,8 @@
       <tags>
         <tag>踩坑血泪</tag>
         <tag>个人经历</tag>
-        <tag>安装教程</tag>
         <tag>ubuntu</tag>
+        <tag>安装教程</tag>
       </tags>
   </entry>
   <entry>
