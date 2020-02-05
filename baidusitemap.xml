@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://gsy00517.github.io/hexo20191101212014/</loc>
+    <lastmod>2020-02-05</lastmod>
+  </url>  <url>
+    <loc>https://gsy00517.github.io/toefl20191019150438/</loc>
+    <lastmod>2020-02-05</lastmod>
+  </url>  <url>
+    <loc>https://gsy00517.github.io/computer-vision20200201113416/</loc>
+    <lastmod>2020-02-05</lastmod>
+  </url>  <url>
     <loc>https://gsy00517.github.io/computer-vision20200204210305/</loc>
     <lastmod>2020-02-04</lastmod>
   </url>  <url>
@@ -11,9 +20,6 @@
     <lastmod>2020-02-04</lastmod>
   </url>  <url>
     <loc>https://gsy00517.github.io/computer-vision20200119195116/</loc>
-    <lastmod>2020-02-02</lastmod>
-  </url>  <url>
-    <loc>https://gsy00517.github.io/computer-vision20200201113416/</loc>
     <lastmod>2020-02-02</lastmod>
   </url>  <url>
     <loc>https://gsy00517.github.io/computer-vision20200129102927/</loc>
@@ -166,9 +172,6 @@
     <loc>https://gsy00517.github.io/kaggle20191102112435/</loc>
     <lastmod>2020-01-19</lastmod>
   </url>  <url>
-    <loc>https://gsy00517.github.io/hexo20191101212014/</loc>
-    <lastmod>2020-01-19</lastmod>
-  </url>  <url>
     <loc>https://gsy00517.github.io/front-end20191110165901/</loc>
     <lastmod>2020-01-19</lastmod>
   </url>  <url>
@@ -207,9 +210,6 @@
   </url>  <url>
     <loc>https://gsy00517.github.io/calculus20191007184856/</loc>
     <lastmod>2019-11-03</lastmod>
-  </url>  <url>
-    <loc>https://gsy00517.github.io/toefl20191019150438/</loc>
-    <lastmod>2019-11-02</lastmod>
   </url>  <url>
     <loc>https://gsy00517.github.io/deep-learning20190914142553/</loc>
     <lastmod>2019-11-02</lastmod>
