@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://gsy00517.github.io/preface20191007202443/</loc>
+    <lastmod>2020-02-06</lastmod>
+  </url>  <url>
+    <loc>https://gsy00517.github.io/deep-learning20190915073809/</loc>
+    <lastmod>2020-02-06</lastmod>
+  </url>  <url>
     <loc>https://gsy00517.github.io/hexo20191101212014/</loc>
     <lastmod>2020-02-05</lastmod>
   </url>  <url>
@@ -35,9 +41,6 @@
     <lastmod>2020-02-02</lastmod>
   </url>  <url>
     <loc>https://gsy00517.github.io/computer-vision20200202133216/</loc>
-    <lastmod>2020-02-02</lastmod>
-  </url>  <url>
-    <loc>https://gsy00517.github.io/deep-learning20190915073809/</loc>
     <lastmod>2020-02-02</lastmod>
   </url>  <url>
     <loc>https://gsy00517.github.io/computer-vision20200120120823/</loc>
@@ -123,9 +126,6 @@
   </url>  <url>
     <loc>https://gsy00517.github.io/ubuntu20200117213946/</loc>
     <lastmod>2020-01-24</lastmod>
-  </url>  <url>
-    <loc>https://gsy00517.github.io/preface20191007202443/</loc>
-    <lastmod>2020-01-22</lastmod>
   </url>  <url>
     <loc>https://gsy00517.github.io/matlab20200115222641/</loc>
     <lastmod>2020-01-21</lastmod>
