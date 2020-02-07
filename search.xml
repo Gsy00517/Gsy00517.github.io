@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[hexo笔记：文章排序]]></title>
+    <url>%2Fhexo20200207151318%2F</url>
+    <content type="text"><![CDATA[说实话这个寒假真的是挺久的，希望疫情快点好转起来！之前一直想着要让自己博客中的文章按照更新时间来排序，因为自己在学习的过程中总是会去更新之前的文章，特别是有时候更新量还挺大的，不放到前面来感觉有点可惜哈哈。但是由于没有时间而且不知道怎么做，一直没实现。今天突然想起这个事情，琢磨了好久终于搞出来了。此次改动之后，我将博客侧栏中的“归档”修改为“最新发布”，依然是按照文章发布时间归档的。主页文章按更新时间排序实现前提：使用hexo搭建博客。我先看了看hexo的配置文件中有没有可以直接设置的地方，试了几个关键词搜索之后发现果然有，这里原本是按照发布日期排序的。12345678# Home page setting# path: Root path for your blogs index page. (default = '')# per_page: Posts displayed per page. (0 = disable pagination)# order_by: Posts order. (Order by date descending by default)index_generator: path: '' per_page: 10 order_by: -date看了一些hexo自动生成的代码之后，我发现了几个与date用法类似的参数，其中updated与date相对应。于是我将-date替换成了-updated，然后hexo start之后发现没起作用。于是我参照着官方文档里的仅有的一点点说明，改成了-name试试能不能按名称排序，but failed。没办法，我只好开始了漫长的对所有但凡是包含“date”的文件的阅览过程…网上也找不到任何资料，估计有这种想法的只有我吧哈哈。终于，我在node_modules\hexo-generator-index-pin-top\lib\generator.js文件中找到了似乎是用于排序的代码，该文件是为了添加文章置顶功能的，但当置顶等级设置相同时，按照发布日期进行排序。由于本人对JavaScript只是粗略了解，因此依样画葫芦作了一些修改，改完之后该文件中的内容如下所示。12345678910111213141516171819202122232425262728'use strict';var pagination = require('hexo-pagination');module.exports = function(locals)&#123; var config = this.config; var posts = locals.posts; posts.data = posts.data.sort(function(a, b) &#123; if(a.top &amp;&amp; b.top) &#123; // 两篇文章top都有定义 if(a.top == b.top) return b.updated - a.updated; // 若top值一样则按照文章更新日期降序排 else return b.top - a.top; // 否则按照top值降序排 &#125; else if(a.top &amp;&amp; !b.top) &#123; // 以下是只有一篇文章top有定义，那么将有top的排在前面（这里用异或操作居然不行233） return -1; &#125; else if(!a.top &amp;&amp; b.top) &#123; return 1; &#125; else return b.updated - a.updated; // 都没定义按照文章更新日期降序排 &#125;); var paginationDir = config.pagination_dir || 'page'; return pagination('', posts, &#123; perPage: config.index_generator.per_page, layout: ['index', 'archive'], format: paginationDir + '/%d/', data: &#123; __index: true &#125; &#125;);&#125;;再次hexo s，生效，开心。侧栏按文章更新时间排序实现前提：使用hexo搭建博客。这是我在网上找到的一种方法，由于和next主题不是特别搭配，因此最终没有使用。首先在侧栏对应的目录下创建一个名为blog-sidebar.swig的渲染文件。（比如我的侧栏在header.swig中编辑，对应的目录为themes\next\layout\_partials，这里我使用了next主题，不同的话自行更改）在该文件中添加如下代码。12345678910111213&lt;div class="recent-posts"&gt; &lt;div class="item_headline" style="Text-align:center"&gt; &lt;span&gt;最近更新&lt;span&gt; &lt;/div&gt; &lt;ul class="posts-list-block"&gt; &#123;% set posts = site.posts.sort('-updated') %&#125; &#123;% for post in posts.slice('0', '10') %&#125; &lt;li&gt; &lt;a href="&#123;&#123; url_for(post.path) &#125;&#125;" title="&#123;&#123; post.title &#125;&#125;" target="_blank"&gt;&#123;&#123; post.title &#125;&#125;&lt;/a&gt; &lt;/li&gt; &#123;% endfor %&#125; &lt;/ul&gt;&lt;/div&gt;然后来到编辑侧栏的文件，在合适的位置添加如下代码。123&lt;div class="blog-sidebar-left"&gt; &#123;% include 'blog-sidebar.swig' %&#125;&lt;/div&gt;建议添加在nav标签内部，原因我在front-end笔记：使用div实现居中显示一文中曾作说明。侧栏添加其它文章排序方式实现前提：使用hexo搭建博客，使用next主题并使用leancloud做站点统计。实现上面的功能之后，我又添加了“最近阅读”和“热度排名”两项。下面来说说我具体是怎么做的。注：由于leancloud访问不是很稳定，在线浏览时或许会出错，但下面的方法确实是可行的。按阅读量排行在博客目录下执行hexo n page rank新建一个rank页面，编辑其中的index.md文件，添加如下代码。123456789101112131415161718192021222324&lt;div id="rank"&gt;&lt;/div&gt;&lt;script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"&gt;&lt;/script&gt;&lt;script&gt;AV.initialize("YOUR_APPID", "YOUR_APPKEY");&lt;/script&gt;&lt;script type="text/javascript"&gt; var time=0 var title="" var url="" var query = new AV.Query('Counter'); query.notEqualTo('id',0); query.descending('time'); query.limit(10); query.find().then(function (todo) &#123; for (var i=0;i&lt;10;i++)&#123; var result=todo[i].attributes; time=result.time; title=result.title; url=result.url; var content="&lt;p&gt;"+"&lt;font color='#1C1C1C'&gt;"+time+"&lt;i class='fa fa-eye' aria-hidden='true'&gt;&lt;/i&gt;-&gt;"+"&lt;/font&gt;"+"&lt;a href='"+"YOUR_URL"+url+"'&gt;"+title+"&lt;/a&gt;"+"&lt;/p&gt;"; document.getElementById("rank").innerHTML+=content &#125; &#125;, function (error) &#123; console.log("error"); &#125;);&lt;/script&gt;注意，请将上面代码中的YOUR_APPID和YOUR_APPKEY替换为你learncloud中的对应ID和key，可在设置中查看。此外，还要将YOUR_URL替换为你的博客地址，包含协议并以/结束，例如我的：https://Gsy00517.github.io/。这时部署的话还是看不到这个page的，要看到排序，还需如下设置。打开主题配置文件，在对应menu的位置添加rank: /rank/ || signal。这里的图标可以到Font Awesome上去找，非常丰富，我这里用的是signal。如果你使用了语言包，别忘了到语言包内添加对应的翻译，比如我在hexo\theme\next\languages\zh-Hans.yml文件中对应menu的位置添加了rank: 热度排名。按最近阅读排行在leancloud中，阅读量最近的更新时间用参数updatedAt表示，这是一个格式为YYYY-MM-DD HH:mm:ss的时间，不过我们也可以对它降序排列。实现方法于上面的大同小异，这是我调整的代码，可在此基础上创造发挥，亲测有效。12345678910111213141516171819202122232425&lt;div id="new"&gt;&lt;/div&gt;&lt;div id="new"&gt;&lt;/div&gt;&lt;script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"&gt;&lt;/script&gt;&lt;script&gt;AV.initialize("YOUR_APPID", "YOUR_APPKEY");&lt;/script&gt;&lt;script type="text/javascript"&gt; var updatedAt="" var title="" var url="" var query = new AV.Query('Counter'); query.notEqualTo('id',0); query.descending('updatedAt'); query.limit(10); query.find().then(function (todo) &#123; for (var i=0;i&lt;10;i++)&#123; var result=todo[i].attributes; title=result.title; updatedAt=result.updatedAt; url=result.url; var content="&lt;p&gt;"+"&lt;a href='"+"YOUR_URL"+url+"' target='_blank'&gt;"+title+"&lt;/a&gt;"+"&lt;/p&gt;"; document.getElementById("new").innerHTML+=content &#125; &#125;, function (error) &#123; console.log("error"); &#125;);&lt;/script&gt;]]></content>
+      <categories>
+        <category>操作和使用</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[computer vision笔记：反池化]]></title>
     <url>%2Fcomputer-vision20200207122427%2F</url>
     <content type="text"><![CDATA[除了内插值和反卷积（详见computer-vision笔记：上采样和下采样），反池化也是一种上采样方法。由于近些年来有用卷积替代池化的趋势，因此已经比较少用了，但我还是想写一下这种方法和一些自己的思考。反池化上图是池化的一个示例，但由于后面要进行反池化，因此我们还需额外把（编码器中的）最大池化层的索引都存储起来，用于之后（解码器中的）的反池化操作。之后反池化就很简单了，如下图所示，恢复到原始尺寸，将数据映射到索引处，其它地方填充零。思考当我刚看到反池化的操作方法时，有点感觉这样在扩充的空间中直接填充零会不会太草率了，为什么不用同一区域做相同的填充或者平均填充呢？后来想了一想，的确还是直接将最大值映射到原位置，其余地方填充零效果最好。这样尽管会忽略邻近的信息，也就是会丢弃大量低频信息，但是它有助于保持高频信息的完整性。反过来想，倘若我们将最大值相同地填充至一个区域内（上图中邻近的4格）或者做平均填充，那么不但不能准确地表示高频信息，又不能保证能够表达出低频信息，这就不如上面的做法能保证高频信息的完整性。池化优点虽然前面说池化正在逐渐被卷积替代，但池化操作也不是一无是处。与卷积相比，池化有如下优点：减少了进行端到端训练的参数量。对max-pooling来说，它可以提高边界的勾画，即突出高频信息。]]></content>
@@ -207,8 +218,8 @@
       <tags>
         <tag>命令操作</tag>
         <tag>踩坑血泪</tag>
-        <tag>安装教程</tag>
         <tag>ubuntu</tag>
+        <tag>安装教程</tag>
       </tags>
   </entry>
   <entry>
@@ -725,8 +736,8 @@
       </categories>
       <tags>
         <tag>hexo</tag>
-        <tag>安装教程</tag>
         <tag>ubuntu</tag>
+        <tag>安装教程</tag>
       </tags>
   </entry>
   <entry>
@@ -800,8 +811,8 @@
       <tags>
         <tag>踩坑血泪</tag>
         <tag>个人经历</tag>
-        <tag>安装教程</tag>
         <tag>ubuntu</tag>
+        <tag>安装教程</tag>
       </tags>
   </entry>
   <entry>
