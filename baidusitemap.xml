@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://gsy00517.github.io/computer-vision20200129102927/</loc>
+    <lastmod>2020-02-13</lastmod>
+  </url>  <url>
     <loc>https://gsy00517.github.io/machine-learning20200212221654/</loc>
     <lastmod>2020-02-12</lastmod>
   </url>  <url>
@@ -92,9 +95,6 @@
     <lastmod>2020-02-04</lastmod>
   </url>  <url>
     <loc>https://gsy00517.github.io/computer-vision20200119195116/</loc>
-    <lastmod>2020-02-02</lastmod>
-  </url>  <url>
-    <loc>https://gsy00517.github.io/computer-vision20200129102927/</loc>
     <lastmod>2020-02-02</lastmod>
   </url>  <url>
     <loc>https://gsy00517.github.io/deep-learning20191001184216/</loc>
