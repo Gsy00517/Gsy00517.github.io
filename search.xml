@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[vot toolkit笔记：解决无法连接TraX支持的问题]]></title>
     <url>%2Fvot-toolkit20200215185238%2F</url>
-    <content type="text"><![CDATA[今天终于把vot toolkit给搞好了，能够跑通NCC了，简直不要太开心。先是在windows下问题比较多，后来换到ubuntu上，的确问题少了很多，也方便了很多。但是每次执行run_experiments或者run_test的时候，会出现如下报错：12345678910Initializing workspace ...Verifying native components ...Testing TraX protocol support for tracker NCC.Tracker execution interrupted: Unable to establish connection.TraX support not detected.错误使用 tracker_load (line 127)Tracker has not passed the TraX support test.出错 run_test (line 8)tracker = tracker_load(&apos;NCC&apos;);于是我打印了厚厚一摞的TraX Documentation，照着一些步骤作了一遍可依然没有效果，最后终于在vot toolkit的gitHubissue中找到了解决方法。References：电子文献：https://github.com/votchallenge/vot-toolkit/issues/201https://github.com/votchallenge/vot-toolkit/issues/216http://votchallenge.net/howto/perfeval.htmlsolution首先说明，我的运行环境为ubuntu18.04与matlab2018b。在vot-toolkit/tracker/tracker_run.m文件中找到如下代码（大约在30至40行左右）。1234% Hint to tracker that it should use traxenvironment.TRAX = '1';connection = 'standard';修改为：1234% Hint to tracker that it should use traxenvironment.TRAX = '1';connection = 'socket';再次执行run_experiments或者run_test即可。其实不是很清楚为什么work了，成功执行一次后将connection从socket再换回standard后似乎也可以成功执行。注：由于这期间我也做了其他的一些调整，不保证直接修改上述代码之后一定能够成功。请先按上面所说修改，如果成功，那么接下来的部分可以跳过。如果仅下载了vot toolkit直接执行的话，它会自动为你下载TraX。这里应该没有问题，如果担心的话可以自己去github下载TraX，然后复制到vot-toolkit/native/目录下（没有的话创建一个）。来到vot-toolkit/native/trax目录下，接下来都是终端操作。mkdir buildcd buildmake ..（请确保已经安装好cmake）sudo make install（不加sudo会出现权限问题）如果完成上面之后，执行还有问题，可能是路径没有设置对。打开vot-toolkit/workspace/tracker_XXX.m（XXX是你创建工作区时设置的跟踪算法的名称）。找到最后一行：% tracker_linkpath = {}; % A cell array of custom library directories used by the tracker executable (optional)。去掉前面的注释符，添加路径tracker_linkpath = {&#39;absolute_path/vot-toolkit/native/trax/build&#39;};（记得修改这里的absolute_path）。据TraX的作者所说，TraX出错一般不是vot toolkit本身的问题，如果你使用的是其他的算法，请确保该算法的.m或者.py文件和vot.m或者vot.py文件处在同一个目录下。如果没有，可到vot-toolkit/tracker/examples中的matlab或者python目录下复制。TraX折腾了半天，总得知道这个TraX是个什么东西，根据TraX文档中所说：TraX stands for visual Tracking eXchange, the protocol was designed to make development and testing of visual tracking algorithms simpler and faster.其实我当初折腾的时候想法是：我不要simpler and faster，我现在只想跑通哈哈哈哈哈。NCC一般检验vot toolkit都会跑一下NCC看看有没有设置好。NCC（归一化互相关）是一种基于统计学计算两组样本数据相关性的算法，比较老，性能可想而知。sequences我和我的同学在运行的时候都卡在了下载数据集那里，尽管在下载，但是网络下行却一直显示为0。询问一位计科大佬之后知道在maltab中下载数据集是基本没有速度的，所以一般的建议是使用别人网盘中下载好的数据集，我已经上传到我的百度网盘，可通过此链接用提取码0glq下载。注：数据集已经压缩成zip文件，但大小仍有1.67GB，受不了百度网盘限制的龟速的话我推荐使用ENFI下载器下载，还能挂机赚钱，不是打广告哈哈。下载解压之后，打开可以看到一个list文本文件和许多序列文件夹（一个序列一个文件夹），可以通过修改list文本文件来确定要读取并进行实验的序列。注：执行run_test可以选择list文本文件中列出的序列，选择对应序号之后可以看到按帧实验的情况。执行run_experiments会执行list文件中列出的所有序列，可以ctrl+C暂停，之后再次执行run_experiments会从上一次暂停的地方开始执行。done之后可以执行run_pack生成可以提交至VOT challenge的archive档案。]]></content>
+    <content type="text"><![CDATA[今天终于把vot toolkit给搞好了，能够跑通NCC了，简直不要太开心。先是在windows下问题比较多，后来换到ubuntu上，的确问题少了很多，也方便了很多。但是每次执行run_experiments或者run_test的时候，会出现如下报错：12345678910Initializing workspace ...Verifying native components ...Testing TraX protocol support for tracker NCC.Tracker execution interrupted: Unable to establish connection.TraX support not detected.错误使用 tracker_load (line 127)Tracker has not passed the TraX support test.出错 run_test (line 8)tracker = tracker_load(&apos;NCC&apos;);于是我打印了厚厚一摞的TraX Documentation，照着一些步骤作了一遍可依然没有效果，最后终于在vot toolkit的gitHubissue中找到了解决方法。References：电子文献：https://github.com/votchallenge/vot-toolkit/issues/201https://github.com/votchallenge/vot-toolkit/issues/216http://votchallenge.net/howto/perfeval.htmlsolution首先说明，我的运行环境为ubuntu18.04与matlab2018b。在vot-toolkit/tracker/tracker_run.m文件中找到如下代码（大约在30至40行左右）。1234% Hint to tracker that it should use traxenvironment.TRAX = '1';connection = 'standard';修改为：1234% Hint to tracker that it should use traxenvironment.TRAX = '1';connection = 'socket';再次执行run_experiments或者run_test即可。其实不是很清楚为什么work了，成功执行一次后将connection从socket再换回standard后似乎也可以成功执行。注：由于这期间我也做了其他的一些调整，不保证直接修改上述代码之后一定能够成功。请先按上面所说修改，如果成功，那么接下来的部分可以跳过。如果仅下载了vot toolkit直接执行的话，它会自动为你下载TraX。这里应该没有问题，如果担心的话可以自己去github下载TraX，然后复制到vot-toolkit/native/目录下（没有的话创建一个）。来到vot-toolkit/native/trax目录下，接下来都是终端操作。mkdir buildcd buildmake ..（请确保已经安装好cmake）sudo make install（不加sudo会出现权限问题）如果完成上面之后，执行还有问题，可能是路径没有设置对。打开vot-toolkit/workspace/tracker_XXX.m（XXX是你创建工作区时设置的跟踪算法的名称）。找到最后一行：% tracker_linkpath = {}; % A cell array of custom library directories used by the tracker executable (optional)。去掉前面的注释符，添加路径tracker_linkpath = {&#39;absolute_path/trax/build&#39;};（记得修改这里的absolute_path）。据TraX的作者所说，TraX出错一般不是vot toolkit本身的问题，如果你使用的是其他的算法，请确保该算法的.m或者.py文件和vot.m或者vot.py文件处在同一个目录下。如果没有，可到vot-toolkit/tracker/examples中的matlab或者python目录下复制。TraX折腾了半天，总得知道这个TraX是个什么东西，根据TraX文档中所说：TraX stands for visual Tracking eXchange, the protocol was designed to make development and testing of visual tracking algorithms simpler and faster.其实我当初折腾的时候想法是：我不要simpler and faster，我现在只想跑通哈哈哈哈哈。NCC一般使用vot toolkit都会根据官方文档先跑一下NCC来看看有没有设置好。NCC（归一化互相关）是一种基于统计学计算两组样本数据相关性的算法，比较老，性能可想而知。sequences我和我的同学在运行的时候都卡在了下载数据集那里，尽管在下载，但是网络下行却一直显示为0。询问一位计科大佬之后知道在maltab中下载数据集是基本没有速度的，所以一般的建议是使用别人网盘中下载好的数据集，我已经上传到我的百度网盘，可通过此链接用提取码0glq下载。注：数据集已经压缩成zip文件，但大小仍有1.67GB，受不了百度网盘限制的龟速的话我推荐使用ENFI下载器下载，还能挂机赚钱，不是打广告哈哈。下载解压之后，打开可以看到一个list文本文件和许多序列文件夹（一个序列一个文件夹），可以通过修改list文本文件来确定要读取并进行实验的序列。注：执行run_test可以选择list文本文件中列出的序列，选择对应序号之后可以看到按帧实验的情况。执行run_experiments会执行list文件中列出的所有序列，可以ctrl+C暂停，之后再次执行run_experiments会从上一次暂停的地方开始执行。done之后可以执行run_pack生成可以提交至VOT challenge的archive档案。]]></content>
       <categories>
         <category>操作和使用</category>
       </categories>
@@ -54,8 +54,8 @@
       </categories>
       <tags>
         <tag>机器学习</tag>
-        <tag>代码实现</tag>
         <tag>线性代数</tag>
+        <tag>代码实现</tag>
       </tags>
   </entry>
   <entry>
@@ -275,8 +275,8 @@
       <tags>
         <tag>命令操作</tag>
         <tag>踩坑血泪</tag>
-        <tag>安装教程</tag>
         <tag>ubuntu</tag>
+        <tag>安装教程</tag>
       </tags>
   </entry>
   <entry>
@@ -496,8 +496,8 @@
         <category>程序与设计</category>
       </categories>
       <tags>
-        <tag>代码实现</tag>
         <tag>数字电路</tag>
+        <tag>代码实现</tag>
         <tag>verilog</tag>
         <tag>Vivado</tag>
       </tags>
@@ -511,8 +511,8 @@
       </categories>
       <tags>
         <tag>踩坑血泪</tag>
-        <tag>代码实现</tag>
         <tag>数字电路</tag>
+        <tag>代码实现</tag>
         <tag>verilog</tag>
         <tag>Vivado</tag>
       </tags>
@@ -551,8 +551,8 @@
       </categories>
       <tags>
         <tag>踩坑血泪</tag>
-        <tag>代码实现</tag>
         <tag>数字电路</tag>
+        <tag>代码实现</tag>
         <tag>verilog</tag>
         <tag>Vivado</tag>
       </tags>
@@ -793,8 +793,8 @@
       </categories>
       <tags>
         <tag>hexo</tag>
-        <tag>安装教程</tag>
         <tag>ubuntu</tag>
+        <tag>安装教程</tag>
       </tags>
   </entry>
   <entry>
@@ -867,9 +867,9 @@
       </categories>
       <tags>
         <tag>踩坑血泪</tag>
-        <tag>个人经历</tag>
-        <tag>安装教程</tag>
         <tag>ubuntu</tag>
+        <tag>安装教程</tag>
+        <tag>个人经历</tag>
       </tags>
   </entry>
   <entry>
