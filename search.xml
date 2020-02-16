@@ -32,6 +32,7 @@
       </categories>
       <tags>
         <tag>计算机视觉</tag>
+        <tag>目标跟踪</tag>
       </tags>
   </entry>
   <entry>
@@ -100,6 +101,7 @@
       </categories>
       <tags>
         <tag>计算机视觉</tag>
+        <tag>目标跟踪</tag>
       </tags>
   </entry>
   <entry>
@@ -134,6 +136,7 @@
       <tags>
         <tag>深度学习</tag>
         <tag>计算机视觉</tag>
+        <tag>目标检测</tag>
       </tags>
   </entry>
   <entry>
@@ -146,6 +149,7 @@
       <tags>
         <tag>深度学习</tag>
         <tag>计算机视觉</tag>
+        <tag>目标检测</tag>
       </tags>
   </entry>
   <entry>
@@ -182,6 +186,7 @@
       <tags>
         <tag>深度学习</tag>
         <tag>计算机视觉</tag>
+        <tag>目标检测</tag>
       </tags>
   </entry>
   <entry>
@@ -216,6 +221,7 @@
       </categories>
       <tags>
         <tag>深度学习</tag>
+        <tag>backbone</tag>
       </tags>
   </entry>
   <entry>
@@ -312,6 +318,7 @@
       <tags>
         <tag>论文分享</tag>
         <tag>计算机视觉</tag>
+        <tag>目标跟踪</tag>
       </tags>
   </entry>
   <entry>
@@ -356,6 +363,7 @@
       </categories>
       <tags>
         <tag>计算机视觉</tag>
+        <tag>目标跟踪</tag>
       </tags>
   </entry>
   <entry>
@@ -462,6 +470,7 @@
       <tags>
         <tag>深度学习</tag>
         <tag>论文分享</tag>
+        <tag>backbone</tag>
         <tag>踩坑血泪</tag>
       </tags>
   </entry>
@@ -496,8 +505,8 @@
         <category>程序与设计</category>
       </categories>
       <tags>
-        <tag>数字电路</tag>
         <tag>代码实现</tag>
+        <tag>数字电路</tag>
         <tag>verilog</tag>
         <tag>Vivado</tag>
       </tags>
@@ -511,8 +520,8 @@
       </categories>
       <tags>
         <tag>踩坑血泪</tag>
-        <tag>数字电路</tag>
         <tag>代码实现</tag>
+        <tag>数字电路</tag>
         <tag>verilog</tag>
         <tag>Vivado</tag>
       </tags>
@@ -551,8 +560,8 @@
       </categories>
       <tags>
         <tag>踩坑血泪</tag>
-        <tag>数字电路</tag>
         <tag>代码实现</tag>
+        <tag>数字电路</tag>
         <tag>verilog</tag>
         <tag>Vivado</tag>
       </tags>
@@ -706,6 +715,7 @@
       <tags>
         <tag>深度学习</tag>
         <tag>论文分享</tag>
+        <tag>backbone</tag>
         <tag>踩坑血泪</tag>
         <tag>代码实现</tag>
         <tag>pytorch</tag>
@@ -818,6 +828,7 @@
       <tags>
         <tag>深度学习</tag>
         <tag>论文分享</tag>
+        <tag>backbone</tag>
       </tags>
   </entry>
   <entry>
@@ -841,6 +852,7 @@
       <tags>
         <tag>深度学习</tag>
         <tag>论文分享</tag>
+        <tag>backbone</tag>
         <tag>踩坑血泪</tag>
         <tag>代码实现</tag>
         <tag>pytorch</tag>
