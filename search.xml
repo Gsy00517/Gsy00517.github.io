@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[anaconda笔记：解决conda无法下载pytorch的问题]]></title>
     <url>%2Fanaconda20200222000018%2F</url>
-    <content type="text"><![CDATA[今天想加一个pytorch的新环境，无奈墙太厚，家里的网根本下载不下来，torch和torchvision两个包的进度始终只有0，网速下行也一直是0。在修改成清华镜像（目前国内唯一能用的，别的要么无法访问要么重定向）之后，还是没能成功。后来在网上找到了一种直接编译的方法，当然最后我没用，在理解了conda的命令操作后，我终于解决了这个问题。解决方法由于在安装pytorch的时候，我直接到官网里配置之后copy下来的，其命令如下：1conda install pytorch torchvision cpuonly -c pytorch后来我才发现，最后的-c pytorch的作用是指定pytorch源作为channel来下载，这里指定的优先级比~/.condarc里设置的镜像源要高。于是我去掉指定，调整如下：1conda install pytorch torchvision cpuonly于是很快就用清华镜像下载好了。我这里下载的是无cuda版本，其他的一样。添加清华源的方法1234conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/conda config --set show_channel_urls yes或者直接vim ~/.condarc编辑，按i修改内容，再按ESC退出插入模式回到normal模式，最后使用:wq保存并退出。注意：可以把~/.condarc里的- default删去。]]></content>
+    <content type="text"><![CDATA[今天想加一个pytorch的新环境，无奈墙太厚，家里的网根本下载不下来，torch和torchvision两个包的进度始终只有0，网速下行也一直是0。在修改成清华镜像（目前国内唯一能用的，别的要么无法访问要么重定向）之后，还是没能成功。后来在网上找到了一种直接编译的方法，当然最后我没用，在理解了conda的命令操作后，我终于解决了这个问题。解决方法由于在安装pytorch的时候，我直接到官网里配置之后copy下来的，其命令如下：1conda install pytorch torchvision cpuonly -c pytorch后来我才发现，最后的-c pytorch的作用是指定pytorch源作为channel来下载，这里指定的优先级比~/.condarc里设置的镜像源要高。于是我去掉指定，调整如下：1conda install pytorch torchvision cpuonly于是很快就用清华镜像下载好了。我这里下载的是无cuda版本，其他的一样。添加清华源的方法1234conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/conda config --set show_channel_urls yes或者直接vim ~/.condarc编辑，按i修改内容，再按ESC退出insert模式回到normal模式，最后使用:wq保存并退出。注意：可以把~/.condarc里的- default删去。]]></content>
       <categories>
         <category>环境配置</category>
       </categories>
@@ -529,8 +529,8 @@
         <category>程序与设计</category>
       </categories>
       <tags>
-        <tag>数字电路</tag>
         <tag>代码实现</tag>
+        <tag>数字电路</tag>
         <tag>verilog</tag>
         <tag>Vivado</tag>
       </tags>
@@ -544,8 +544,8 @@
       </categories>
       <tags>
         <tag>踩坑血泪</tag>
-        <tag>数字电路</tag>
         <tag>代码实现</tag>
+        <tag>数字电路</tag>
         <tag>verilog</tag>
         <tag>Vivado</tag>
       </tags>
@@ -584,8 +584,8 @@
       </categories>
       <tags>
         <tag>踩坑血泪</tag>
-        <tag>数字电路</tag>
         <tag>代码实现</tag>
+        <tag>数字电路</tag>
         <tag>verilog</tag>
         <tag>Vivado</tag>
       </tags>
@@ -903,9 +903,9 @@
       </categories>
       <tags>
         <tag>踩坑血泪</tag>
-        <tag>个人经历</tag>
         <tag>ubuntu</tag>
         <tag>安装教程</tag>
+        <tag>个人经历</tag>
       </tags>
   </entry>
   <entry>
