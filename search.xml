@@ -9,6 +9,7 @@
       </categories>
       <tags>
         <tag>pytorch</tag>
+        <tag>踩坑血泪</tag>
       </tags>
   </entry>
   <entry>
@@ -302,8 +303,8 @@
         <category>操作和使用</category>
       </categories>
       <tags>
-        <tag>命令操作</tag>
         <tag>踩坑血泪</tag>
+        <tag>命令操作</tag>
         <tag>ubuntu</tag>
         <tag>安装教程</tag>
       </tags>
@@ -491,10 +492,10 @@
         <category>人工智能</category>
       </categories>
       <tags>
+        <tag>踩坑血泪</tag>
         <tag>深度学习</tag>
         <tag>论文分享</tag>
         <tag>backbone</tag>
-        <tag>踩坑血泪</tag>
       </tags>
   </entry>
   <entry>
@@ -528,8 +529,8 @@
         <category>程序与设计</category>
       </categories>
       <tags>
-        <tag>代码实现</tag>
         <tag>数字电路</tag>
+        <tag>代码实现</tag>
         <tag>verilog</tag>
         <tag>Vivado</tag>
       </tags>
@@ -543,8 +544,8 @@
       </categories>
       <tags>
         <tag>踩坑血泪</tag>
-        <tag>代码实现</tag>
         <tag>数字电路</tag>
+        <tag>代码实现</tag>
         <tag>verilog</tag>
         <tag>Vivado</tag>
       </tags>
@@ -583,8 +584,8 @@
       </categories>
       <tags>
         <tag>踩坑血泪</tag>
-        <tag>代码实现</tag>
         <tag>数字电路</tag>
+        <tag>代码实现</tag>
         <tag>verilog</tag>
         <tag>Vivado</tag>
       </tags>
@@ -620,8 +621,8 @@
         <category>程序与设计</category>
       </categories>
       <tags>
-        <tag>前端</tag>
         <tag>踩坑血泪</tag>
+        <tag>前端</tag>
       </tags>
   </entry>
   <entry>
@@ -632,10 +633,10 @@
         <category>人工智能</category>
       </categories>
       <tags>
-        <tag>机器学习</tag>
-        <tag>深度学习</tag>
         <tag>pytorch</tag>
         <tag>踩坑血泪</tag>
+        <tag>机器学习</tag>
+        <tag>深度学习</tag>
         <tag>代码实现</tag>
       </tags>
   </entry>
@@ -736,11 +737,11 @@
         <category>人工智能</category>
       </categories>
       <tags>
+        <tag>pytorch</tag>
+        <tag>踩坑血泪</tag>
         <tag>深度学习</tag>
         <tag>论文分享</tag>
-        <tag>pytorch</tag>
         <tag>backbone</tag>
-        <tag>踩坑血泪</tag>
         <tag>代码实现</tag>
       </tags>
   </entry>
@@ -752,8 +753,8 @@
         <category>人工智能</category>
       </categories>
       <tags>
-        <tag>深度学习</tag>
         <tag>pytorch</tag>
+        <tag>深度学习</tag>
         <tag>代码实现</tag>
       </tags>
   </entry>
@@ -873,11 +874,11 @@
         <category>人工智能</category>
       </categories>
       <tags>
+        <tag>pytorch</tag>
+        <tag>踩坑血泪</tag>
         <tag>深度学习</tag>
         <tag>论文分享</tag>
-        <tag>pytorch</tag>
         <tag>backbone</tag>
-        <tag>踩坑血泪</tag>
         <tag>代码实现</tag>
       </tags>
   </entry>
