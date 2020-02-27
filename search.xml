@@ -508,9 +508,9 @@
         <category>人工智能</category>
       </categories>
       <tags>
+        <tag>踩坑血泪</tag>
         <tag>深度学习</tag>
         <tag>论文分享</tag>
-        <tag>踩坑血泪</tag>
         <tag>backbone</tag>
       </tags>
   </entry>
@@ -545,8 +545,8 @@
         <category>程序与设计</category>
       </categories>
       <tags>
-        <tag>数字电路</tag>
         <tag>代码实现</tag>
+        <tag>数字电路</tag>
         <tag>verilog</tag>
         <tag>Vivado</tag>
       </tags>
@@ -560,8 +560,8 @@
       </categories>
       <tags>
         <tag>踩坑血泪</tag>
-        <tag>数字电路</tag>
         <tag>代码实现</tag>
+        <tag>数字电路</tag>
         <tag>verilog</tag>
         <tag>Vivado</tag>
       </tags>
@@ -600,8 +600,8 @@
       </categories>
       <tags>
         <tag>踩坑血泪</tag>
-        <tag>数字电路</tag>
         <tag>代码实现</tag>
+        <tag>数字电路</tag>
         <tag>verilog</tag>
         <tag>Vivado</tag>
       </tags>
@@ -649,10 +649,10 @@
         <category>人工智能</category>
       </categories>
       <tags>
-        <tag>机器学习</tag>
-        <tag>深度学习</tag>
         <tag>pytorch</tag>
         <tag>踩坑血泪</tag>
+        <tag>机器学习</tag>
+        <tag>深度学习</tag>
         <tag>代码实现</tag>
       </tags>
   </entry>
@@ -736,7 +736,7 @@
   <entry>
     <title><![CDATA[hexo笔记：ssh与https以及双线部署的一些注意点]]></title>
     <url>%2Fhexo20191006232704%2F</url>
-    <content type="text"><![CDATA[不久前，我对本博客网站做了一些优化，其中包括将网站同时部署到github和coding上。关于双线部署如何具体操作，网上有许多较为详尽的教程可以参考，如果有问题的话可以参考多篇不同的教程找出原因解决。在这篇文章中，我主要想讲讲我这期间遇到的一些小事项。github与coding考虑到每次打开博客的加载速度问题，我前几天尝试了把博客部署到coding上，实现了coding+github双线部署。coding现已经被腾讯云收购，可以直接用微信登录。部署完成后，为了看一看效果，我使用了站长工具分别对coding和github上的网站速度进行了测试。测试结果如下：可见，部署在coding上确实能提高一点速度。不过事实上，在实际使用中，并没有感到coding更快，搜索之后发现似乎是coding的服务器也不在内地而在香港的原因。不过，coding page的确能被百度更快地爬取，更新的文章能够很快地被收录。这里附上我的两个链接，可以看看效果，择优访问：github page：https://gsy00517.github.io/coding page：https://gsy00517.coding.me/注意：coding page近期出现问题，详见欢迎到访：写在前面。ssh与https在网上的一个教程中，作者提到使用ssh比https更加稳定，尝试后暂时没有发现明显的区别，但是另一个直观的改变就是在push代码时，使用ssh url就不需要输入账号和密码。下面是我在hexo配置文件中的设置，也就是位于站点根目录下的_config.yml文件，其中后面注释中的https://github.com/Gsy00517/Gsy00517.github.io.git是原本的https url。上面对应的ssh url一般可以从平台上直接复制获取，也可以参照我的格式进行设置。这里简要说一说ssh与https的区别。一般默认情况下使用的是https，除了需要在fetch和push时使用密码之外，使用https的配置比较方便。然而，使用ssh url却需要先配置和添加好ssh key，并且你必须是这个项目的拥有或者管理者，而https就没有这些要求。其实，配置ssh key也并没有那么繁琐，而且这是一劳永逸的，所以推荐还是使用ssh。要注意的是，ssh key保存的默认位置或许会不同于网上的教程，不过可以自行更改。我的默认地址是在用户文件夹下的AppData\Roaming\SPB_16.6的ssh文件夹中。AppData文件夹默认是隐藏的，可以通过查看隐藏的项目打开。此外，如果需要经常清理temp文件的话，不妨取消这个文件夹的隐藏，这在释放windows空间中还是挺有效的，可以参见windows笔记：释放空间。key所在的文件是上图所示的第二个publisher文件，然而似乎无法直接用office打开，选择打开方式为记事本即可。当然，如果实在找不到key所在的文件，也可以直接使用文件资源管理器的搜索功能查找名为.ssh的文件夹即可。注：http与https的区别在于，http是明文传输的，而https是使用ssl加密的，更加安全。若要将连接提交百度站点验证，就需要使用https协议，这个在github和coding都有强制https访问的选项。双线部署注意事项LeanCloud这里主要针对hexo博客双线部署后可能会出现的几个问题说明一下注意点。首先，如果之前使用的是LeanCloud来接受记录评论和统计阅读量的，那么为了共享数据，必须在LeanCloud控制台设置的安全中心中，添加新增的web安全域名，保存后即可解决问题。Widget如果使用的是基于Widget的评分系统，那么必须更改Widget设置中的domain。我是免费使用Widget，只能同时添加一个domain。我继续使用github page的域名，因此只能在我的github page中看到评分系统。文内链接因为双线部署用的依旧还是同一份本地源码文件，因此在博文中提供的链接依旧是一致的。这里我也将继续使用github page的链接，也就是文内推荐的我本人的博文链接依旧还是指向github page的。事实上，这并无任何影响。]]></content>
+    <content type="text"><![CDATA[不久前，我对本博客网站做了一些优化，其中包括将网站同时部署到github和coding上。关于双线部署如何具体操作，网上有许多较为详尽的教程可以参考，如果有问题的话可以参考多篇不同的教程找出原因解决。在这篇文章中，我主要想讲讲我这期间遇到的一些小事项。github与coding考虑到每次打开博客的加载速度问题，我前几天尝试了把博客部署到coding上，实现了coding+github双线部署。coding现已经被腾讯云收购，可以直接用微信登录。部署完成后，为了看一看效果，我使用了站长工具分别对coding和github上的网站速度进行了测试。测试结果如下：可见，部署在coding上确实能提高一点速度。不过事实上，在实际使用中，并没有感到coding更快，搜索之后发现似乎是coding的服务器也不在内地而在香港的原因。由于coding总是会更改服务和功能，其稳定性远远不如github。不过，coding page的确能被百度更快地爬取，更新的文章能够很快地被收录。这里附上我的两个链接，可以看看效果，择优访问：github page：https://gsy00517.github.io/coding page：https://gsy00517.coding.me/注意：coding page近期出现问题，详见欢迎到访：写在前面。ssh与https在网上的一个教程中，作者提到使用ssh比https更加稳定，尝试后暂时没有发现明显的区别，但是另一个直观的改变就是在push代码时，使用ssh url就不需要输入账号和密码。下面是我在hexo配置文件中的设置，也就是位于站点根目录下的_config.yml文件，其中后面注释中的https://github.com/Gsy00517/Gsy00517.github.io.git是原本的https url。上面对应的ssh url一般可以从平台上直接复制获取，也可以参照我的格式进行设置。这里简要说一说ssh与https的区别。一般默认情况下使用的是https，除了需要在fetch和push时使用密码之外，使用https的配置比较方便。然而，使用ssh url却需要先配置和添加好ssh key，并且你必须是这个项目的拥有或者管理者，而https就没有这些要求。其实，配置ssh key也并没有那么繁琐，而且这是一劳永逸的，所以推荐还是使用ssh。要注意的是，ssh key保存的默认位置或许会不同于网上的教程，不过可以自行更改。我的默认地址是在用户文件夹下的AppData\Roaming\SPB_16.6的ssh文件夹中。AppData文件夹默认是隐藏的，可以通过查看隐藏的项目打开。此外，如果需要经常清理temp文件的话，不妨取消这个文件夹的隐藏，这在释放windows空间中还是挺有效的，可以参见windows笔记：释放空间。key所在的文件是上图所示的第二个publisher文件，然而似乎无法直接用office打开，选择打开方式为记事本即可。当然，如果实在找不到key所在的文件，也可以直接使用文件资源管理器的搜索功能查找名为.ssh的文件夹即可。注：http与https的区别在于，http是明文传输的，而https是使用ssl加密的，更加安全。若要将连接提交百度站点验证，就需要使用https协议，这个在github和coding都有强制https访问的选项。双线部署注意事项LeanCloud这里主要针对hexo博客双线部署后可能会出现的几个问题说明一下注意点。首先，如果之前使用的是LeanCloud来接受记录评论和统计阅读量的，那么为了共享数据，必须在LeanCloud控制台设置的安全中心中，添加新增的web安全域名，保存后即可解决问题。Widget如果使用的是基于Widget的评分系统，那么必须更改Widget设置中的domain。我是免费使用Widget，只能同时添加一个domain。我继续使用github page的域名，因此只能在我的github page中看到评分系统。文内链接因为双线部署用的依旧还是同一份本地源码文件，因此在博文中提供的链接依旧是一致的。这里我也将继续使用github page的链接，也就是文内推荐的我本人的博文链接依旧还是指向github page的。事实上，这并无任何影响。]]></content>
       <categories>
         <category>操作和使用</category>
       </categories>
@@ -753,10 +753,10 @@
         <category>人工智能</category>
       </categories>
       <tags>
-        <tag>深度学习</tag>
-        <tag>论文分享</tag>
         <tag>pytorch</tag>
         <tag>踩坑血泪</tag>
+        <tag>深度学习</tag>
+        <tag>论文分享</tag>
         <tag>backbone</tag>
         <tag>代码实现</tag>
       </tags>
@@ -769,8 +769,8 @@
         <category>人工智能</category>
       </categories>
       <tags>
-        <tag>深度学习</tag>
         <tag>pytorch</tag>
+        <tag>深度学习</tag>
         <tag>代码实现</tag>
       </tags>
   </entry>
@@ -890,10 +890,10 @@
         <category>人工智能</category>
       </categories>
       <tags>
-        <tag>深度学习</tag>
-        <tag>论文分享</tag>
         <tag>pytorch</tag>
         <tag>踩坑血泪</tag>
+        <tag>深度学习</tag>
+        <tag>论文分享</tag>
         <tag>backbone</tag>
         <tag>代码实现</tag>
       </tags>
@@ -920,8 +920,8 @@
       <tags>
         <tag>踩坑血泪</tag>
         <tag>安装教程</tag>
-        <tag>个人经历</tag>
         <tag>ubuntu</tag>
+        <tag>个人经历</tag>
       </tags>
   </entry>
   <entry>
