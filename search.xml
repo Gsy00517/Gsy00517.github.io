@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[pytorch笔记：张量的广播机制]]></title>
+    <url>%2Fpytorch20200228111430%2F</url>
+    <content type="text"><![CDATA[在pytorch的张量计算中，“广播”指的是当满足一定条件时，较小的张量能够自动扩张成合适尺寸的大张量，使得能够进行计算。References：电子文献：https://pytorch.org/docs/stable/notes/broadcasting.html条件当一对张量满足下面的条件时，它们才是可以被“广播”的。每个张量至少有一个维度。迭代维度尺寸时，从尾部（也就是从后往前）开始，依次每个维度的尺寸必须满足以下之一：相等。其中一个张量的维度尺寸为1。其中一个张量不存在这个维度。例子光看条件可能会有点迷，下面是官方文档中的几个例子。1import torch首先，显然相同形状的张量是可以广播的（或者说不需要广播）。12x = torch.empty(5, 7, 3)y = torch.empty(5, 7, 3)(x+y).size()输出torch.Size([5, 7, 3])。一般而言，我们可以从后往前分析一对张量是不是“broadcastable”。12x = torch.empty(5, 3, 4, 1)y = torch.empty( 3, 1, 1)我们依次分析：对倒数第一个维度，两者尺寸相同，符合“相等”的条件。对倒数第二个维度，y的尺寸为1，符合“其中一个张量尺寸为1”的条件。对倒数第三个维度，两者尺寸相同，符合“相等”的条件。对倒数第四个维度，y的该维度不存在，符合“其中一个张量不存在这个维度”的条件。综上，这两个张量可以广播。其实，x可以比y多出更多的维度，都满足该维度有“其中一个张量不存在这个维度”的条件。举个反例：12x = torch.empty(5, 2, 4, 1)y = torch.empty( 3, 1, 1)这里若x+y就无法广播了，因为从后往前遇到倒数第三个维度时会被卡住，不满足任何一个条件。此外，对torch.empty((0,))，它也无法和其他任何张量广播，可以输出发现其结果为tensor([])，是空的，这就不满足“每个张量至少有一个维度”这个条件。tensor.view()这里做个补充，一般我们在全连接层，总是会看到对某个张量作view(-1, ...)的变换，其实这里的“-1”并不是直接表示尺寸，而是起到让计算机帮助自动计算的功能。举个例子，比如一个tensor含有6个数据（无论唯独尺寸如何组合），我们对其view(-1, 2)，那么输出的尺寸就是[3, 2]，若view(-1)，那么输出的尺寸就是[6]。注意，不能同时出现两个“-1”让机器计算。虽然在某些情况下，人能够判断，比如含有6个数据的tensor我们能够想到view(-1, -1, 6)输出尺寸是[1, 1, 6]，但机器就会认为这是个错误。]]></content>
+      <categories>
+        <category>程序与设计</category>
+      </categories>
+      <tags>
+        <tag>pytorch</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[opencv笔记：ubuntu安装opencv以及多版本共存]]></title>
     <url>%2Fopencv20200226092314%2F</url>
     <content type="text"><![CDATA[跑CV程序少不了opencv，然后最近实践的时候发现opencv似乎不是向后兼容的（opencv4.0跑不了opencv2.4的），于是还是记录一下，后期改也方便。References：电子文献：https://blog.csdn.net/new_delete_/article/details/84797041?depth_1-utm_source=distribute.pc_relevant.none-task&amp;utm_source=distribute.pc_relevant.none-taskhttps://www.jianshu.com/p/f646448da265https://blog.csdn.net/learning_tortosie/article/details/80594399安装流程本节以opencv4.0为例，记录一下在ubuntu18.04上安装的流程。此方法经检验，同样适用于opencv2.4。准备cmake首先要确保系统已经安装了cmake，没有的话请sudo apt-get install cmake或者源码编译最新版。依赖库1sudo apt-get install build-essential libgtk2.0-dev libgtk-3-dev libavcodec-dev libavformat-dev libjpeg-dev libswscale-dev libtiff5-dev支持python12345678#python3支持sudo apt install python3-dev python3-numpy#streamer支持sudo apt install libgstreamer-plugins-base1.0-dev libgstreamer1.0-dev#可选的依赖sudo apt install libpng-dev libopenexr-dev libtiff-dev libwebp-dev下载源文件可以到官网或者github上去下载源文件（官网版本选择在下方翻页，github上通过tag选择）。推荐使用github下载，相对会快一些。安装解压源文件并进入。12unzip opencv-4.0.0.zipcd opencv-4.0.0/创建编译文件夹并进入。12mkdir buildcd build/cmakeopencv最好装在/usr/local目录下，为了后期方便，我将不同版本的opencv再独立键一级目录。1cmake -D CMAKE_BUILD_TYPE=Release -D OPENCV_GENERATE_PKGCONFIG=YES -D CMAKE_INSTALL_PREFIX=/usr/local/opencv4 ..这里我修改了安装路径为/usr/local/opencv4，可以自己修改到需要的位置，如果该命令中不加-D CMAKE_INSTALL_PREFIX=/usr/local/opencv4来指定安装目录，则默认各部分分别安装在/usr/local/目录的include，bin，lib3个文件夹下。注意：别忘了最后的..。（cmake .是运行cmake，cmake ..会生成Makefile、CMakeFiles等一些文件）由于opencv4.0以上版本默认不使用pkg-config，因此需要通过-D OPENCV_GENERATE_PKGCONFIG=YES开启生成opencv4.pc文件（后面要用），支持pkg-config功能。如果是安装opencv4.0以下的软件，也加上这句是不会有影响的。这个命令执行需要一段时间，期间会输出百分比，无需担心。make编译1make -j6这里-j6表示开6个线程去编译，-j2、-j4或者不加其实任意。make安装1sudo make install以上就完成了安装，下面来配置环境。配置环境pkg-config环境我们可以通过sudo find / -iname opencv4.pc来找到opencv4.pc文件，这里会出现一个Permission denied的报错，但是没关系，路径还是会输出。如果按照之前的方法安装，那么应该是会输出/usr/local/opencv4/lib/pkgconfig/opencv4.pc。因此我们接下来就要把路径/usr/local/opencv4/lib/pkgconfig/加入到PKG_CONFIG_PATH。可以用vim来方便地编辑。编辑方法我在anaconda笔记：解决conda无法下载pytorch的问题一文中已经提过，只需掌握insert模式和normal模式即可正确地操作vim。1sudo vim /etc/profile.d/pkgconfig.sh在文件中加入下面一行：1export PKG_CONFIG_PATH=/usr/local/opencv4/lib/pkgconfig:$PKG_CONFIG_PATH:wq保存退出之后，在终端中使用命令激活。1source /etc/profile最后我们可以通过pkg-config --libs opencv4（opencv2.4使用pkg-config --libs opencv）来验证配置是否成功，如果能输出一系列对应的库，说明配置成功。动态库环境为了在程序执行时能加载动态库*.so的路径，我们还需配置动态库环境。1sudo vim /etc/ld.so.conf.d/opencv4.conf在该文件（可能是空文件，也可能是/usr/local/lib），加上或者改成自己lib的安装路径，如果是按照上面的流程安装的，那应该是改成/usr/local/opencv4/lib。最后还要用命令使得配置生效。1sudo ldconfigpython-opencv环境找到编译好的python cv库：1sudo find / -iname cv2*.so这里会看到cv2.cpython-35m-x86_64-linux-gnu.so也就是就是编译好的python3的opencv库，我们把它复制到对应python解释器的/path/to/dist-packages（系统自带的python解释器）和/path/to/site-packages（用户安装的python解释器）目录下，之后就能在该python解释器中使用python-opencv库。连接到系统自带的python3解释器中：1sudo ln -s /usr/local/opencv4/lib/python3.5/dist-packages/cv2/python-3.5/cv2.cpython-35m-x86_64-linux-gnu.so /usr/lib/python3/dist-packages/cv2.so连接到Anaconda创建的虚拟环境python3解释器中：1sudo ln -s /usr/local/opencv4/lib/python3.5/dist-packages/cv2/python-3.5/cv2.cpython-35m-x86_64-linux-gnu.so ~/anaconda3/lib/python3.7/site-packages/cv2.so这里的ln -s是建立软连接，想进一步了解可以看看ubuntu笔记：安装typora。检验找到之前解压的源文件，在源文件/samples/cpp/example_cmake目录下（也可能是在源文件/samples/c/example_cmake目录下），我们可以通过官方提供的example来检验。依次执行：123cmake .make./opencv_example可以看到电脑打开了摄像头拍你自己，在左上角有一个Hello OpenCV，即表示配置成功。多版本共存上面已经安装了opencv4.0，下面以opencv2.4为例，介绍一下如何从opencv4.0切换到opencv2.4。打开~/.bashrc：1gedit ~/.bashrc这里用gedit来打开，用vim也一样。在文件末尾增加如下内容（我将opencv2.4安装在/usr/local/opencv2_4目录下）：12export PKG_CONFIG_PATH=/usr/local/opencv2_4/lib/pkgconfigexport LD_LIBRARY_PATH=/usr/local/opencv2_4/lib更新~/.bashrc：1source ~/.bashrc此时再通过pkg-config --modversion opencv查询opencv的版本，如输出修改后我们想要的版本，则表示切换成功。注：如果想换回来，用同样的方法把之前加的两条增加的内容注释掉即可，注意别忘了source ~/.bashrc更新！]]></content>
@@ -920,8 +931,8 @@
       <tags>
         <tag>踩坑血泪</tag>
         <tag>安装教程</tag>
-        <tag>ubuntu</tag>
         <tag>个人经历</tag>
+        <tag>ubuntu</tag>
       </tags>
   </entry>
   <entry>

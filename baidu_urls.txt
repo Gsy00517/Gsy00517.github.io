@@ -1,3 +1,4 @@
+https://gsy00517.github.io/pytorch20200228111430/
 https://gsy00517.github.io/opencv20200226092314/
 https://gsy00517.github.io/anaconda20200222000018/
 https://gsy00517.github.io/computer-vision20200215214240/
