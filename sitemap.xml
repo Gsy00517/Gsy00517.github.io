@@ -2,9 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://gsy00517.github.io/computer-vision20200215214240/</loc>
+    
+    <lastmod>2020-03-05T03:01:00.530Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://gsy00517.github.io/artificial-intelligence20191007232512/</loc>
+    
+    <lastmod>2020-03-04T12:56:21.946Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://gsy00517.github.io/deep-learning20200203162245/</loc>
+    
+    <lastmod>2020-03-04T12:40:24.031Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://gsy00517.github.io/pytorch20200228111430/</loc>
     
-    <lastmod>2020-02-28T03:50:55.355Z</lastmod>
+    <lastmod>2020-02-29T05:14:59.909Z</lastmod>
     
   </url>
   
@@ -37,13 +58,6 @@
   </url>
   
   <url>
-    <loc>https://gsy00517.github.io/artificial-intelligence20191007232512/</loc>
-    
-    <lastmod>2020-02-26T03:40:18.453Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://gsy00517.github.io/opencv20200226092314/</loc>
     
     <lastmod>2020-02-26T03:04:15.640Z</lastmod>
@@ -54,13 +68,6 @@
     <loc>https://gsy00517.github.io/anaconda20200222000018/</loc>
     
     <lastmod>2020-02-26T02:46:24.546Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://gsy00517.github.io/computer-vision20200215214240/</loc>
-    
-    <lastmod>2020-02-26T01:32:52.623Z</lastmod>
     
   </url>
   
@@ -264,13 +271,6 @@
     <loc>https://gsy00517.github.io/hexo20200207151318/</loc>
     
     <lastmod>2020-02-09T08:13:04.490Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://gsy00517.github.io/deep-learning20200203162245/</loc>
-    
-    <lastmod>2020-02-08T02:30:37.167Z</lastmod>
     
   </url>
   
