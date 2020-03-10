@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://gsy00517.github.io/hexo20191006232704/</loc>
+    
+    <lastmod>2020-03-10T10:00:47.528Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://gsy00517.github.io/preface20191007202443/</loc>
+    
+    <lastmod>2020-03-10T09:59:56.091Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://gsy00517.github.io/computer-vision20200120120823/</loc>
     
     <lastmod>2020-03-10T09:55:49.079Z</lastmod>
@@ -33,20 +47,6 @@
     <loc>https://gsy00517.github.io/pytorch20200228111430/</loc>
     
     <lastmod>2020-02-29T05:14:59.909Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://gsy00517.github.io/hexo20191006232704/</loc>
-    
-    <lastmod>2020-02-27T23:28:45.449Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://gsy00517.github.io/preface20191007202443/</loc>
-    
-    <lastmod>2020-02-27T14:35:13.188Z</lastmod>
     
   </url>
   
