@@ -19,8 +19,8 @@
         <category>环境配置</category>
       </categories>
       <tags>
-        <tag>安装教程</tag>
         <tag>命令操作</tag>
+        <tag>安装教程</tag>
         <tag>计算机视觉</tag>
         <tag>ubuntu</tag>
       </tags>
@@ -330,9 +330,9 @@
         <category>操作和使用</category>
       </categories>
       <tags>
+        <tag>命令操作</tag>
         <tag>踩坑血泪</tag>
         <tag>安装教程</tag>
-        <tag>命令操作</tag>
         <tag>ubuntu</tag>
       </tags>
   </entry>
