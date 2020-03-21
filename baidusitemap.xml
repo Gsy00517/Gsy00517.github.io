@@ -2,7 +2,10 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://gsy00517.github.io/computer-vision20200215214240/</loc>
-    <lastmod>2020-03-20</lastmod>
+    <lastmod>2020-03-21</lastmod>
+  </url>  <url>
+    <loc>https://gsy00517.github.io/paper20200206190206/</loc>
+    <lastmod>2020-03-21</lastmod>
   </url>  <url>
     <loc>https://gsy00517.github.io/computer-vision20200129102927/</loc>
     <lastmod>2020-03-20</lastmod>
@@ -54,9 +57,6 @@
   </url>  <url>
     <loc>https://gsy00517.github.io/computer-vision20200118213942/</loc>
     <lastmod>2020-02-23</lastmod>
-  </url>  <url>
-    <loc>https://gsy00517.github.io/paper20200206190206/</loc>
-    <lastmod>2020-02-20</lastmod>
   </url>  <url>
     <loc>https://gsy00517.github.io/anaconda20190913231748/</loc>
     <lastmod>2020-02-19</lastmod>
