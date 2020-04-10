@@ -1,3 +1,3 @@
-// build time:Mon Apr 06 2020 20:43:27 GMT+0800 (GMT+08:00)
+// build time:Fri Apr 10 2020 20:18:40 GMT+0800 (GMT+08:00)
 var OriginTitle=document.title;var titleTime;document.addEventListener("visibilitychange",function(){if(document.hidden){$('[rel="icon"]').attr("href","/img/TEP.ico");document.title="(＃°Д°)页面崩溃啦~";clearTimeout(titleTime)}else{$('[rel="icon"]').attr("href","/favicon.ico");document.title="(●ˇ∀ˇ●)噫又好了~";titleTime=setTimeout(function(){document.title=OriginTitle},666)}});
 //rebuild by neat 
