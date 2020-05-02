@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://gsy00517.github.io/matlab20200502225129/</loc>
+    <lastmod>2020-05-02</lastmod>
+  </url>  <url>
+    <loc>https://gsy00517.github.io/vot-toolkit20200215185238/</loc>
+    <lastmod>2020-05-02</lastmod>
+  </url>  <url>
     <loc>https://gsy00517.github.io/computer-vision20200215214240/</loc>
     <lastmod>2020-04-18</lastmod>
   </url>  <url>
@@ -62,9 +68,6 @@
     <lastmod>2020-02-23</lastmod>
   </url>  <url>
     <loc>https://gsy00517.github.io/anaconda20190913231748/</loc>
-    <lastmod>2020-02-19</lastmod>
-  </url>  <url>
-    <loc>https://gsy00517.github.io/vot-toolkit20200215185238/</loc>
     <lastmod>2020-02-19</lastmod>
   </url>  <url>
     <loc>https://gsy00517.github.io/machine-learning20200119145637/</loc>

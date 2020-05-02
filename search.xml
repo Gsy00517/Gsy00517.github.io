@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[matlab笔记：在服务器上激活matlab遇到的问题]]></title>
+    <url>%2Fmatlab20200502225129%2F</url>
+    <content type="text"><![CDATA[前段时间在服务器上使用matlab，在激活的时候遇到了一些和自己个人电脑上不一样的情况，在搞清楚之后记录一下。References：电子文献：https://ww2.mathworks.cn/matlabcentral/answers/99067-why-do-i-receive-license-manager-error-9问题前段时间在学校的ubuntu服务器上安装了matlab，按照自己之前的方法在/usr/local/MATLAB/version/bin中使用./activate_matlab.sh激活并使用matlab命令直接运行，却卡在MATLAB is selecting SOFTWARE OPENGL rendering之后报错License Manager Error -9。我们知道，matlab激活时指定的用户是需要和本机用户名一致的，由于之前服务器上有学姐安装过matlab，我觉得可能是激活了她的用户名导致我无法使用，因此我反激活之前的用户名之后，尝试使用root作为指定用户重新激活并使用sudo matlab命令运行matlab，结果却显示没有已激活的许可证。后来想想的确不应该是这个问题，因为matlab每次激活会覆盖之前的，假如是因为别的用户名导致我无法运行的话，我激活后应该就能解决，然而我却依旧不能运行。于是，我直接在bin中打开matlab的执行文件，即./matlab（如果之前用root激活的话则输入sudo ./matlab就能执行），打开是打开了，但打开过程比较慢且出现一长串报错。解决办法在搞清楚matlab激活的要求之后，我还是使用自己的用户名去激活matlab。当然，别的用户也可以使用自己的用户名激活，经检验，这样并不会影响大家共同的使用。然而，此时仍旧只能在bin中打开matlab并且会有如上文图中所示的报错。搜索之后发现，是我没有把.matlab的整个目录设为可写。注意，这个目录指的是用户主文件夹下的目录而不是/usr/local下面的安装目录。因此，只需赋予更多权限，就不会出现之前的问题了。可以在终端中执行如下语句。1sudo chmod -R 777 /home/***/.matlab注意：这里的***是用户名，-R是为了对整个文件夹操作。如何查看本机用户名一般情况下，执行matlab激活程序时会自动给出你的用户名，这样激活之后就可以直接使用。然而，有时候用户名并没有给出而需要自己填，而有可能不确定自己该填啥，这时候可以就通过如下方式查询。还是执行激活程序，先不选择使用Internet自动激活，而是选择“在不使用Internet的情况下手动激活”。点击下一步之后，选择“我没有许可证文件，帮我执行后续步骤”。再到下一步，就可以看到用户名了，直接复制。返回到开始的地方，选择“使用Internet自动激活”，之后还是一路默认操作，在需要指定用户时把之前的用户名粘贴上即可。]]></content>
+      <categories>
+        <category>环境配置</category>
+      </categories>
+      <tags>
+        <tag>踩坑血泪</tag>
+        <tag>matlab</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[signal笔记：路由器天线摆放方法小实验]]></title>
     <url>%2Fsignal20200312172247%2F</url>
     <content type="text"><![CDATA[这篇文章要从一只蝙蝠说起…好吧其实这是一篇没有任何技术含量的文章。纯粹心血来潮，研究了一下路由器的天线（我家是三根）的摆放方法与网速之间的关系。起因不知道怎么，总感觉家里“专属”的WiFi信号反而没流量快。上网一查，才发现我们在商场或者网上看到的路由器商品展示的天线摆放方法（全部竖直向上）是错误的。根据网上资料，一般家用路由器的全向天线的无线信号分布类似被压扁的椭球形，无线信号在与天线垂直的方向上覆盖效果最好。由于手机的天线位于手机边框内、笔记本电脑的天线位于连接屏幕的水平转轴中…而设备的不同摆放方式也会导致接收信号的效果不同。后面我会证明天线朝同一个方向的叠加摆放与信号的增强没有必然联系，因此正确的摆法应该交叉而不指向同一方向。若是两根天线，则应成直角；若三根，则应如下图所示。实验结果为了取得比较可靠的数据，我借鉴了物理实验中交替重复测量的思想，分别进行了不同向、同向、再不同向、再同向…做了共8次实验，结果如下（仅展示其中4次）。可以看到，两种摆法的延迟和下行速度并没有很大区别（全部竖直向上摆放下行稍快），而上行速度却有显著区别。可见天线朝同一个方向的叠加摆放与信号的增强没有必然联系（有说法说反而会干扰），而朝不同的方向确实利于接收信号，提高上行速度。不过一般我们使用网络大部分都是下行传递数据，总的来说，两种方法各有细微的利弊但在使用上区别不大。]]></content>
@@ -77,7 +89,7 @@
   <entry>
     <title><![CDATA[vot toolkit笔记：解决无法连接TraX支持的问题]]></title>
     <url>%2Fvot-toolkit20200215185238%2F</url>
-    <content type="text"><![CDATA[今天终于把vot toolkit给搞好了，能够跑通NCC了，简直不要太开心。先是在windows下问题比较多，后来换到ubuntu上，的确问题少了很多，也方便了很多。但是每次执行run_experiments或者run_test的时候，会出现如下报错：12345678910Initializing workspace ...Verifying native components ...Testing TraX protocol support for tracker NCC.Tracker execution interrupted: Unable to establish connection.TraX support not detected.错误使用 tracker_load (line 127)Tracker has not passed the TraX support test.出错 run_test (line 8)tracker = tracker_load(&apos;NCC&apos;);于是我打印了厚厚一摞的TraX Documentation，照着一些步骤作了一遍可依然没有效果，最后终于在vot toolkit的gitHubissue中找到了解决方法。References：电子文献：https://github.com/votchallenge/vot-toolkit/issues/201https://github.com/votchallenge/vot-toolkit/issues/216http://votchallenge.net/howto/perfeval.htmlsolution首先说明，我的运行环境为ubuntu18.04与matlab2018b。在vot-toolkit/tracker/tracker_run.m文件中找到如下代码（大约在30至40行左右）。1234% Hint to tracker that it should use traxenvironment.TRAX = '1';connection = 'standard';修改为：1234% Hint to tracker that it should use traxenvironment.TRAX = '1';connection = 'socket';再次执行run_experiments或者run_test即可。其实不是很清楚为什么work了，根据这段代码之后的条件判断语句可知在windows下必须使用socket连接。注：由于这期间我也做了其他的一些调整，不保证直接修改上述代码之后一定能够成功。请先按上面所说修改，如果成功，那么接下来的部分可以跳过。如果仅下载了vot toolkit直接执行的话，它会自动为你下载TraX。这里应该没有问题，如果担心的话可以自己去github下载TraX，然后复制到vot-toolkit/native/目录下（没有的话创建一个）。来到vot-toolkit/native/trax目录下，接下来都是终端操作。mkdir buildcd buildmake ..（请确保已经安装好cmake）sudo make install（不加sudo会出现权限问题）如果完成上面之后，执行还有问题，可能是路径没有设置对。打开vot-toolkit/workspace/tracker_XXX.m（XXX是你创建工作区时设置的跟踪算法的名称）。找到最后一行：% tracker_linkpath = {}; % A cell array of custom library directories used by the tracker executable (optional)。去掉前面的注释符，添加路径tracker_linkpath = {&#39;absolute_path/trax/build&#39;};（记得修改这里的absolute_path）。据TraX的作者所说，TraX出错一般不是vot toolkit本身的问题，如果你使用的是其他的算法，请确保该算法的.m或者.py文件和vot.m或者vot.py文件处在同一个目录下。如果没有，可到vot-toolkit/tracker/examples中的matlab或者python目录下复制。TraX折腾了半天，总得知道这个TraX是个什么东西，根据TraX文档中所说：TraX stands for visual Tracking eXchange, the protocol was designed to make development and testing of visual tracking algorithms simpler and faster.其实我当初折腾的时候想法是：我不要simpler and faster，我现在只想跑通哈哈哈哈哈。NCC一般使用vot toolkit都会根据官方文档先跑一下NCC来看看有没有设置好。NCC（归一化互相关）是一种基于统计学计算两组样本数据相关性的算法，比较老，性能可想而知。sequences我和我的同学在运行的时候都卡在了下载数据集那里，尽管在下载，但是网络下行却一直显示为0。询问一位计科大佬之后知道在maltab中下载数据集是基本没有速度的，所以一般的建议是使用别人网盘中下载好的数据集，我已经上传到我的百度网盘，可通过此链接用提取码0glq下载。注：数据集已经压缩成zip文件，但大小仍有1.67GB，受不了百度网盘限制的龟速的话我推荐使用ENFI下载器下载，还能挂机赚钱，不是打广告哈哈。下载解压之后，打开可以看到一个list文本文件和许多序列文件夹（一个序列一个文件夹），可以通过修改list文本文件来确定要读取并进行实验的序列。注：执行run_test可以选择list文本文件中列出的序列，选择对应序号之后可以看到按帧实验的情况。执行run_experiments会执行list文件中列出的所有序列，可以ctrl+C暂停，之后再次执行run_experiments会从上一次暂停的地方开始执行。done之后可以执行run_pack生成可以提交至VOT challenge的archive档案。]]></content>
+    <content type="text"><![CDATA[今天终于把vot toolkit给搞好了，能够跑通NCC了，简直不要太开心。先是在windows下问题比较多，后来换到ubuntu上，的确问题少了很多，也方便了很多。但是每次执行run_experiments或者run_test的时候，会出现如下报错：12345678910Initializing workspace ...Verifying native components ...Testing TraX protocol support for tracker NCC.Tracker execution interrupted: Unable to establish connection.TraX support not detected.错误使用 tracker_load (line 127)Tracker has not passed the TraX support test.出错 run_test (line 8)tracker = tracker_load(&apos;NCC&apos;);于是我打印了厚厚一摞的TraX Documentation，照着一些步骤作了一遍可依然没有效果，最后终于在vot toolkit的gitHubissue中找到了解决方法。References：电子文献：https://github.com/votchallenge/vot-toolkit/issues/201https://github.com/votchallenge/vot-toolkit/issues/216http://votchallenge.net/howto/perfeval.htmlsolution首先说明，我的运行环境为ubuntu18.04与matlab2018b。在vot-toolkit/tracker/tracker_run.m文件中找到如下代码（大约在30至40行左右）。1234% Hint to tracker that it should use traxenvironment.TRAX = '1';connection = 'standard';修改为：1234% Hint to tracker that it should use traxenvironment.TRAX = '1';connection = 'socket';再次执行run_experiments或者run_test即可。其实不是很清楚为什么work了，根据这段代码之后的条件判断语句可知在windows下必须使用socket连接。注：由于这期间我也做了其他的一些调整，不保证直接修改上述代码之后一定能够成功。请先按上面所说修改，如果成功，那么接下来的部分可以跳过。如果仅下载了vot toolkit直接执行的话，它会自动为你下载TraX。这里应该没有问题，如果担心的话可以自己去github下载TraX，然后复制到vot-toolkit/native/目录下（没有的话创建一个）。来到vot-toolkit/native/trax目录下，接下来都是终端操作。mkdir buildcd buildmake ..（请确保已经安装好cmake）sudo make install（不加sudo会出现权限问题）如果完成上面之后，执行还有问题，可能是路径没有设置对。打开vot-toolkit/workspace/tracker_XXX.m（XXX是你创建工作区时设置的跟踪算法的名称）。找到最后一行：% tracker_linkpath = {}; % A cell array of custom library directories used by the tracker executable (optional)。去掉前面的注释符，添加路径tracker_linkpath = {&#39;absolute_path/trax/build&#39;};（记得修改这里的absolute_path）。据TraX的作者所说，TraX出错一般不是vot toolkit本身的问题，如果你使用的是其他的算法，请确保该算法的.m或者.py文件和vot.m或者vot.py文件处在同一个目录下。如果没有，可到vot-toolkit/tracker/examples中的matlab或者python目录下复制。TraX折腾了半天，总得知道这个TraX是个什么东西，根据TraX文档中所说：TraX stands for visual Tracking eXchange, the protocol was designed to make development and testing of visual tracking algorithms simpler and faster.其实我当初折腾的时候想法是：我不要simpler and faster，我现在只想跑通哈哈哈哈哈。NCC一般使用vot toolkit都会根据官方文档先跑一下NCC来看看有没有设置好。NCC（归一化互相关）是一种基于统计学计算两组样本数据相关性的算法，比较老，性能可想而知。sequences我和我的同学在运行的时候都卡在了下载数据集那里，尽管在下载，但是网络下行却一直显示为0。询问一位计科大佬之后知道在maltab中下载数据集是基本没有速度的，所以一般的建议是使用别人网盘中下载好的数据集，我已经上传到我的百度网盘，可通过此链接用提取码0glq下载。注：数据集已经压缩成zip文件，但大小仍有1.67GB。下载解压之后，打开可以看到一个list文本文件和许多序列文件夹（一个序列一个文件夹），可以通过修改list文本文件来确定要读取并进行实验的序列。注：执行run_test可以选择list文本文件中列出的序列，选择对应序号之后可以看到按帧实验的情况。执行run_experiments会执行list文件中列出的所有序列，可以ctrl+C暂停，之后再次执行run_experiments会从上一次暂停的地方开始执行。done之后可以执行run_pack生成可以提交至VOT challenge的archive档案。]]></content>
       <categories>
         <category>操作和使用</category>
       </categories>
@@ -542,9 +554,9 @@
         <category>人工智能</category>
       </categories>
       <tags>
-        <tag>踩坑血泪</tag>
         <tag>深度学习</tag>
         <tag>论文分享</tag>
+        <tag>踩坑血泪</tag>
         <tag>backbone</tag>
       </tags>
   </entry>
@@ -683,10 +695,10 @@
         <category>人工智能</category>
       </categories>
       <tags>
-        <tag>pytorch</tag>
-        <tag>踩坑血泪</tag>
         <tag>机器学习</tag>
         <tag>深度学习</tag>
+        <tag>pytorch</tag>
+        <tag>踩坑血泪</tag>
         <tag>代码实现</tag>
       </tags>
   </entry>
@@ -787,10 +799,10 @@
         <category>人工智能</category>
       </categories>
       <tags>
-        <tag>pytorch</tag>
-        <tag>踩坑血泪</tag>
         <tag>深度学习</tag>
         <tag>论文分享</tag>
+        <tag>pytorch</tag>
+        <tag>踩坑血泪</tag>
         <tag>backbone</tag>
         <tag>代码实现</tag>
       </tags>
@@ -803,8 +815,8 @@
         <category>人工智能</category>
       </categories>
       <tags>
-        <tag>pytorch</tag>
         <tag>深度学习</tag>
+        <tag>pytorch</tag>
         <tag>代码实现</tag>
       </tags>
   </entry>
@@ -924,10 +936,10 @@
         <category>人工智能</category>
       </categories>
       <tags>
-        <tag>pytorch</tag>
-        <tag>踩坑血泪</tag>
         <tag>深度学习</tag>
         <tag>论文分享</tag>
+        <tag>pytorch</tag>
+        <tag>踩坑血泪</tag>
         <tag>backbone</tag>
         <tag>代码实现</tag>
       </tags>
